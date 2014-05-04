@@ -9,7 +9,7 @@
 
             <nav class="navbar navbar-inverse">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="{{ URL::to('users') }}">Users Alert</a>
+                    <a class="navbar-brand" href="{{ URL::to('events') }}">Events Alert</a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="{{ URL::to('users') }}">View All Users</a></li>
@@ -19,7 +19,7 @@
                 </ul>
             </nav>
 
-            <h1>All the Users</h1>
+            <h1>All the Events</h1>
 
             <!-- will be used to show any messages -->
             @if (Session::has('message'))
@@ -30,34 +30,40 @@
                 <thead>
                     <tr>
                         <td>ID</td>
-                        <td>Username</td>
-                        <td>Email</td>
-                        <td>Role</td>
+                        <td>Title</td>
+                        <td>Type</td>
+                        <td>Hostel</td>
+                        <td>County</td>
+                        <td>Date From</td>
+                        <td>Date To</td>
                         <td>Actions</td>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($users as $key => $value)
+                    @foreach($events as $key => $value)
                     <tr>
                         <td>{{ $value->id }}</td>
-                        <td>{{ $value->username }}</td>
-                        <td>{{ $value->email }}</td>
-                        <td>{{ $value->role_id }}</td>
+                        <td>{{ $value->title }}</td>
+                        <td>{{ $value->type }}</td>
+                        <td>{{ $value->hostel }}</td>
+                        <td>{{ $value->county }}</td>
+                        <td>{{ $value->date_from }}</td>
+                        <td>{{ $value->date_to }}</td>
 
                         <!-- we will also add show, edit, and delete buttons -->
                         <td>
 
-                            <!-- delete the user (uses the destroy method DESTROY /users/{id} -->
+                            <!-- delete the event (uses the destroy method DESTROY /events/{id} -->
                             <!-- we will add this later since its a little more complicated than the other two buttons -->
-                            {{ Form::open(array('url' => 'users/' . $value->id, 'class' => 'pull-right')) }}
+                            {{ Form::open(array('url' => 'events/' . $value->id, 'class' => 'pull-right')) }}
                             {{ Form::hidden('_method', 'DELETE') }}
-                            {{ Form::submit('Delete this User', array('class' => 'btn btn-warning')) }}
+                            {{ Form::submit('Delete this Event', array('class' => 'btn btn-warning')) }}
                             {{ Form::close() }}
-                            <!-- show the user (uses the show method found at GET /users/{id} -->
-                            <a class="btn btn-small btn-success" href="{{ URL::to('users/' . $value->id) }}">Show this User</a>
+                            <!-- show the event (uses the show method found at GET /events/{id} -->
+                            <a class="btn btn-small btn-success" href="{{ URL::to('events/' . $value->id) }}">Show this Event</a>
 
-                            <!-- edit this user (uses the edit method found at GET /users/{id}/edit -->
-                            <a class="btn btn-small btn-info" href="{{ URL::to('users/' . $value->id . '/edit') }}">Edit this User</a>
+                            <!-- edit this event (uses the edit method found at GET /events/{id}/edit -->
+                            <a class="btn btn-small btn-info" href="{{ URL::to('events/' . $value->id . '/edit') }}">Edit this Event</a>
 
                         </td>
                     </tr>

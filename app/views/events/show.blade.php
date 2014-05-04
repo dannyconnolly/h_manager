@@ -9,7 +9,7 @@
 
             <nav class="navbar navbar-inverse">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="{{ URL::to('users') }}">User Alert</a>
+                    <a class="navbar-brand" href="{{ URL::to('events') }}">Event Alert</a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="{{ URL::to('users') }}">View All Users</a></li>
@@ -19,13 +19,17 @@
                 </ul>
             </nav>
 
-            <h1>Showing {{ $user->username }}</h1>
+            <h1>Showing {{ $event->title }}</h1>
 
             <div class="jumbotron text-center">
-                <h2>{{ $user->username }}</h2>
+                <h2>{{ $event->title }}</h2>
                 <p>
-                    <strong>Email:</strong> {{ $user->email }}<br>
-                    <strong>Level:</strong> {{ $user->role_id }}
+                    <strong>Type:</strong> {{ $event->type }}<br>
+                    <strong>Hostel:</strong> {{ $event->hostel }}<br>
+                    <strong>County:</strong> {{ $event->county }}<br>
+                    <strong>Date From:</strong> {{ $event->date_from }}<br>
+                    <strong>Date To:</strong> {{ $event->date_to }}<br>
+                    <strong>Details:</strong> {{ $event->details }}
                 </p>
             </div>
 

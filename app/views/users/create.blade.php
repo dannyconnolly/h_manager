@@ -13,7 +13,9 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="{{ URL::to('users') }}">View All Users</a></li>
-                    <li><a href="{{ URL::to('users/create') }}">Create a User</a>
+                    <li><a href="{{ URL::to('users/create') }}">Create a User</a></li>
+                    <li><a href="{{ URL::to('events') }}">View All Events</a></li>
+                    <li><a href="{{ URL::to('events/create') }}">Create a Event</a></li>
                 </ul>
             </nav>
 
