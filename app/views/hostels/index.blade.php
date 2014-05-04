@@ -12,6 +12,8 @@
                     <a class="navbar-brand" href="{{ URL::to('hostels') }}">Hostels Alert</a>
                 </div>
                 <ul class="nav navbar-nav">
+                    <li><a href="{{ URL::to('users') }}">View All Users</a></li>
+                    <li><a href="{{ URL::to('users/create') }}">Create a User</a></li>
                     <li><a href="{{ URL::to('hostels') }}">View All Hostels</a></li>
                     <li><a href="{{ URL::to('hostels/create') }}">Create a Hostel</a>
                 </ul>
