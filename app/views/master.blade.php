@@ -19,16 +19,20 @@
                 </div>
                 <ul class="nav navbar-nav">
                     @if(Auth::check())
-                    <li><a href="{{ URL::to('users') }}">View All Users</a></li>
-                    <li><a href="{{ URL::to('users/create') }}">Create a User</a></li>
+                    <li><a href="{{ URL::to('users') }}">View All Users</a>
+                        <ul>
+                            <li><a href="{{ URL::to('users/create') }}">Create a User</a></li>
+                        </ul>
+                    </li>
                     <li><a href="{{ URL::to('logout') }}">Logout</a></li>
                     @else 
                     <li><a href="{{ URL::to('login') }}">Login</a></li>
                     @endif
                 </ul>
             </nav>
-
-            {{$main}}
+            <div class="">
+                {{$main}}
+            </div>
 
             <footer>
                 <p><a href="http://www.dannysouthern.com" target="_blank" title="Software Development by Danny Southern">Software Development</a> by Danny Southern</p>
