@@ -25,6 +25,12 @@
                             <li><a href="{{ URL::to('users/create') }}">Create a User</a></li>
                         </ul>
                     </li>
+                    <li><a href="#">Events</a>
+                        <ul>
+                            <li><a href="{{ URL::to('eventtypes') }}">View All Event Types</a>
+                            <li><a href="{{ URL::to('eventtypes/create') }}">Create a Event Type</a></li>
+                        </ul>
+                    </li>
                     <li><a href="{{ URL::to('logout') }}">Logout</a></li>
                     @else 
                     <li><a href="{{ URL::to('login') }}">Login</a></li>
