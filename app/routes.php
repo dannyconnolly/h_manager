@@ -18,3 +18,5 @@ Route::post('/login', array('before' => 'csrf_json', 'uses' => 'AuthController@p
 Route::get('/logout', 'AuthController@logout');
 Route::resource('users', 'UserController');
 Route::resource('membertypes', 'MemberTypeController');
+Route::resource('hostels', 'HostelController');
+

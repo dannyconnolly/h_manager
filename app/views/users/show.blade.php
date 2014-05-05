@@ -1,3 +1,4 @@
+
 <h1>Showing {{ $user->username }}</h1>
 
 <div class="jumbotron text-center">
