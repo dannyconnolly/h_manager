@@ -20,3 +20,4 @@ Route::resource('users', 'UserController');
 Route::resource('membertypes', 'MemberTypeController');
 Route::resource('hostels', 'HostelController');
 Route::resource('members', 'MemberController');
+Route::resource('eventtypes', 'EventTypeController');

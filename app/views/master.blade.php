@@ -36,6 +36,11 @@
                             <li><a href="{{ URL::to('hostels') }}">Hostels</a>
                             <li><a href="{{ URL::to('hostels/create') }}">Create a Hostel</a></li>
                         </ul>
+                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ URL::to('eventtypes') }}">View All Event Types</a>
+                            <li><a href="{{ URL::to('eventtypes/create') }}">Create a Event Type</a></li>
+                        </ul>
                     </li>
                     <li><a href="{{ URL::to('logout') }}">Logout</a></li>
                     @else 
