@@ -16,7 +16,8 @@ class HostelController extends \BaseController {
         $hostels = Hostel::all();
 
         // load view nd pass hostels
-        return View::make('hostels.index')->with('hostels', $hostels);
+        $this->layout->title = 'Hostels | H Manager';
+        $this->layout->main = View::make('hostels.index')->with('hostels', $hostels);
     }
 
     /**
@@ -26,7 +27,8 @@ class HostelController extends \BaseController {
      */
     public function create() {
         // load crete form
-        return View::make('hostels.create');
+        $this->layout->title = 'Create Hostel | H Manager';
+        $this->layout->main = View::make('hostels.create');
     }
 
     /**
@@ -88,8 +90,9 @@ class HostelController extends \BaseController {
         $hostel = Hostel::find($id);
 
         // show view and pass hostel
-        return View::make('hostels.show')
-                        ->with('hostel', $hostel);
+        $this->layout->title = 'Show Hostel | H Manager';
+        $this->layout->main = View::make('hostels.show')
+                ->with('hostel', $hostel);
     }
 
     /**
@@ -103,8 +106,9 @@ class HostelController extends \BaseController {
         $hostel = Hostel::find($id);
 
         // show view and pass hostel
-        return View::make('hostels.edit')
-                        ->with('hostel', $hostel);
+        $this->layout->title = 'Edit Hostel| H Manager';
+        $this->layout->main = View::make('hostels.edit')
+                ->with('hostel', $hostel);
     }
 
     /**

@@ -30,6 +30,12 @@
                             <li><a href="{{ URL::to('membertypes/create') }}">Create a Member Type</a></li>
                         </ul>
                     </li>
+                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Hostels<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ URL::to('hostels') }}">Hostels</a>
+                            <li><a href="{{ URL::to('hostels/create') }}">Create a Hostel</a></li>
+                        </ul>
+                    </li>
                     <li><a href="{{ URL::to('logout') }}">Logout</a></li>
                     @else 
                     <li><a href="{{ URL::to('login') }}">Login</a></li>
