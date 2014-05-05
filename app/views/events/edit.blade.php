@@ -28,37 +28,37 @@
 
             <div class="form-group">
                 {{ Form::label('title', 'Title') }}
-                {{ Form::text('title', Input::old('title'), array('class' => 'form-control')) }}
+                {{ Form::text('title', null, array('class' => 'form-control')) }}
             </div>
 
             <div class="form-group">
                 {{ Form::label('type', 'Type') }}
-                {{ Form::select('type', array('0' => 'Select a type', '1' => 'Festival', '2' => 'Walk', '3' => 'Other'), Input::old('role_id'), array('class' => 'form-control')) }}
+                {{ Form::select('type', array('0' => 'Select a type', '1' => 'Festival', '2' => 'Walk', '3' => 'Other'), null, array('class' => 'form-control')) }}
             </div>
 
             <div class="form-group">
                 {{ Form::label('hostel', 'Hostel') }}
-                {{ Form::select('hostel', array('0' => 'Select a hostel', '1' => 'Hostel 1', '2' => 'Hostel 2', '3' => 'Hostel 3'), Input::old('role_id'), array('class' => 'form-control')) }}
+                {{ Form::select('hostel', array('0' => 'Select a hostel', '1' => 'Hostel 1', '2' => 'Hostel 2', '3' => 'Hostel 3'), null, array('class' => 'form-control')) }}
             </div>
 
             <div class="form-group">
                 {{ Form::label('county', 'County') }}
-                {{ Form::select('county', array('0' => 'Select a county', '1' => 'Dublin', '2' => 'Tyrone', '3' => 'Wicklow'), Input::old('role_id'), array('class' => 'form-control')) }}
+                {{ Form::select('county', array('0' => 'Select a county', '1' => 'Dublin', '2' => 'Tyrone', '3' => 'Wicklow'), null, array('class' => 'form-control')) }}
             </div>
 
             <div class="form-group">
                 {{ Form::label('date_from', 'Date From') }}
-                {{ Form::text('date_from', Input::old('date_from'), array('class' => 'form-control')) }}
+                {{ Form::text('date_from', null, array('class' => 'form-control')) }}
             </div>
 
             <div class="form-group">
                 {{ Form::label('date_to', 'Date To') }}
-                {{ Form::text('date_to', Input::old('date_to'), array('class' => 'form-control')) }}
+                {{ Form::text('date_to', null, array('class' => 'form-control')) }}
             </div>
 
             <div class="form-group">
                 {{ Form::label('details', 'Details') }}
-                {{ Form::textarea('details', Input::old('details'), array('class' => 'form-control')) }}
+                {{ Form::textarea('details', null, array('class' => 'form-control')) }}
             </div>
 
             {{ Form::submit('Edit the Event!', array('class' => 'btn btn-primary')) }}

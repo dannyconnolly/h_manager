@@ -38,12 +38,12 @@
 
             <div class="form-group">
                 {{ Form::label('hostel', 'Hostel') }}
-                {{ Form::select('hostel', array('0' => 'Select a hostel', '1' => 'Hostel 1', '2' => 'Hostel 2', '3' => 'Hostel 3'), Input::old('role_id'), array('class' => 'form-control')) }}
+                {{ Form::select('hostel', array('0' => 'Select a hostel', '1' => 'Hostel 1', '2' => 'Hostel 2', '3' => 'Hostel 3'), Input::old('hostel'), array('class' => 'form-control')) }}
             </div>
 
             <div class="form-group">
                 {{ Form::label('county', 'County') }}
-                {{ Form::select('county', array('0' => 'Select a county', '1' => 'Dublin', '2' => 'Tyrone', '3' => 'Wicklow'), Input::old('role_id'), array('class' => 'form-control')) }}
+                {{ Form::select('county', array('0' => 'Select a county', '1' => 'Dublin', '2' => 'Tyrone', '3' => 'Wicklow'), Input::old('county'), array('class' => 'form-control')) }}
             </div>
 
             <div class="form-group">
