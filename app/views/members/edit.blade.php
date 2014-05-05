@@ -1,7 +1,11 @@
 <h1>Edit {{ $member->first_name }} {{ $member->last_name }}</h1>
 
 <!-- if there are creation errors, they will show here -->
-{{ HTML::ul($errors->all()) }}
+@if ( $errors->count() > 0 )
+<div class="alert alert-danger">
+    {{ HTML::ul($errors->all()) }}
+</div>
+@endif
 
 {{ Form::model($member, array('route' => array('members.update', $member->id), 'method' => 'PUT')) }}
 

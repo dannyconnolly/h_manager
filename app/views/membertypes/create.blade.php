@@ -1,7 +1,11 @@
 <h1>Create a Member Type</h1>
 
 <!-- if there are creation errors, they will show here -->
-{{ HTML::ul($errors->all()) }}
+@if ( $errors->count() > 0 )
+<div class="alert alert-danger">
+    {{ HTML::ul($errors->all()) }}
+</div>
+@endif
 
 {{ Form::open(array('url' => 'membertypes')) }}
 

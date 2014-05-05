@@ -1,7 +1,11 @@
 <h1>Edit {{ $eventtype->name }}</h1>
 
 <!-- if there are creation errors, they will show here -->
-{{ HTML::ul($errors->all()) }}
+@if ( $errors->count() > 0 )
+<div class="alert alert-danger">
+    {{ HTML::ul($errors->all()) }}
+</div>
+@endif
 
 {{ Form::model($eventtype, array('route' => array('eventtypes.update', $eventtype->id), 'method' => 'PUT')) }}
 
