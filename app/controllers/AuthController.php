@@ -36,7 +36,8 @@ class AuthController extends BaseController {
     }
 
     public function get_login() {
-        return View::make('auth.login');
+        $this->layout->title = 'Login | H Manager';
+        $this->layout->main = View::make('auth.login');
     }
 
     public function logout() {

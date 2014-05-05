@@ -18,8 +18,13 @@
                     <a class="navbar-brand" href="{{ URL::to('users') }}">Users Alert</a>
                 </div>
                 <ul class="nav navbar-nav">
+                    @if(Auth::check())
                     <li><a href="{{ URL::to('users') }}">View All Users</a></li>
                     <li><a href="{{ URL::to('users/create') }}">Create a User</a></li>
+                    <li><a href="{{ URL::to('logout') }}">Logout</a></li>
+                    @else 
+                    <li><a href="{{ URL::to('login') }}">Login</a></li>
+                    @endif
                 </ul>
             </nav>
 

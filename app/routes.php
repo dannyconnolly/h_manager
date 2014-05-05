@@ -15,4 +15,7 @@ Route::get('/', function() {
     return View::make('hello');
 });
 
+Route::get('/login', 'AuthController@get_login');
+Route::post('/login', array('before' => 'csrf_json', 'uses' => 'AuthController@post_login'));
+Route::get('/logout', 'AuthController@logout');
 Route::resource('users', 'UserController');
