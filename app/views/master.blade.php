@@ -6,9 +6,8 @@
         @section('title')
         <title>{{{$title}}}</title>
         @show
-        {{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css') }}
-        <!-- {{ HTML::style('assets/css/custom.css') }}
-         {{ HTML::script('./assets/js/vendor/custom.modernizr.js') }} -->
+        {{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css') }}
+        {{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css') }}
     </head>
     <body>
         <div class="container">
@@ -25,8 +24,8 @@
                             <li><a href="{{ URL::to('users/create') }}">Create a User</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Members</a>
-                        <ul>
+                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Members<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
                             <li><a href="{{ URL::to('membertypes') }}">Member Types</a>
                             <li><a href="{{ URL::to('membertypes/create') }}">Create a Member Type</a></li>
                         </ul>
@@ -46,5 +45,8 @@
             </footer>
 
         </div>
+        {{ HTML::script('http://code.jquery.com/jquery-2.1.1.min.js') }}
+        {{ HTML::script('//code.jquery.com/jquery-migrate-1.2.1.min.js') }}
+        {{ HTML::script('//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js') }}
     </body>
 </html>
