@@ -24,6 +24,11 @@
                             <li><a href="{{ URL::to('users/create') }}">Create a User</a></li>
                         </ul>
                     </li>
+                    <li><a href="{{ URL::to('members') }}">View All Members</a>
+                        <ul>
+                            <li><a href="{{ URL::to('members/create') }}">Create a Members</a></li>
+                        </ul>
+                    </li>
                     <li><a href="{{ URL::to('logout') }}">Logout</a></li>
                     @else 
                     <li><a href="{{ URL::to('login') }}">Login</a></li>
