@@ -15,12 +15,13 @@
 
             <nav class="navbar navbar-inverse">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="{{ URL::to('users') }}">Users Alert</a>
+                    <a class="navbar-brand" href="{{ URL::to('/') }}">H Manager</a>
                 </div>
                 <ul class="nav navbar-nav">
                     @if(Auth::check())
-                    <li><a href="{{ URL::to('users') }}">View All Users</a>
+                    <li><a href="#">Users</a>
                         <ul>
+                            <li><a href="{{ URL::to('users') }}">View All Users</a>
                             <li><a href="{{ URL::to('users/create') }}">Create a User</a></li>
                         </ul>
                     </li>

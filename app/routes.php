@@ -11,9 +11,7 @@
   |
  */
 
-Route::get('/', function() {
-    return View::make('hello');
-});
+Route::get('/', 'HomeController@index');
 
 Route::get('/login', 'AuthController@get_login');
 Route::post('/login', array('before' => 'csrf_json', 'uses' => 'AuthController@post_login'));

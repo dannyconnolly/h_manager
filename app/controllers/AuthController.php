@@ -43,7 +43,7 @@ class AuthController extends BaseController {
     public function logout() {
         Auth::logout();
         Session::flash('message', 'Successfully logged out');
-        return Redirect::to('login');
+        return Redirect::to('/');
     }
 
 }
