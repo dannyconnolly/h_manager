@@ -26,6 +26,7 @@
                     </li>
                     <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Members<b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                            <li><a href="{{ URL::to('members/create') }}">Create a Members</a></li>
                             <li><a href="{{ URL::to('membertypes') }}">Member Types</a>
                             <li><a href="{{ URL::to('membertypes/create') }}">Create a Member Type</a></li>
                         </ul>
@@ -42,7 +43,7 @@
                     @endif
                 </ul>
             </nav>
-            <div class="">
+            <div class="row">
                 {{$main}}
             </div>
 
