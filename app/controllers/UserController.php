@@ -11,8 +11,9 @@ class UserController extends \BaseController {
         // get all users
         $users = User::all();
 
-        // load view nd pass users
-        return View::make('users.index')->with('users', $users);
+        // load view and pass users
+        $this->layout->title = 'Users | H Manager';
+        $this->layout->main = View::make('users.index')->with('users', $users);
     }
 
     /**
@@ -22,7 +23,8 @@ class UserController extends \BaseController {
      */
     public function create() {
         // load crete form
-        return View::make('users.create');
+        $this->layout->title = 'Create User | H Manager';
+        $this->layout->main = View::make('users.create');
     }
 
     /**
@@ -71,8 +73,9 @@ class UserController extends \BaseController {
         $user = User::find($id);
 
         // show view and pass user
-        return View::make('users.show')
-                        ->with('user', $user);
+        $this->layout->title = 'Show User | H Manager';
+        $this->layout->main = View::make('users.show')
+                ->with('user', $user);
     }
 
     /**
@@ -86,8 +89,9 @@ class UserController extends \BaseController {
         $user = User::find($id);
 
         // show view and pass user
-        return View::make('users.edit')
-                        ->with('user', $user);
+        $this->layout->title = 'Edit User | H Manager';
+        $this->layout->main = View::make('users.edit')
+                ->with('user', $user);
     }
 
     /**
