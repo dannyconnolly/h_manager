@@ -53,7 +53,7 @@ class MemberController extends \BaseController {
         if ($validator->fails()) {
             return Redirect::to('members/create')
                             ->withErrors($validator)
-                            ->withInput(Input::except('password'));
+                            ->withInput(Input::all());
         } else {
             $member = new Member;
             $member->first_name = Input::get('first_name');
@@ -138,7 +138,7 @@ class MemberController extends \BaseController {
         if ($validator->fails()) {
             return Redirect::to('members/' . $id . '/edit')
                             ->withErrors($validator)
-                            ->withInput(Input::except('password'));
+                            ->withInput(Input::all());
         } else {
             // store
             $member = Member::find($id);
