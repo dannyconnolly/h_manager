@@ -9,11 +9,11 @@
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <td>ID</td>
-            <td>Username</td>
-            <td>Email</td>
-            <td>Role</td>
-            <td>Actions</td>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>

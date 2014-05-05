@@ -8,15 +8,15 @@
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <td>ID</td>
-            <td>First Name</td>
-            <td>Last Name</td>
-            <td>Email</td>
-            <td>Member Type</td>
-            <td>Purchase Date</td>
-            <td>Expiry Date</td>
-            <td>Payment Received</td>
-            <td>Actions</td>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Member Type</th>
+            <th>Purchase Date</th>
+            <th>Expiry Date</th>
+            <th>Payment Received</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>

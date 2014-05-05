@@ -27,8 +27,9 @@ class MemberController extends \BaseController {
      */
     public function create() {
         // load crete form
+        $membertypes = MemberType::lists('name', 'id');
         $this->layout->title = 'Create Member | H Manager';
-        $this->layout->main = View::make('members.create');
+        $this->layout->main = View::make('members.create')->with('membertypes', $membertypes);
     }
 
     /**

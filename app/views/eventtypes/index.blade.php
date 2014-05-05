@@ -8,9 +8,9 @@
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <td>ID</td>
-            <td>Name</td>
-            <td>Actions</td>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>

@@ -8,11 +8,11 @@
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <td>ID</td>
-            <td>Name</td>
-            <td>Description</td>
-            <td>Cost</td>
-            <td>Actions</td>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Cost</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>

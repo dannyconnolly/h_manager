@@ -8,11 +8,11 @@
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <td>ID</td>
-            <td>Hostel Name</td>
-            <td>Open From</td>
-            <td>Open To</td>
-            <td>Actions</td>
+            <th>ID</th>
+            <th>Hostel Name</th>
+            <th>Open From</th>
+            <th>Open To</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>

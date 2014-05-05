@@ -71,7 +71,7 @@
 
 <div class="form-group">
     {{ Form::label('member_type', 'Member Type') }}
-    {{ Form::select('member_type', array('0' => 'Select a Member Type', '1' => 'Senior', '2' => 'Junior', '3' => 'Adult'), Input::old('member_type'), array('class' => 'form-control')) }}
+    {{ Form::select('member_type', $membertypes, Input::old('member_type'), array('class' => 'form-control')) }}
 </div>
 
 <div class="form-group">

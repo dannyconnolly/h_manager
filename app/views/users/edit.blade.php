@@ -1,4 +1,3 @@
-
 <h1>Edit {{ $user->username }}</h1>
 
 <!-- if there are creation errors, they will show here -->
