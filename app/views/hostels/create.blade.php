@@ -14,8 +14,12 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ URL::to('users') }}">View All Users</a></li>
                     <li><a href="{{ URL::to('users/create') }}">Create a User</a></li>
-                    <li><a href="{{ URL::to('hostels') }}">View All Hostels</a></li>
-                    <li><a href="{{ URL::to('hostels/create') }}">Create a Hostel</a>
+                    <li><a href="#">Hostels</a>
+                        <ul>
+                            <li><a href="{{ URL::to('hostels') }}">View All Hostels</a></li>
+                            <li><a href="{{ URL::to('hostels/create') }}">Create a Hostel</a>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
 
@@ -28,72 +32,72 @@
 
             <div class="form-group">
                 {{ Form::label('name', 'Name') }}
-                {{ Form::text('name', null, array('class' => 'form-control')) }}
+                {{ Form::text('name', Input::old('name'), array('class' => 'form-control')) }}
             </div>
 
             <div class="form-group">
                 {{ Form::label('address_line_1', 'Address Line 1') }}
-                {{ Form::text('address_line_1', null, array('class' => 'form-control')) }}
+                {{ Form::text('address_line_1', Input::old('address_line_1'), array('class' => 'form-control')) }}
             </div>
 
             <div class="form-group">
                 {{ Form::label('address_line_2', 'Address Line 2') }}
-                {{ Form::text('address_line_2', null, array('class' => 'form-control')) }}
+                {{ Form::text('address_line_2', Input::old('address_line_2'), array('class' => 'form-control')) }}
             </div>
 
             <div class="form-group">
                 {{ Form::label('address_town_city', 'Town/City') }}
-                {{ Form::text('address_town_city', null, array('class' => 'form-control')) }}
+                {{ Form::text('address_town_city', Input::old('address_town_city'), array('class' => 'form-control')) }}
             </div>
 
             <div class="form-group">
                 {{ Form::label('address_state_county', 'County') }}
-                {{ Form::select('address_state_county', array('0' => 'Select a County', '1' => 'Dublin', '2' => 'Antrim', '3' => 'Armagh', '4' => 'Tyrone', '5' => 'Carlow', '6' => 'Wicklow'), null, array('class' => 'form-control')) }}
+                {{ Form::select('address_state_county', array('0' => 'Select a County', '1' => 'Dublin', '2' => 'Antrim', '3' => 'Armagh', '4' => 'Tyrone', '5' => 'Carlow', '6' => 'Wicklow'), Input::old('address_state_county'), array('class' => 'form-control')) }}
             </div>
 
             <div class="form-group">
                 {{ Form::label('latitude', 'Latitude') }}
-                {{ Form::text('latitude', null, array('class' => 'form-control')) }}
+                {{ Form::text('latitude', Input::old('latitude'), array('class' => 'form-control')) }}
             </div>
 
             <div class="form-group">
                 {{ Form::label('longitude', 'Longitude') }}
-                {{ Form::text('longitude', null, array('class' => 'form-control')) }}
+                {{ Form::text('longitude', Input::old('longitude'), array('class' => 'form-control')) }}
             </div>
 
             <div class="form-group">
                 {{ Form::label('email', 'Booking Email') }}
-                {{ Form::email('email', null, array('class' => 'form-control')) }}
+                {{ Form::email('email', Input::old('email'), array('class' => 'form-control')) }}
             </div>
 
             <div class="form-group">
                 {{ Form::label('phone', 'Phone') }}
-                {{ Form::text('phone', null, array('class' => 'form-control')) }}
+                {{ Form::text('phone', Input::old('phone'), array('class' => 'form-control')) }}
             </div>
 
             <div class="form-group">
                 {{ Form::label('website', 'Website') }}
-                {{ Form::url('website', null, array('class' => 'form-control')) }}
+                {{ Form::url('website', Input::old('website'), array('class' => 'form-control')) }}
             </div>
 
             <div class="form-group">
                 {{ Form::label('description', 'Description') }}
-                {{ Form::textarea('description', null, array('class' => 'form-control')) }}
+                {{ Form::textarea('description', Input::old('description'), array('class' => 'form-control')) }}
             </div>
 
             <div class="form-group">
                 {{ Form::label('photo', 'Photo') }}
-                {{ Form::text('photo', null, array('class' => 'form-control')) }}
+                {{ Form::text('photo', Input::old('photo'), array('class' => 'form-control')) }}
             </div>
 
             <div class="form-group">
                 {{ Form::label('open_from', 'Open From') }}
-                {{ Form::text('open_from', null, array('class' => 'form-control')) }}
+                {{ Form::text('open_from', Input::old('open_from'), array('class' => 'form-control')) }}
             </div>
 
             <div class="form-group">
                 {{ Form::label('open_to', 'Open To') }}
-                {{ Form::text('open_to', null, array('class' => 'form-control')) }}
+                {{ Form::text('open_to', Input::old('open_to'), array('class' => 'form-control')) }}
             </div>
 
             {{ Form::submit('Create the Hostel!', array('class' => 'btn btn-primary')) }}
