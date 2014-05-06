@@ -56,7 +56,7 @@
 
 <div class="form-group">
     {{ Form::label('address_country', 'Country') }}
-    {{ Form::select('address_country', array('0' => 'Select a Country', '1' => 'Ireland', '2' => 'Uk', '3' => 'USA'), null, array('class' => 'form-control')) }}
+    {{ Form::select('address_country', $countries, null, array('class' => 'form-control')) }}
 </div>
 
 <div class="form-group">

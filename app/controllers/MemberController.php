@@ -27,9 +27,11 @@ class MemberController extends \BaseController {
      */
     public function create() {
         // load crete form
+
+        $countries = Country::lists('name', 'id');
         $membertypes = MemberType::lists('name', 'id');
         $this->layout->title = 'Create Member | H Manager';
-        $this->layout->main = View::make('members.create')->with('membertypes', $membertypes);
+        $this->layout->main = View::make('members.create')->with(array('membertypes' => $membertypes, 'countries' => $countries));
     }
 
     /**
@@ -112,9 +114,11 @@ class MemberController extends \BaseController {
         $member = Member::find($id);
 
         // show view and pass member
+        $countries = Country::lists('name', 'id');
+        $membertypes = MemberType::lists('name', 'id');
         $this->layout->title = 'Edit Member | H Manager';
         $this->layout->main = View::make('members.edit')
-                ->with('member', $member);
+                ->with(array('membertypes' => $membertypes, 'countries' => $countries, 'member' => $member));
     }
 
     /**
