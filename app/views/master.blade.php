@@ -93,5 +93,19 @@
         {{ HTML::script('//code.jquery.com/jquery-2.1.1.min.js') }}
         {{ HTML::script('//code.jquery.com/jquery-migrate-1.2.1.min.js') }}
         {{ HTML::script('//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js') }}
+        {{ HTML::script('inc/ckeditor/ckeditor.js') }}
+
+        <script>
+            // Replace the <textarea id="editor1"> with a CKEditor
+            // instance, using default configuration.
+            var description = document.getElementById('description');
+            var details = document.getElementById('details');
+            if (description !== null) {
+                CKEDITOR.replace('description');
+            }
+            if (details !== null) {
+                CKEDITOR.replace('details');
+            }
+        </script>
     </body>
 </html>
