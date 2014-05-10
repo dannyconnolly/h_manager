@@ -1,9 +1,13 @@
-<h1>Showing {{ $hostel->name }}</h1>
-<a class="btn btn-small btn-info" href="{{ URL::to('hostels/' . $hostel->id . '/edit') }}">Edit this Hostel</a>
+<div class="col-md-10">
+    <h1>Showing {{ $hostel->name }}</h1>
+</div>
+<div class="col-md-2">
+    <a class="btn btn-small btn-info" href="{{ URL::to('hostels/' . $hostel->id . '/edit') }}">Edit Hostel</a>
+</div>
 
-<div class="">
-    <h2>{{ $hostel->name }}</h2>
+<div class="col-md-12">
     <p>
+        <strong>Name:</strong> {{ $hostel->name }}<br>
         <strong>Address Line 1:</strong> {{ $hostel->address_line_1 }}<br>
         <strong>Address Line 2:</strong> {{ $hostel->address_line_2 }}<br>
         <strong>Town/City:</strong> {{ $hostel->address_town_city }}<br>

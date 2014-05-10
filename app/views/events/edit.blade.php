@@ -1,52 +1,70 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h1 class="panel-title">Edit {{ $event->title }}</h1>
-    </div>
-    <div class="panel-body">
+<div class="col-md-10">
+    <h1>Edit {{ $event->title }}</h1>
+</div>
+<div class="col-md-2">
+    <a class="btn btn-small btn-info" href="{{ URL::to('events/' . $event->id) }}">Show this Event</a>
+</div>
 
-        <!-- if there are creation errors, they will show here -->
-        {{ HTML::ul($errors->all()) }}
+<div class="col-md-12">
 
-        {{ Form::model($event, array('route' => array('events.update', $event->id), 'method' => 'PUT')) }}
+    <!-- if there are creation errors, they will show here -->
+    {{ HTML::ul($errors->all()) }}
 
-        <div class="form-group">
-            {{ Form::label('title', 'Title') }}
+    {{ Form::model($event, array('route' => array('events.update', $event->id), 'class' => 'form-horizontal', 'method' => 'PUT')) }}
+
+    <div class="form-group">
+        {{ Form::label('title', 'Title', array('class' => "col-sm-2 control-label")) }}
+        <div class="col-sm-10">
             {{ Form::text('title', null, array('class' => 'form-control')) }}
         </div>
+    </div>
 
-        <div class="form-group">
-            {{ Form::label('type', 'Type') }}
-            {{ Form::select('type', array('0' => 'Select a type', '1' => 'Festival', '2' => 'Walk', '3' => 'Other'), null, array('class' => 'form-control')) }}
+    <div class="form-group">
+        {{ Form::label('type', 'Type', array('class' => "col-sm-2 control-label")) }}
+        <div class="col-sm-10">
+            {{ Form::select('type', $eventtypes, null, array('class' => 'form-control')) }}
         </div>
+    </div>
 
-        <div class="form-group">
-            {{ Form::label('hostel', 'Hostel') }}
-            {{ Form::select('hostel', array('0' => 'Select a hostel', '1' => 'Hostel 1', '2' => 'Hostel 2', '3' => 'Hostel 3'), null, array('class' => 'form-control')) }}
+    <div class="form-group">
+        {{ Form::label('hostel', 'Hostel', array('class' => "col-sm-2 control-label")) }}
+        <div class="col-sm-10">
+            {{ Form::select('hostel', $hostels, null, array('class' => 'form-control')) }}
         </div>
+    </div>
 
-        <div class="form-group">
-            {{ Form::label('county', 'County') }}
+    <div class="form-group">
+        {{ Form::label('county', 'County', array('class' => "col-sm-2 control-label")) }}
+        <div class="col-sm-10">
             {{ Form::select('county', array('0' => 'Select a county', '1' => 'Dublin', '2' => 'Tyrone', '3' => 'Wicklow'), null, array('class' => 'form-control')) }}
         </div>
+    </div>
 
-        <div class="form-group">
-            {{ Form::label('date_from', 'Date From') }}
+    <div class="form-group">
+        {{ Form::label('date_from', 'Date From', array('class' => "col-sm-2 control-label")) }}
+        <div class="col-sm-10">
             {{ Form::text('date_from', null, array('class' => 'form-control date-input')) }}
         </div>
+    </div>
 
-        <div class="form-group">
-            {{ Form::label('date_to', 'Date To') }}
+    <div class="form-group">
+        {{ Form::label('date_to', 'Date To', array('class' => "col-sm-2 control-label")) }}
+        <div class="col-sm-10">
             {{ Form::text('date_to', null, array('class' => 'form-control date-input')) }}
         </div>
+    </div>
 
-        <div class="form-group">
-            {{ Form::label('details', 'Details') }}
+    <div class="form-group">
+        {{ Form::label('details', 'Details', array('class' => "col-sm-2 control-label")) }}
+        <div class="col-sm-10">
             {{ Form::textarea('details', null, array('class' => 'form-control')) }}
         </div>
-
-        {{ Form::submit('Edit the Event!', array('class' => 'btn btn-primary')) }}
-
-        {{ Form::close() }}
-
     </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            {{ Form::submit('Edit the Event!', array('class' => 'btn btn-primary')) }}
+        </div>
+    </div>
+    {{ Form::close() }}
+
 </div>

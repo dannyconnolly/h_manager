@@ -86,7 +86,7 @@ class EventController extends \BaseController {
         // show view and pass event
         $this->layout->title = 'Show Event | H Manager';
         $this->layout->main = View::make('events.show')
-                ->with('event', $event);
+                ->with(array('event' => $event));
     }
 
     /**
@@ -97,12 +97,14 @@ class EventController extends \BaseController {
      */
     public function edit($id) {
         // get event
+        $eventtypes = EventType::lists('name', 'id');
+        $hostels = Hostel::lists('name', 'id');
         $event = Event::find($id);
 
         // show view and pass event
         $this->layout->title = 'Edit Event | H Manager';
         $this->layout->main = View::make('events.edit')
-                ->with('event', $event);
+                ->with(array('event' => $event, 'hostels' => $hostels, 'eventtypes' => $eventtypes));
     }
 
     /**

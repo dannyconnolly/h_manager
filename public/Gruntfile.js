@@ -9,12 +9,12 @@ module.exports = function(grunt) {
             },
             my_target: {
                 files: {
-                    'assets/js/app.js': ['vendor/js/jquery-2.1.1.min.js', 'vendor/js/jquery-migrate-1.2.1.min.js', 'assets/js/vendor/jquery-ui-1.10.4.min.js', 'bower_components/bootstrap-css/js/bootstrap.min.js']
+                    'assets/js/app.js': ['vendor/js/jquery-2.1.1.min.js', 'vendor/js/jquery-migrate-1.2.1.min.js', 'assets/js/vendor/jquery-ui-1.10.4.min.js', 'bower_components/bootstrap-css/js/bootstrap.min.js', 'inc/ckeditor/ckeditor.js']
                 }
             }
         },
         jshint: {
-            all: ['Gruntfile.js', 'assets/js/*.js']
+            all: ['Gruntfile.js', 'assets/js/app.js']
         },
         sass: {// Task
             dist: {// Target
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
             },
             scripts: {
                 files: ['Gruntfile.js', 'assets/js/*.js', 'assets/js/**/*.js'],
-                tasks: ['jshint', 'uglify'],
+                tasks: ['uglify'],
                 options: {
                     spawn: false
                 }

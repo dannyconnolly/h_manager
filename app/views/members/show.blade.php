@@ -1,9 +1,13 @@
-<h1>Showing {{ $member->first_name }} {{ $member->last_name }}</h1>
-<a class="btn btn-small btn-info" href="{{ URL::to('members/' . $member->id . '/edit') }}">Edit this Member</a>
+<div class="col-md-10">
+    <h1>Showing {{ $member->first_name }} {{ $member->last_name }}</h1>
+</div>
+<div class="col-md-2">
+    <a class="btn btn-small btn-info" href="{{ URL::to('members/' . $member->id . '/edit') }}">Edit this Member</a>
+</div>
 
-<div class="">
-    <h2>{{ $member->first_name }} {{ $member->last_name }}</h2>
+<div class="col-md-12">
     <p>
+        <strong>Name:</strong> {{ $member->first_name }} {{ $member->last_name }}<br>
         <strong>Email:</strong> {{ $member->email }}<br>
         <strong>Date of Birth:</strong> {{ $member->date_of_birth }}<br>
         <strong>Address Line 1:</strong> {{ $member->address_line_1 }}<br>

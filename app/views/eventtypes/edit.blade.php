@@ -1,26 +1,33 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h1 class="panel-title">Edit {{ $eventtype->name }}</h1>
+<div class="col-md-10">
+    <h1>Edit {{ $eventtype->name }}</h1>
+</div>
+<div class="col-md-2">
+    <a class="btn btn-small btn-info" href="{{ URL::to('eventtypes/' . $eventtype->id) }}">Show Event Type</a>
+</div>
+
+<div class="col-md-12">
+
+    <!-- if there are creation errors, they will show here -->
+    @if ( $errors->count() > 0 )
+    <div class="alert alert-danger">
+        {{ HTML::ul($errors->all()) }}
     </div>
-    <div class="panel-body">
+    @endif
 
-        <!-- if there are creation errors, they will show here -->
-        @if ( $errors->count() > 0 )
-        <div class="alert alert-danger">
-            {{ HTML::ul($errors->all()) }}
-        </div>
-        @endif
+    {{ Form::model($eventtype, array('route' => array('eventtypes.update', $eventtype->id), 'class' => 'form-horizontal', 'method' => 'PUT')) }}
 
-        {{ Form::model($eventtype, array('route' => array('eventtypes.update', $eventtype->id), 'method' => 'PUT')) }}
-
-        <div class="form-group">
-            {{ Form::label('name', 'Name') }}
+    <div class="form-group">
+        {{ Form::label('name', 'Name', array('class' => "col-sm-2 control-label")) }}
+        <div class="col-sm-10">
             {{ Form::text('name', null, array('class' => 'form-control')) }}
         </div>
-
-        {{ Form::submit('Edit the EventType!', array('class' => 'btn btn-primary')) }}
-
-        {{ Form::close() }}
-
     </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            {{ Form::submit('Edit the EventType!', array('class' => 'btn btn-primary')) }}
+        </div>
+    </div>
+    {{ Form::close() }}
+
 </div>
