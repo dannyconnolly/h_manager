@@ -29,7 +29,6 @@
             }
             .container{
                 background: #fff;
-                width: 960px;
                 margin-top: 10px;
                 padding: 10px;
                 min-height: 600px;

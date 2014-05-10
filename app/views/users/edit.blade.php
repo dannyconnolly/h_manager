@@ -1,39 +1,61 @@
-<h1>Edit {{ $user->username }}</h1>
-
-<!-- if there are creation errors, they will show here -->
-@if ( $errors->count() > 0 )
-<div class="alert alert-danger">
-    {{ HTML::ul($errors->all()) }}
+<div class="col-md-10">
+    <h1>Edit {{ $user->username }}</h1>
 </div>
-@endif
-
-{{ Form::model($user, array('route' => array('users.update', $user->id), 'method' => 'PUT')) }}
-
-<div class="form-group">
-    {{ Form::label('username', 'Username') }}
-    {{ Form::text('username', null, array('class' => 'form-control')) }}
+<div class="col-md-2">
+    <a href="{{ URL::to('users') }}" class="btn btn-info">Users</a>
 </div>
 
-<div class="form-group">
-    {{ Form::label('email', 'Email') }}
-    {{ Form::email('email', null, array('class' => 'form-control')) }}
+<div class="col-md-12">
+
+    <!-- if there are creation errors, they will show here -->
+    @if ( $errors->count() > 0 )
+    <div class="alert alert-danger">
+        {{ HTML::ul($errors->all()) }}
+    </div>
+    @endif
+
+    {{ Form::model($user, array('route' => array('users.update', $user->id), 'class' => 'form-horizontal', 'method' => 'PUT')) }}
+
+    <div class="form-group">
+        {{ Form::label('username', 'Username', array('class' => "col-sm-2 control-label")) }}
+        <div class="col-sm-10">
+            {{ Form::text('username', null, array('class' => 'form-control')) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('email', 'Email', array('class' => "col-sm-2 control-label")) }}
+        <div class="col-sm-10">
+            {{ Form::email('email', null, array('class' => 'form-control')) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('password', 'Password', array('class' => "col-sm-2 control-label")) }}
+        <div class="col-sm-10">
+            {{ Form::password('password', array('class' => 'form-control')) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('password', 'Confirm Password', array('class' => "col-sm-2 control-label")) }}
+        <div class="col-sm-10">
+            {{ Form::password('password', array('class' => 'form-control')) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('role_id', 'User Level', array('class' => "col-sm-2 control-label")) }}
+        <div class="col-sm-10">
+            {{ Form::select('role_id', array('0' => 'Select a Level', '1' => 'Dev Admin', '2' => 'Admin', '3' => 'Editor'), null, array('class' => 'form-control')) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            {{ Form::submit('Edit the User!', array('class' => 'btn btn-primary')) }}
+        </div>
+    </div>
+
+    {{ Form::close() }}
 </div>
-
-<div class="form-group">
-    {{ Form::label('password', 'Password') }}
-    {{ Form::password('password', array('class' => 'form-control')) }}
-</div>
-
-<div class="form-group">
-    {{ Form::label('password', 'Confirm Password') }}
-    {{ Form::password('password', array('class' => 'form-control')) }}
-</div>
-
-<div class="form-group">
-    {{ Form::label('role_id', 'User Level') }}
-    {{ Form::select('role_id', array('0' => 'Select a Level', '1' => 'Dev Admin', '2' => 'Admin', '3' => 'Editor'), null, array('class' => 'form-control')) }}
-</div>
-
-{{ Form::submit('Edit the User!', array('class' => 'btn btn-primary')) }}
-
-{{ Form::close() }}
