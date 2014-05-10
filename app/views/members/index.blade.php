@@ -1,5 +1,5 @@
 <h1>All the Members</h1>
-
+<a href="{{ URL::to('members/create') }}" class="btn btn-info">Create a Member</a>
 <!-- will be used to show any messages -->
 @if (Session::has('message'))
 <div class="alert alert-info">{{ Session::get('message') }}</div>

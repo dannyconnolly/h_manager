@@ -1,6 +1,7 @@
 <h1>Showing {{ $member->first_name }} {{ $member->last_name }}</h1>
+<a class="btn btn-small btn-info" href="{{ URL::to('members/' . $member->id . '/edit') }}">Edit this Member</a>
 
-<div class="jumbotron text-center">
+<div class="">
     <h2>{{ $member->first_name }} {{ $member->last_name }}</h2>
     <p>
         <strong>Email:</strong> {{ $member->email }}<br>

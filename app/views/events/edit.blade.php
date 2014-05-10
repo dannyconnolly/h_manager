@@ -31,12 +31,12 @@
 
         <div class="form-group">
             {{ Form::label('date_from', 'Date From') }}
-            {{ Form::text('date_from', null, array('class' => 'form-control')) }}
+            {{ Form::text('date_from', null, array('class' => 'form-control date-input')) }}
         </div>
 
         <div class="form-group">
             {{ Form::label('date_to', 'Date To') }}
-            {{ Form::text('date_to', null, array('class' => 'form-control')) }}
+            {{ Form::text('date_to', null, array('class' => 'form-control date-input')) }}
         </div>
 
         <div class="form-group">

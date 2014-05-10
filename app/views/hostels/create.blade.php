@@ -71,12 +71,12 @@
 
 <div class="form-group">
     {{ Form::label('open_from', 'Open From') }}
-    {{ Form::text('open_from', Input::old('open_from'), array('class' => 'form-control')) }}
+    {{ Form::text('open_from', Input::old('open_from'), array('class' => 'form-control date-input')) }}
 </div>
 
 <div class="form-group">
     {{ Form::label('open_to', 'Open To') }}
-    {{ Form::text('open_to', Input::old('open_to'), array('class' => 'form-control')) }}
+    {{ Form::text('open_to', Input::old('open_to'), array('class' => 'form-control date-input')) }}
 </div>
 
 {{ Form::submit('Create the Hostel!', array('class' => 'btn btn-primary')) }}

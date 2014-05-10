@@ -6,8 +6,10 @@
         @section('title')
         <title>{{{$title}}}</title>
         @show
-        {{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css') }}
-        {{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css') }}
+        {{ HTML::style('bower_components/bootstrap-css/css/bootstrap.min.css') }}
+        {{ HTML::style('bower_components/bootstrap-css/css/bootstrap-theme.min.css') }}
+        {{ HTML::style('assets/css/ui-lightness/jquery-ui-1.10.4.min.css') }}
+        {{ HTML::style('assets/css/app.css') }}
 
         <style>
             body{
@@ -20,6 +22,7 @@
                 background: linear-gradient(to bottom,  #cdeb8e 0%,#a5c956 100%); /* W3C */
                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cdeb8e', endColorstr='#a5c956',GradientType=0 ); /* IE6-9 */
                 padding-top: 60px;
+                height: 100%;
             }
             .table>thead>tr>th{
                 vertical-align: middle;
@@ -90,9 +93,10 @@
             </footer>
 
         </div>
-        {{ HTML::script('//code.jquery.com/jquery-2.1.1.min.js') }}
-        {{ HTML::script('//code.jquery.com/jquery-migrate-1.2.1.min.js') }}
-        {{ HTML::script('//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js') }}
+        {{ HTML::script('assets/js/vendor/jquery-2.1.1.min.js') }}
+        {{ HTML::script('assets/js/vendor/jquery-migrate-1.2.1.min.js') }}
+        {{ HTML::script('assets/js/vendor/jquery-ui-1.10.4.min.js') }}
+        {{ HTML::script('bower_components/bootstrap-css/js/bootstrap.min.js') }}
         {{ HTML::script('inc/ckeditor/ckeditor.js') }}
 
         <script>
@@ -106,6 +110,12 @@
             if (details !== null) {
                 CKEDITOR.replace('details');
             }
+        </script>
+
+        <script>
+            $(document).ready(function($) {
+                $(".date-input").datepicker({dateFormat: "yy-mm-dd"});
+            });
         </script>
     </body>
 </html>

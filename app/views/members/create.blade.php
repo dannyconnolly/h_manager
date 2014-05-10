@@ -26,7 +26,7 @@
 
 <div class="form-group">
     {{ Form::label('date_of_birth', 'Date of Birth') }}
-    {{ Form::text('date_of_birth', Input::old('date_of_birth'), array('class' => 'form-control')) }}
+    {{ Form::text('date_of_birth', Input::old('date_of_birth'), array('class' => 'form-control date-input')) }}
 </div>
 
 <div class="form-group">

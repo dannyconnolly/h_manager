@@ -1,5 +1,5 @@
 <h1>All the Event Types</h1>
-
+<a href="{{ URL::to('eventtypes/create') }}" class="btn btn-info">Create an Event Type</a>
 <!-- will be used to show any messages -->
 @if (Session::has('message'))
 <div class="alert alert-info">{{ Session::get('message') }}</div>

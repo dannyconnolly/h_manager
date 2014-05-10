@@ -1,5 +1,5 @@
 <h1>All the Hostels</h1>
-
+<a href="{{ URL::to('hostels/create') }}" class="btn btn-info">Create a Hostel</a>
 <!-- will be used to show any messages -->
 @if (Session::has('message'))
 <div class="alert alert-info">{{ Session::get('message') }}</div>

@@ -1,6 +1,7 @@
 <h1>Showing {{ $hostel->name }}</h1>
+<a class="btn btn-small btn-info" href="{{ URL::to('hostels/' . $hostel->id . '/edit') }}">Edit this Hostel</a>
 
-<div class="jumbotron text-center">
+<div class="">
     <h2>{{ $hostel->name }}</h2>
     <p>
         <strong>Address Line 1:</strong> {{ $hostel->address_line_1 }}<br>

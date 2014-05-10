@@ -1,5 +1,5 @@
 <h1>All the Events</h1>
-
+<a href="{{ URL::to('events/create') }}" class="btn btn-info">Create an Event</a>
 <!-- will be used to show any messages -->
 @if (Session::has('message'))
 <div class="alert alert-info">{{ Session::get('message') }}</div>

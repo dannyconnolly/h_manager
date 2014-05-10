@@ -11,7 +11,7 @@
 {{ Form::model($hostel, array('route' => array('hostels.update', $hostel->id), 'method' => 'PUT')) }}
 
 <div class="form-group">
-    {{ Form::label('name', 'name') }}
+    {{ Form::label('name', 'Name') }}
     {{ Form::text('name', null, array('class' => 'form-control')) }}
 </div>
 
@@ -72,12 +72,12 @@
 
 <div class="form-group">
     {{ Form::label('open_from', 'Open From') }}
-    {{ Form::text('open_from', null, array('class' => 'form-control')) }}
+    {{ Form::text('open_from', null, array('class' => 'form-control date-input')) }}
 </div>
 
 <div class="form-group">
     {{ Form::label('open_to', 'Open To') }}
-    {{ Form::text('open_to', null, array('class' => 'form-control')) }}
+    {{ Form::text('open_to', null, array('class' => 'form-control date-input')) }}
 </div>
 
 {{ Form::submit('Edit the Hostel!', array('class' => 'btn btn-primary')) }}
