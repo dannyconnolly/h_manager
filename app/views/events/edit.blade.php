@@ -36,7 +36,7 @@
     <div class="form-group">
         {{ Form::label('county', 'County', array('class' => "col-sm-2 control-label")) }}
         <div class="col-sm-10">
-            {{ Form::select('county', array('0' => 'Select a county', '1' => 'Dublin', '2' => 'Tyrone', '3' => 'Wicklow'), null, array('class' => 'form-control')) }}
+            {{ Form::select('county', $counties, null, array('class' => 'form-control')) }}
         </div>
     </div>
 

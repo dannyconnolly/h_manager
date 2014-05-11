@@ -47,7 +47,7 @@
     <div class="form-group">
         {{ Form::label('role_id', 'User Level', array('class' => "col-sm-2 control-label")) }}
         <div class="col-sm-10">
-            {{ Form::select('role_id', array('0' => 'Select a Level', '1' => 'Dev Admin', '2' => 'Admin', '3' => 'Editor'), Input::old('role_id'), array('class' => 'form-control')) }}
+            {{ Form::select('role_id', $roles, Input::old('role_id'), array('class' => 'form-control')) }}
         </div>
     </div>
 

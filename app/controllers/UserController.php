@@ -27,8 +27,10 @@ class UserController extends \BaseController {
      */
     public function create() {
         // load crete form
+        $roles = Role::lists('name', 'id');
+
         $this->layout->title = 'Create User | H Manager';
-        $this->layout->main = View::make('users.create');
+        $this->layout->main = View::make('users.create')->with(array('roles' => $roles));
     }
 
     /**
@@ -91,11 +93,11 @@ class UserController extends \BaseController {
     public function edit($id) {
         // get user
         $user = User::find($id);
-
+        $roles = Role::lists('name', 'id');
         // show view and pass user
         $this->layout->title = 'Edit User | H Manager';
         $this->layout->main = View::make('users.edit')
-                ->with('user', $user);
+                ->with(array('roles' => $roles, 'user' => $user));
     }
 
     /**

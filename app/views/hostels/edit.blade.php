@@ -44,7 +44,7 @@
     <div class="form-group">
         {{ Form::label('address_state_county', 'County', array('class' => "col-sm-2 control-label")) }}
         <div class="col-sm-10">
-            {{ Form::select('address_state_county', array('0' => 'Select a Level', '1' => 'Dev Admin', '2' => 'Admin', '3' => 'Editor'), null, array('class' => 'form-control')) }}
+            {{ Form::select('address_state_county', $counties, null, array('class' => 'form-control')) }}
         </div>
     </div>
     <div class="form-group">

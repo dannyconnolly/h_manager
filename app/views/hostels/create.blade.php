@@ -46,7 +46,7 @@
     <div class="form-group">
         {{ Form::label('address_state_county', 'County', array('class' => "col-sm-2 control-label")) }}
         <div class="col-sm-10">
-            {{ Form::select('address_state_county', array('0' => 'Select a County', '1' => 'Dublin', '2' => 'Antrim', '3' => 'Armagh', '4' => 'Tyrone', '5' => 'Carlow', '6' => 'Wicklow'), Input::old('address_state_county'), array('class' => 'form-control')) }}
+            {{ Form::select('address_state_county', $counties, Input::old('address_state_county'), array('class' => 'form-control')) }}
         </div>
     </div>
 

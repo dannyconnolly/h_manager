@@ -27,8 +27,9 @@ class HostelController extends \BaseController {
      */
     public function create() {
         // load crete form
+        $counties = County::lists('name', 'id');
         $this->layout->title = 'Create Hostel | H Manager';
-        $this->layout->main = View::make('hostels.create');
+        $this->layout->main = View::make('hostels.create')->with(array('counties' => $counties));
     }
 
     /**
@@ -104,11 +105,11 @@ class HostelController extends \BaseController {
     public function edit($id) {
         // get hostel
         $hostel = Hostel::find($id);
-
+        $counties = County::lists('name', 'id');
         // show view and pass hostel
         $this->layout->title = 'Edit Hostel| H Manager';
         $this->layout->main = View::make('hostels.edit')
-                ->with('hostel', $hostel);
+                ->with(array('counties' => $counties, 'hostel' => $hostel));
     }
 
     /**

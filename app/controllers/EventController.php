@@ -29,8 +29,9 @@ class EventController extends \BaseController {
         // load crete form
         $eventtypes = EventType::lists('name', 'id');
         $hostels = Hostel::lists('name', 'id');
+        $counties = County::lists('name', 'id');
         $this->layout->title = 'Create Event | H Manager';
-        $this->layout->main = View::make('events.create')->with(array('hostels' => $hostels, 'eventtypes' => $eventtypes));
+        $this->layout->main = View::make('events.create')->with(array('hostels' => $hostels, 'eventtypes' => $eventtypes, 'counties' => $counties));
     }
 
     /**
@@ -99,12 +100,13 @@ class EventController extends \BaseController {
         // get event
         $eventtypes = EventType::lists('name', 'id');
         $hostels = Hostel::lists('name', 'id');
+        $counties = County::lists('name', 'id');
         $event = Event::find($id);
 
         // show view and pass event
         $this->layout->title = 'Edit Event | H Manager';
         $this->layout->main = View::make('events.edit')
-                ->with(array('event' => $event, 'hostels' => $hostels, 'eventtypes' => $eventtypes));
+                ->with(array('event' => $event, 'hostels' => $hostels, 'eventtypes' => $eventtypes, 'counties' => $counties));
     }
 
     /**
