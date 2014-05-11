@@ -11,3 +11,4 @@ Thumbs.db
 /nbproject/**/*
 
 /public/node_modules/*
+nbproject/private/private.xml
