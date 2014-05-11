@@ -15,8 +15,4 @@ class Event extends Eloquent {
      */
     protected $table = 'events';
 
-    public function eventtype() {
-        return $this->belongsTo('EventType');
-    }
-
 }

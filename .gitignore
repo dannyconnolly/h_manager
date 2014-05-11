@@ -8,5 +8,6 @@ composer.lock
 Thumbs.db
 
 /nbproject/*
+/nbproject/**/*
 
 /public/node_modules/*

@@ -15,7 +15,7 @@
             <tr>
                 <th>ID</th>
                 <th>Title</th>
-                <th>Type</th>
+                <th>Event Type</th>
                 <th>Hostel</th>
                 <th>County</th>
                 <th>Date From</th>
@@ -28,7 +28,7 @@
             <tr>
                 <td>{{ $value->id }}</td>
                 <td>{{ $value->title }}</td>
-                <td>{{ $value->type }}</td>
+                <td>{{ $value->event_type }}</td>
                 <td>{{ $value->hostel }}</td>
                 <td>{{ $value->county }}</td>
                 <td>{{ $value->date_from }}</td>

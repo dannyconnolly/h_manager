@@ -20,9 +20,9 @@
     </div>
 
     <div class="form-group">
-        {{ Form::label('type', 'Type', array('class' => "col-sm-2 control-label")) }}
+        {{ Form::label('event_type', 'Event Type', array('class' => "col-sm-2 control-label")) }}
         <div class="col-sm-10">
-            {{ Form::select('type', $eventtypes, null, array('class' => 'form-control')) }}
+            {{ Form::select('event_type', $eventtypes, null, array('class' => 'form-control')) }}
         </div>
     </div>
 
