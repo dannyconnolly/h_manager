@@ -9,12 +9,12 @@ module.exports = function(grunt) {
             },
             my_target: {
                 files: {
-                    'assets/js/app.js': ['vendor/js/jquery-2.1.1.min.js', 'vendor/js/jquery-migrate-1.2.1.min.js', 'assets/js/vendor/jquery-ui-1.10.4.min.js', 'bower_components/bootstrap-css/js/bootstrap.min.js', 'inc/ckeditor/ckeditor.js']
+                    'public/assets/js/app.js': ['public/assets/vendor/js/jquery-2.1.1.min.js', 'public/assets/vendor/js/jquery-migrate-1.2.1.min.js', 'public/assets/js/vendor/jquery-ui-1.10.4.min.js', 'public/bower_components/bootstrap-css/js/bootstrap.min.js', 'public/inc/ckeditor/ckeditor.js']
                 }
             }
         },
         jshint: {
-            all: ['Gruntfile.js', 'assets/js/app.js']
+            all: ['Gruntfile.js', 'public/assets/js/app.js']
         },
         sass: {// Task
             dist: {// Target
@@ -22,17 +22,17 @@ module.exports = function(grunt) {
                     style: 'expanded'
                 },
                 files: {// Dictionary of files
-                    'assets/css/app.css': 'assets/sass/app.scss' // 'destination': 'source'
+                    'public/assets/css/app.css': 'public/assets/sass/app.scss' // 'destination': 'source'
                 }
             }
         },
         watch: {
             css: {
-                files: 'assets/sass/**/*.scss',
+                files: 'public/assets/sass/**/*.scss',
                 tasks: ['sass']
             },
             scripts: {
-                files: ['Gruntfile.js', 'assets/js/*.js', 'assets/js/**/*.js'],
+                files: ['Gruntfile.js', 'public/assets/js/*.js', 'public/assets/js/**/*.js'],
                 tasks: ['uglify'],
                 options: {
                     spawn: false

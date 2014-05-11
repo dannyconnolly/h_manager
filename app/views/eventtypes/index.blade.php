@@ -45,4 +45,5 @@
             @endforeach
         </tbody>
     </table>
+    {{ $eventtypes->links() }}
 </div>

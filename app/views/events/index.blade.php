@@ -52,5 +52,5 @@
             @endforeach
         </tbody>
     </table>
-    {{ $users->links() }}
+    {{ $events->links() }}
 </div>
