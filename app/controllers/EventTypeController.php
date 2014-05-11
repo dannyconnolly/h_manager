@@ -13,7 +13,7 @@ class EventTypeController extends \BaseController {
      */
     public function index() {
         // get all eventtypes
-        $eventtypes = EventType::all();
+        $eventtypes = EventType::paginate(20);
 
         // load view and pass eventtypes
         $this->layout->title = 'Event Types | H Manager';

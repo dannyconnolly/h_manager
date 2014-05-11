@@ -49,4 +49,6 @@
             @endforeach
         </tbody>
     </table>
+
+    {{ $hostels->links() }}
 </div>

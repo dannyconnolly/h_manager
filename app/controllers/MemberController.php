@@ -13,7 +13,7 @@ class MemberController extends \BaseController {
      */
     public function index() {
         // get all members
-        $members = Member::all();
+        $members = Member::paginate(20);
 
         // load view and pass members
         $this->layout->title = 'Members | H Manager';

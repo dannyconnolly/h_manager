@@ -13,7 +13,7 @@ class UserController extends \BaseController {
      */
     public function index() {
         // get all users
-        $users = User::all();
+        $users = User::paginate(20);
 
         // load view and pass users
         $this->layout->title = 'Users | H Manager';

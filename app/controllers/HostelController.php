@@ -13,7 +13,7 @@ class HostelController extends \BaseController {
      */
     public function index() {
         // get all hostels
-        $hostels = Hostel::all();
+        $hostels = Hostel::paginate(20);
 
         // load view nd pass hostels
         $this->layout->title = 'Hostels | H Manager';

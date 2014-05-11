@@ -13,7 +13,7 @@ class MemberTypeController extends \BaseController {
      */
     public function index() {
         // get all membertypes
-        $membertypes = MemberType::all();
+        $membertypes = MemberType::paginate(20);
 
         // load view and pass membertypes
         $this->layout->title = 'Member Types | H Manager';
