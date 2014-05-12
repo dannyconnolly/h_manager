@@ -28,13 +28,14 @@ class CreateBookingsTable extends Migration {
             $table->string('phone_1', 64);
             $table->string('phone_2', 64);
             $table->integer('member');
-            $table->integer('member_signup');
             $table->string('membership_number', 255);
+            $table->integer('member_signup');
+            $table->integer('member_type');
             $table->text('comments');
             $table->text('requests');
-            $table->float('amount');
-            $table->float('amount_received');
             $table->integer('status');
+            $table->string('who_added', 25);
+            $table->string('source', 255);
             $table->timestamps();
         });
     }
