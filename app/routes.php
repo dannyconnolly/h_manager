@@ -23,3 +23,4 @@ Route::resource('members', 'MemberController');
 Route::resource('eventtypes', 'EventTypeController');
 Route::resource('events', 'EventController');
 Route::resource('bookings', 'BookingController');
+Route::resource('bookingitems', 'BookingItemController');

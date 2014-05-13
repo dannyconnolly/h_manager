@@ -11,10 +11,6 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Apache24/htdocs/h_manager/app/controllers/BookingController.php</file>
-            <file>file:/C:/Apache24/htdocs/h_manager/app/views/bookings/create.blade.php</file>
-            <file>file:/C:/Apache24/htdocs/h_manager/app/views/bookings/show.blade.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
