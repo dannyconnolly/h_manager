@@ -56,8 +56,10 @@ class BookingController extends \BaseController {
         } else {
             $booking = new Booking();
             $booking->order_id = Input::get('order_id');
+            $booking->booking_date = Input::get('booking_date');
             $booking->first_name = Input::get('first_name');
             $booking->last_name = Input::get('last_name');
+            $booking->email = Input::get('email');
             $booking->date_of_birth = Input::get('date_of_birth');
             $booking->address_line_1 = Input::get('address_line_1');
             $booking->address_line_2 = Input::get('address_line_2');
@@ -73,9 +75,10 @@ class BookingController extends \BaseController {
             $booking->member_type = Input::get('member_type');
             $booking->comments = Input::get('comments');
             $booking->requests = Input::get('requests');
-            $booking->status = Input::get('status');
-            $booking->who_added = Input::get('who_added');
-            $booking->source = Input::get('source');
+            $booking->comments = Input::get('requests');
+            $booking->status = 0;
+            $booking->who_added = 'admin';
+            $booking->source = 'website';
             $booking->save();
 
             // Redirect
@@ -110,10 +113,11 @@ class BookingController extends \BaseController {
         // get booking
         $booking = Booking::find($id);
         $countries = Country::lists('name', 'id');
+        $membertypes = MemberType::lists('name', 'id');
         // show view and pass booking
         $this->layout->title = 'Edit Booking | H Manager';
         $this->layout->main = View::make('bookings.edit')
-                ->with(array('booking' => $booking, 'countries' => $countries));
+                ->with(array('booking' => $booking, 'countries' => $countries, 'membertypes' => $membertypes));
     }
 
     /**
@@ -147,8 +151,10 @@ class BookingController extends \BaseController {
             // store
             $booking = Booking::find($id);
             $booking->order_id = Input::get('order_id');
+            $booking->booking_date = Input::get('booking_date');
             $booking->first_name = Input::get('first_name');
             $booking->last_name = Input::get('last_name');
+            $booking->email = Input::get('email');
             $booking->date_of_birth = Input::get('date_of_birth');
             $booking->address_line_1 = Input::get('address_line_1');
             $booking->address_line_2 = Input::get('address_line_2');
@@ -164,6 +170,7 @@ class BookingController extends \BaseController {
             $booking->member_type = Input::get('member_type');
             $booking->comments = Input::get('comments');
             $booking->requests = Input::get('requests');
+            $booking->comments = Input::get('requests');
             $booking->status = Input::get('status');
             $booking->who_added = Input::get('who_added');
             $booking->source = Input::get('source');
