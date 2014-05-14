@@ -15,8 +15,8 @@
     @endif
 
     {{ Form::open(array('url' => 'bookings', 'class' => 'form-horizontal')) }}
-    {{ Form::hidden('order_id', 'dfghjmdfgdsfgfcfvcfvfcfvx', array('class' => 'form-control')) }}
-    {{ Form::hidden('booking_date', '2013-02-02', array('class' => 'form-control')) }}
+    {{ Form::hidden('order_id', 'dfghjmdfgdsfgfcfvcfvfcfvx') }}
+    {{ Form::hidden('booking_date', '2013-02-02') }}
     <div class="form-group">
         {{ Form::label('first_name', 'First Name', array('class' => "col-sm-2 control-label")) }}
         <div class="col-sm-10">

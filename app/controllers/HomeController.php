@@ -15,8 +15,10 @@ class HomeController extends BaseController {
      */
 
     public function index() {
+        $hostels = Hostel::all();
+
         $this->layout->title = 'Home | H Manager';
-        $this->layout->main = View::make('pages.index');
+        $this->layout->main = View::make('pages.index')->with(array('hostels' => $hostels));
     }
 
 }

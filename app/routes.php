@@ -11,7 +11,8 @@
   |
  */
 
-Route::get('/', 'AuthController@get_login');
+
+Route::get('/', 'HomeController@index');
 
 Route::get('/login', 'AuthController@get_login');
 Route::post('/login', array('before' => 'csrf_json', 'uses' => 'AuthController@post_login'));
@@ -24,3 +25,6 @@ Route::resource('eventtypes', 'EventTypeController');
 Route::resource('events', 'EventController');
 Route::resource('bookings', 'BookingController');
 Route::resource('bookingitems', 'BookingItemController');
+
+Route::post('/cart', 'CartController@store');
+Route::get('/cart', 'CartController@index');

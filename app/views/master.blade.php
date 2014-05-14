@@ -94,6 +94,9 @@
                         <li><a href="{{ URL::to('login') }}">Login</a></li>
                         @endif
                     </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{ URL::to('cart') }}">View Cart</a></li>
+                    </ul>
                 </div>
             </div>
         </nav>
