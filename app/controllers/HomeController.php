@@ -15,6 +15,7 @@ class HomeController extends BaseController {
      */
 
     public function index() {
+
         $hostels = Hostel::all();
 
         $this->layout->title = 'Home | H Manager';

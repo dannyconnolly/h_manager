@@ -25,6 +25,7 @@ Route::resource('eventtypes', 'EventTypeController');
 Route::resource('events', 'EventController');
 Route::resource('bookings', 'BookingController');
 Route::resource('bookingitems', 'BookingItemController');
+Route::resource('cart', 'CartController');
 
-Route::post('/cart', 'CartController@store');
-Route::get('/cart', 'CartController@index');
+//Route::post('/cart', 'CartController@store');
+//Route::get('/cart', 'CartController@index');

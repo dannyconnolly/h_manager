@@ -8,7 +8,7 @@ class CartController extends \BaseController {
      * @return Response
      */
     public function index() {
-        //
+//
         $cart = Cart::contents();
 
         $this->layout->title = 'Cart | H Manager';
@@ -21,7 +21,7 @@ class CartController extends \BaseController {
      * @return Response
      */
     public function create() {
-        //
+//
     }
 
     /**
@@ -30,51 +30,49 @@ class CartController extends \BaseController {
      * @return Response
      */
     public function store() {
-        //
         // validate
-        /* $rules = array(
-          'order_id' => 'required',
-          'first_name' => 'required',
-          'last_name' => 'required',
-          'email' => 'required|email',
-          'date_of_birth' => 'date',
-          'address_line_1' => 'required',
-          'town_city' => 'required',
-          'state_county' => 'required',
-          'country_id' => 'required|numeric',
-          'phone_1' => 'required'
-          );
-
-          $validator = Validator::make(Input::all(), $rules);
-
-          //process the login
-          if ($validator->fails()) {
-          return Redirect::to('bookings/create')
-          ->withErrors($validator)
-          ->withInput(Input::all());
-          } else { */
-        $items = array(
-            'id' => Input::get('hostel_id'),
-            'name' => Input::get('name'),
-            'price' => Input::get('price'),
-            'quantity' => Input::get('nights_stay'),
-            'options' => array(
-                'arrival_date' => Input::get('arrival_date'),
-                'nights_stay' => Input::get('nights_stay'),
-                'total_guests' => Input::get('total_guests'),
-                'snr_male_guests' => Input::get('snr_male_guests'),
-                'snr_female_guests' => Input::get('snr_female_guests'),
-                'jr_male_guests' => Input::get('jr_male_guests'),
-                'jr_female_guests' => Input::get('jr_female_guests'),
-            )
+        $rules = array(
+            'total_guests' => 'required|numeric',
+            'arrival_date' => 'date',
+            'snr_male_guests' => 'numeric',
+            'snr_female_guests' => 'numeric',
+            'jr_male_guests' => 'numeric',
+            'jr_female_guests' => 'numeric',
         );
-        // Make the insert...
-        Cart::insert($items);
 
-        // Redirect
-        Session::flash('message', 'Successfully added item to cart');
-        return Redirect::to('cart');
-        /* } */
+        $validator = Validator::make(Input::all(), $rules);
+
+        //process the login
+        if ($validator->fails()) {
+            return Redirect::to('/')
+                            ->withErrors($validator)
+                            ->withInput(Input::all());
+        } else {
+            $items = array(
+                'id' => Input::get('hostel_id'),
+                'name' => Input::get('name'),
+                'price' => Input::get('price'),
+                'quantity' => Input::get('nights_stay'),
+                'options' => array(
+                    'arrival_date' => Input::get('arrival_date'),
+                    'total_guests' => Input::get('total_guests'),
+                    'snr_male_guests' => Input::get('snr_male_guests'),
+                    'snr_female_guests' => Input::get('snr_female_guests'),
+                    'jr_male_guests' => Input::get('jr_male_guests'),
+                    'jr_female_guests' => Input::get('jr_female_guests'),
+                )
+            );
+
+
+            foreach (Cart::contents() as $item) {
+                $item->name = Input::get('name');
+                $item->quantity = Input::get('nights_stay');
+            }
+
+            // Redirect
+            Session::flash('message', 'Successfully added item to cart');
+            return Redirect::to('cart');
+        }
     }
 
     /**
@@ -84,7 +82,7 @@ class CartController extends \BaseController {
      * @return Response
      */
     public function show($id) {
-        //
+//
     }
 
     /**
@@ -94,7 +92,7 @@ class CartController extends \BaseController {
      * @return Response
      */
     public function edit($id) {
-        //
+//
     }
 
     /**
@@ -104,7 +102,45 @@ class CartController extends \BaseController {
      * @return Response
      */
     public function update($id) {
-        //
+        // validate
+        $rules = array(
+            'total_guests' => 'required|numeric',
+            'arrival_date' => 'date',
+            'snr_male_guests' => 'numeric',
+            'snr_female_guests' => 'numeric',
+            'jr_male_guests' => 'numeric',
+            'jr_female_guests' => 'numeric',
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+//process the login
+        if ($validator->fails()) {
+            return Redirect::to('/')
+                            ->withErrors($validator)
+                            ->withInput(Input::all());
+        } else {
+            $items = array(
+                'id' => Input::get('hostel_id'),
+                'name' => Input::get('name'),
+                'price' => Input::get('price'),
+                'quantity' => Input::get('nights_stay'),
+                'options' => array(
+                    'arrival_date' => Input::get('arrival_date'),
+                    'total_guests' => Input::get('total_guests'),
+                    'snr_male_guests' => Input::get('snr_male_guests'),
+                    'snr_female_guests' => Input::get('snr_female_guests'),
+                    'jr_male_guests' => Input::get('jr_male_guests'),
+                    'jr_female_guests' => Input::get('jr_female_guests'),
+                )
+            );
+            // Make the insert...
+            Cart::insert($items);
+
+            // Redirect
+            Session::flash('message', 'Successfully added item to cart');
+            return Redirect::to('cart');
+        }
     }
 
     /**
@@ -114,7 +150,12 @@ class CartController extends \BaseController {
      * @return Response
      */
     public function destroy($id) {
-        //
+        $item = Cart::find($id);
+        $item->remove();
+
+// redirect
+        Session::flash('message', 'Successfully deleted item');
+        return Redirect::to('cart');
     }
 
 }

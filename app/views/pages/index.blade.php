@@ -12,71 +12,80 @@
     <div class="alert alert-info">{{ Session::get('message') }}</div>
     @endif
 
-    <ul>
-        @foreach($hostels as $key => $value)
-        <li>
-            <h3>{{ $value->name }}</h3>
+    <!-- if there are creation errors, they will show here -->
+    @if ( $errors->count() > 0 )
+    <div class="alert alert-danger">
+        {{ HTML::ul($errors->all()) }}
+    </div>
+    @endif
 
-
-            <!-- delete the user (uses the destroy method DESTROY /users/{id} -->
-            <!-- we will add this later since its a little more complicated than the other two buttons -->
-            {{ Form::open(array('url' => 'cart', 'class' => 'form-horizontal')) }}            
-            {{ Form::hidden('hostel_id', $value->id) }}
-            {{ Form::hidden('name', $value->name) }}
-
-            <div class="form-group">
-                {{ Form::label('arrival_date', 'Arrival Date', array('class' => "col-sm-2 control-label")) }}
-                <div class="col-sm-10">
-                    {{ Form::text('arrival_date', Input::old('arrival_date'), array('class' => 'form-control date-input')) }}
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-default panel-success">
+            <div class="panel-heading">Book a Hostel</div>
+            <div class="panel-body">
+                {{ Form::open(array('url' => 'cart', 'class' => 'form-horizontal')) }}
+                <div class="form-group">
+                    {{ Form::label('hostel_id', 'Hostel', array('class' => "col-sm-2 control-label")) }}
+                    <div class="col-sm-10">
+                        <select name="hostel_id" class="form-control">
+                            @foreach($hostels as $key => $value)
+                            <option value="{{ $value->id }}">{{ $value->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                {{ Form::label('nights_stay', 'Nights stay', array('class' => "col-sm-2 control-label")) }}
-                <div class="col-sm-10">
-                    {{ Form::text('nights_stay', Input::old('nights_stay'), array('class' => 'form-control')) }}
+                <div class="form-group">
+                    {{ Form::label('arrival_date', 'Arrival Date', array('class' => "col-sm-2 control-label")) }}
+                    <div class="col-sm-10">
+                        {{ Form::html5_field( 'date', 'arrival_date', Input::old('arrival_date'), array('class' => 'form-control')) }}
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                {{ Form::label('total_guests', 'Nights stay', array('class' => "col-sm-2 control-label")) }}
-                <div class="col-sm-10">
-                    {{ Form::text('total_guests', Input::old('total_guests'), array('class' => 'form-control')) }}
+                <div class="form-group">
+                    {{ Form::label('nights_stay', 'Nights stay', array('class' => "col-sm-2 control-label")) }}
+                    <div class="col-sm-10">
+                        {{ Form::html5_field('number', 'nights_stay', Input::old('nights_stay'), array('class' => 'form-control', 'min' => '1', 'max' => '20')) }}
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                {{ Form::label('snr_male_guests', 'Snr male guests', array('class' => "col-sm-2 control-label")) }}
-                <div class="col-sm-10">
-                    {{ Form::text('snr_male_guests', Input::old('snr_male_guests'), array('class' => 'form-control')) }}
+                <div class="form-group">
+                    {{ Form::label('total_guests', 'Nights stay', array('class' => "col-sm-2 control-label")) }}
+                    <div class="col-sm-10">
+                        {{ Form::html5_field('number', 'total_guests', Input::old('total_guests'), array('class' => 'form-control', 'min' => '1', 'max' => '20')) }}
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                {{ Form::label('snr_female_guests', 'Snr female guests', array('class' => "col-sm-2 control-label")) }}
-                <div class="col-sm-10">
-                    {{ Form::text('snr_female_guests', Input::old('snr_female_guests'), array('class' => 'form-control')) }}
+                <div class="form-group">
+                    {{ Form::label('snr_male_guests', 'Snr male guests', array('class' => "col-sm-2 control-label")) }}
+                    <div class="col-sm-10">
+                        {{ Form::html5_field('number', 'snr_male_guests', Input::old('snr_male_guests'), array('class' => 'form-control', 'min' => '0', 'max' => '20')) }}
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                {{ Form::label('jr_male_guests', 'Jnr male guests', array('class' => "col-sm-2 control-label")) }}
-                <div class="col-sm-10">
-                    {{ Form::text('jr_male_guests', Input::old('jr_male_guests'), array('class' => 'form-control')) }}
+                <div class="form-group">
+                    {{ Form::label('snr_female_guests', 'Snr female guests', array('class' => "col-sm-2 control-label")) }}
+                    <div class="col-sm-10">
+                        {{ Form::html5_field('number', 'snr_female_guests', Input::old('snr_female_guests'), array('class' => 'form-control', 'min' => '0', 'max' => '20')) }}
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                {{ Form::label('jr_female_guests', 'Jnr female guests', array('class' => "col-sm-2 control-label")) }}
-                <div class="col-sm-10">
-                    {{ Form::text('jr_female_guests', Input::old('jr_female_guests'), array('class' => 'form-control')) }}
+                <div class="form-group">
+                    {{ Form::label('jr_male_guests', 'Jnr male guests', array('class' => "col-sm-2 control-label")) }}
+                    <div class="col-sm-10">
+                        {{ Form::html5_field('number', 'jr_male_guests', Input::old('jr_male_guests'), array('class' => 'form-control', 'min' => '0', 'max' => '20')) }}
+                    </div>
                 </div>
+
+                <div class="form-group">
+                    {{ Form::label('jr_female_guests', 'Jnr female guests', array('class' => "col-sm-2 control-label")) }}
+                    <div class="col-sm-10">
+                        {{ Form::html5_field('number', 'jr_female_guests', Input::old('jr_female_guests'), array('class' => 'form-control', 'min' => '0', 'max' => '20')) }}
+                    </div>
+                </div>
+                {{ Form::submit('Add to cart', array('class' => 'btn btn-success')) }}
+                {{ Form::close() }}
             </div>
-
-            {{ Form::submit('Add to cart', array('class' => 'btn btn-success')) }}
-            {{ Form::close() }}
-        </li>
-        @endforeach
-
-    </ul>
+        </div>
+    </div>
 </div>
