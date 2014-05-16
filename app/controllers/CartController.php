@@ -63,11 +63,8 @@ class CartController extends \BaseController {
                 )
             );
 
-
-            foreach (Cart::contents() as $item) {
-                $item->name = Input::get('name');
-                $item->quantity = Input::get('nights_stay');
-            }
+            // Make the insert...
+            Cart::insert($items);
 
             // Redirect
             Session::flash('message', 'Successfully added item to cart');
@@ -104,7 +101,7 @@ class CartController extends \BaseController {
     public function update($id) {
         // validate
         $rules = array(
-            'total_guests' => 'required|numeric',
+            'total_guests' => 'numeric',
             'arrival_date' => 'date',
             'snr_male_guests' => 'numeric',
             'snr_female_guests' => 'numeric',
@@ -116,29 +113,17 @@ class CartController extends \BaseController {
 
 //process the login
         if ($validator->fails()) {
-            return Redirect::to('/')
+            return Redirect::to('cart')
                             ->withErrors($validator)
                             ->withInput(Input::all());
         } else {
-            $items = array(
-                'id' => Input::get('hostel_id'),
-                'name' => Input::get('name'),
-                'price' => Input::get('price'),
-                'quantity' => Input::get('nights_stay'),
-                'options' => array(
-                    'arrival_date' => Input::get('arrival_date'),
-                    'total_guests' => Input::get('total_guests'),
-                    'snr_male_guests' => Input::get('snr_male_guests'),
-                    'snr_female_guests' => Input::get('snr_female_guests'),
-                    'jr_male_guests' => Input::get('jr_male_guests'),
-                    'jr_female_guests' => Input::get('jr_female_guests'),
-                )
-            );
             // Make the insert...
-            Cart::insert($items);
-
+            //foreach (Cart::contents() as $item) {
+            $item = Cart::item($id);
+            $item->quantity = Input::get('quantity');
+            //}
             // Redirect
-            Session::flash('message', 'Successfully added item to cart');
+            Session::flash('message', 'Successfully updated cart');
             return Redirect::to('cart');
         }
     }
@@ -150,10 +135,10 @@ class CartController extends \BaseController {
      * @return Response
      */
     public function destroy($id) {
-        $item = Cart::find($id);
+        $item = Cart::item($id);
         $item->remove();
 
-// redirect
+        // redirect
         Session::flash('message', 'Successfully deleted item');
         return Redirect::to('cart');
     }

@@ -95,7 +95,8 @@
                         @endif
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{ URL::to('cart') }}">View Cart</a></li>
+                        <li><a href="{{ URL::to('cart') }}">{{ $basket }} items in your basket | View Cart</a></li>
+                        <li></li>
                     </ul>
                 </div>
             </div>

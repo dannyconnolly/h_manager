@@ -30,20 +30,23 @@
         <tbody>
 
             @foreach ($cart as $value)
-
             <tr>
                 <td>
                     {{ $value->id }}
                 </td>
                 <td>
-                    {{ $value->quantity }}
+                    {{ Form::open(array('url' => 'cart/' . $value->identifier, 'class' => 'pull-right')) }}
+                    {{ Form::hidden('_method', 'PUT') }}
+                    {{ Form::html5_field('number', 'quantity', $value->quantity, array('class' => 'form-control', 'min' => '1', 'max' => '20')) }}
+                    {{ Form::submit('Update', array('class' => 'btn btn-info')) }}
+                    {{ Form::close() }}
                 </td>
                 <td>
                     &euro;{{ $value->price }}
                 </td>
                 <td>
                     @if ($value->hasOptions())
-                    {{ Form::html5_field('number', 'total_guests', $value->options['total_guests'], array('class' => 'form-control', 'min' => '1', 'max' => '20')) }}
+                    {{ $value->options['total_guests'] }}
                     @endif
                 </td>
                 <td>
@@ -72,16 +75,21 @@
                 <td>
                     <!-- delete the user (uses the destroy method DESTROY /users/{id} -->
                     <!-- we will add this later since its a little more complicated than the other two buttons -->
-                    {{ Form::open(array('url' => 'cart/' . $value->id, 'class' => 'pull-right')) }}
+                    {{ Form::open(array('url' => 'cart/' . $value->identifier, 'class' => 'pull-right')) }}
                     {{ Form::hidden('_method', 'DELETE') }}
                     {{ Form::submit('Delete', array('class' => 'btn btn-warning')) }}
                     {{ Form::close() }}
                 </td>
             </tr>
             @endforeach
-
-            <?php ?>
-
+            <tr>
+                <td colspan="8">
+                    <a class="btn btn-small btn-success" href="{{ URL::to('/') }}">View more hostels</a>                    
+                </td>
+                <td colspan="2">
+                    <a class="btn btn-small btn-success" href="{{ URL::to('/') }}">Proceed to checkout</a>
+                </td>
+            </tr>
         </tbody>
     </table>
 

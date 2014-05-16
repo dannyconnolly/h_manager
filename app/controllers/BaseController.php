@@ -10,8 +10,9 @@ class BaseController extends Controller {
      * @return void
      */
     protected function setupLayout() {
+        $basket = Cart::totalItems(true);
         if (!is_null($this->layout)) {
-            $this->layout = View::make($this->layout);
+            $this->layout = View::make($this->layout)->with(array('basket' => $basket));
         }
     }
 
