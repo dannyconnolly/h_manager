@@ -18,7 +18,7 @@
 
             <div class="form-group">
                 {{ Form::label('email', 'Email') }}
-                {{ Form::email('email', Input::old('email'), array('class' => 'form-control')) }}
+                {{ Form::email('email', Input::old('email'), array('class' => 'form-control', 'autofocus')) }}
             </div>
 
             <div class="form-group">
