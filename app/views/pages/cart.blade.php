@@ -11,6 +11,9 @@
     <div class="alert alert-info">{{ Session::get('message') }}</div>
     @endif
 
+    @if ($basket == 0)
+    <p>There are currently no items in your cart</p>
+    @else
     <table class="table table-bordered table-hover table-striped">
         <thead>
             <tr>
@@ -32,14 +35,10 @@
             @foreach ($cart as $value)
             <tr>
                 <td>
-                    {{ $value->id }}
+                    {{ $value->name }}
                 </td>
                 <td>
-                    {{ Form::open(array('url' => 'cart/' . $value->identifier, 'class' => 'pull-right')) }}
-                    {{ Form::hidden('_method', 'PUT') }}
-                    {{ Form::html5_field('number', 'quantity', $value->quantity, array('class' => 'form-control', 'min' => '1', 'max' => '20')) }}
-                    {{ Form::submit('Update', array('class' => 'btn btn-info')) }}
-                    {{ Form::close() }}
+                    {{ $value->quantity }}
                 </td>
                 <td>
                     &euro;{{ $value->price }}
@@ -92,5 +91,5 @@
             </tr>
         </tbody>
     </table>
-
+    @endif
 </div>

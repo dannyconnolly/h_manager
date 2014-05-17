@@ -1,6 +1,7 @@
 <div class="col-md-10">
     <h1>H Manager Front</h1>
 </div>
+
 <div class="col-md-2">
 
 </div>
@@ -23,16 +24,22 @@
         <div class="panel panel-default panel-success">
             <div class="panel-heading">Book a Hostel</div>
             <div class="panel-body">
-                {{ Form::open(array('url' => 'cart', 'class' => 'form-horizontal')) }}
+                {{ Form::open(array('url' => 'cart', 'class' => 'form-horizontal', 'name' => 'booking_form')) }}
                 <div class="form-group">
                     {{ Form::label('hostel_id', 'Hostel', array('class' => "col-sm-2 control-label")) }}
                     <div class="col-sm-10">
-                        <select name="hostel_id" class="form-control">
+                        <select name="hostel_id" class="form-control" id="hostel_id" onchange="javascript: setHostelName(this);">
                             @foreach($hostels as $key => $value)
                             <option value="{{ $value->id }}">{{ $value->name }}</option>
                             @endforeach
-                        </select>
+                        </select> 
+                        {{Form::hidden('name',  null, array('id' => 'hostel_name_hidden'))}}
                     </div>
+                    <script>
+                        function setHostelName(selObj) {
+                            document.forms['booking_form'].hostel_name_hidden.value = selObj.options[selObj.options.selectedIndex].text;
+                        }
+                    </script>
                 </div>
 
                 <div class="form-group">
@@ -50,7 +57,7 @@
                 </div>
 
                 <div class="form-group">
-                    {{ Form::label('total_guests', 'Nights stay', array('class' => "col-sm-2 control-label")) }}
+                    {{ Form::label('total_guests', 'Total no. of guest', array('class' => "col-sm-2 control-label")) }}
                     <div class="col-sm-10">
                         {{ Form::html5_field('number', 'total_guests', Input::old('total_guests'), array('class' => 'form-control', 'min' => '1', 'max' => '20')) }}
                     </div>

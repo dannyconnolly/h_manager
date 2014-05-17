@@ -10,9 +10,10 @@ class CartController extends \BaseController {
     public function index() {
 //
         $cart = Cart::contents();
+        $basket = Cart::totalItems(true);
 
         $this->layout->title = 'Cart | H Manager';
-        $this->layout->main = View::make('pages.cart')->with('cart', $cart);
+        $this->layout->main = View::make('pages.cart')->with(array('cart' => $cart, 'basket' => $basket));
     }
 
     /**
