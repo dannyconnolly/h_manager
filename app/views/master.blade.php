@@ -94,6 +94,10 @@
                         <li><a href="{{ URL::to('login') }}">Login</a></li>
                         @endif
                     </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{ URL::to('cart') }}">{{ $basket }} items in your basket | View Cart</a></li>
+                        <li></li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -131,5 +135,7 @@
                 $(".date-input").datepicker({dateFormat: "yy-mm-dd"});
             });
         </script>
+
+
     </body>
 </html>
