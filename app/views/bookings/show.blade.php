@@ -6,6 +6,7 @@
 </div>
 
 <div class="col-md-12">
+    @include('partials.notifications')
     <p>
         <strong>Order ID:</strong> {{ $booking->order_id }}<br>
         <strong>Name:</strong> {{ $booking->first_name }} {{ $booking->last_name }}<br>

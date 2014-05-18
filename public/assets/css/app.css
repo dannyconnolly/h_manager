@@ -1,0 +1,20 @@
+.booking-form label {
+  display: block;
+}
+.booking-form select {
+  max-width: 100%;
+}
+
+table thead th.tablesorter-header {
+  cursor: pointer;
+}
+table thead th.tablesorter-header i {
+  float: right;
+  font-size: 20px;
+}
+table thead th.tablesorter-headerAsc {
+  background: #e3e3d2;
+}
+table thead .tablesorter-headerDesc {
+  background: #e3e3d2;
+}

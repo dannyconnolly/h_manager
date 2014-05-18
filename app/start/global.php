@@ -5,8 +5,7 @@
   | Custom from macros
   |--------------------------------------------------------------------------
   |
-  |
-  |
+  | create html 5 inputs
   |
   |
  */
@@ -21,8 +20,6 @@ Form::macro('html5_field', function($type, $name, $value = null, $options = arra
 
     return $input;
 });
-
-
 
 /*
   |--------------------------------------------------------------------------

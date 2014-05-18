@@ -25,7 +25,7 @@ class CreateMembersTable extends Migration {
             $table->integer('address_country');
             $table->string('phone_1', 32);
             $table->string('phone_2', 32);
-            $table->integer('member_type');
+            $table->integer('member_type_id');
             $table->text('comments');
             $table->date('purchase_date');
             $table->date('expiry_date')->nullable();

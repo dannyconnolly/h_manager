@@ -9,12 +9,22 @@ module.exports = function(grunt) {
             },
             my_target: {
                 files: {
-                    'public/assets/js/app.js': ['public/assets/vendor/js/jquery-2.1.1.min.js', 'public/assets/vendor/js/jquery-migrate-1.2.1.min.js', 'public/assets/js/vendor/jquery-ui-1.10.4.min.js', 'public/bower_components/bootstrap-css/js/bootstrap.min.js', 'public/inc/ckeditor/ckeditor.js']
+                    'public/assets/js/scripts.js': [
+                        'public/assets/js/vendor/jquery-2.1.1.js',
+                        'public/assets/js/vendor/jquery-migrate-1.2.1.js',
+                        'public/assets/js/vendor/jquery-ui-1.10.4.js',
+                        'public/bower_components/bootstrap-css/js/bootstrap.js',
+                        'public/inc/ckeditor/ckeditor.js',
+                        'public/assets/js/vendor/jquery.tablesorter.js'
+                    ]
                 }
             }
         },
         jshint: {
-            all: ['Gruntfile.js', 'public/assets/js/app.js']
+            all: [
+                'Gruntfile.js',
+                'public/assets/js/app.js'
+            ]
         },
         sass: {// Task
             dist: {// Target
@@ -32,7 +42,10 @@ module.exports = function(grunt) {
                 tasks: ['sass']
             },
             scripts: {
-                files: ['Gruntfile.js', 'public/assets/js/*.js', 'public/assets/js/**/*.js'],
+                files: [
+                    'Gruntfile.js',
+                    'public/assets/js/app.js'
+                ],
                 tasks: ['uglify'],
                 options: {
                     spawn: false

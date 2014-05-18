@@ -7,12 +7,7 @@
 
 <div class="col-md-12">
 
-    <!-- if there are creation errors, they will show here -->
-    @if ( $errors->count() > 0 )
-    <div class="alert alert-danger">
-        {{ HTML::ul($errors->all()) }}
-    </div>
-    @endif
+    @include('partials.notifications')
 
     {{ Form::model($bookingitem, array('route' => array('bookingitems.update', $bookingitem->id), 'class' => 'form-horizontal', 'method' => 'PUT')) }}
 

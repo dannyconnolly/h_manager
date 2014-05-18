@@ -7,12 +7,7 @@
 
 <div class="col-md-12">
 
-    <!-- if there are creation errors, they will show here -->
-    @if ( $errors->count() > 0 )
-    <div class="alert alert-danger">
-        {{ HTML::ul($errors->all()) }}
-    </div>
-    @endif
+    @include('partials.notifications')
 
     {{ Form::open(array('url' => 'eventtypes', 'class' => 'form-horizontal')) }}
 

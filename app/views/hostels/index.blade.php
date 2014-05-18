@@ -7,18 +7,15 @@
 
 <div class="col-md-12">
 
-    <!-- will be used to show any messages -->
-    @if (Session::has('message'))
-    <div class="alert alert-info">{{ Session::get('message') }}</div>
-    @endif
+    @include('partials.notifications')
 
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Hostel Name</th>
-                <th>Open From</th>
-                <th>Open To</th>
+                <th>ID<i class="fa fa-sort"></i></th>
+                <th>Hostel Name<i class="fa fa-sort"></i></th>
+                <th>Open From<i class="fa fa-sort"></i></th>
+                <th>Open To<i class="fa fa-sort"></i></th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -33,16 +30,16 @@
                 <!-- we will also add show, edit, and delete buttons -->
                 <td>
                     <!-- show the hostel (uses the show method found at GET /hostels/{id} -->
-                    <a class="btn btn-small btn-success" href="{{ URL::to('hostels/' . $value->id) }}"><span class="glyphicon glyphicon-eye-open"></span></a>
+                    <a class="btn btn-small btn-success" href="{{ URL::to('hostels/' . $value->id) }}"><i class="fa fa-eye"></i>View</a>
 
                     <!-- edit this hostel (uses the edit method found at GET /hostels/{id}/edit -->
-                    <a class="btn btn-small btn-info" href="{{ URL::to('hostels/' . $value->id . '/edit') }}"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="btn btn-small btn-info" href="{{ URL::to('hostels/' . $value->id . '/edit') }}"><i class="fa fa-pencil"></i>Edit</a>
 
                     <!-- delete the hostel (uses the destroy method DESTROY /hostels/{id} -->
                     <!-- we will add this later since its a little more complicated than the other two buttons -->
                     {{ Form::open(array('url' => 'hostels/' . $value->id, 'class' => 'pull-right')) }}
                     {{ Form::hidden('_method', 'DELETE') }}
-                    {{ Form::submit('Delete', array('class' => 'btn btn-warning')) }}
+                    {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
                     {{ Form::close() }}
                 </td>
             </tr>

@@ -3,7 +3,7 @@
 class MemberController extends \BaseController {
 
     public function __construct() {
-        $this->beforeFilter('auth');
+        $this->beforeFilter('auth', array('except' => 'create'));
     }
 
     /**
@@ -51,7 +51,7 @@ class MemberController extends \BaseController {
             'address_state_county' => 'required',
             'address_country' => 'required|numeric',
             'phone_1' => 'required',
-            'member_type' => 'required|numeric'
+            'member_type_id' => 'required|numeric'
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -75,7 +75,7 @@ class MemberController extends \BaseController {
             $member->address_country = Input::get('address_country');
             $member->phone_1 = Input::get('phone_1');
             $member->phone_2 = Input::get('phone_2');
-            $member->member_type = Input::get('member_type');
+            $member->member_type_id = Input::get('member_type_id');
             $member->comments = Input::get('comments');
             $member->purchase_date = date('Y-m-d');
             $member->expiry_date = date('Y-m-d');
@@ -139,7 +139,7 @@ class MemberController extends \BaseController {
             'address_state_county' => 'required',
             'address_country' => 'required|numeric',
             'phone_1' => 'required',
-            'member_type' => 'required|numeric'
+            'member_type_id' => 'required|numeric'
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -163,7 +163,7 @@ class MemberController extends \BaseController {
             $member->address_country = Input::get('address_country');
             $member->phone_1 = Input::get('phone_1');
             $member->phone_2 = Input::get('phone_2');
-            $member->member_type = Input::get('member_type');
+            $member->member_type_id = Input::get('member_type_id');
             $member->comments = Input::get('comments');
             $member->purchase_date = date('Y-m-d');
             $member->expiry_date = date('Y-m-d');

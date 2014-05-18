@@ -102,9 +102,9 @@
     </div>
 
     <div class="form-group">
-        {{ Form::label('member_type', 'Member Type', array('class' => "col-sm-2 control-label")) }}
+        {{ Form::label('member_type_id', 'Member Type', array('class' => "col-sm-2 control-label")) }}
         <div class="col-sm-10">
-            {{ Form::select('member_type', $membertypes, null, array('class' => 'form-control')) }}
+            {{ Form::select('member_type_id', $membertypes, null, array('class' => 'form-control')) }}
         </div>
     </div>
 

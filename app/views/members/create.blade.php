@@ -1,5 +1,5 @@
 <div class="col-md-10">
-    <h1>Create Member</h1>
+    <h1>Become a Member</h1>
 </div>
 <div class="col-md-2">
     <a href="{{ URL::to('members') }}" class="btn btn-info">Members</a>
@@ -7,12 +7,7 @@
 
 <div class="col-md-12">
 
-    <!-- if there are creation errors, they will show here -->
-    @if ( $errors->count() > 0 )
-    <div class="alert alert-danger">
-        {{ HTML::ul($errors->all()) }}
-    </div>
-    @endif
+    @include('partials.notifications')
 
     {{ Form::open(array('url' => 'members', 'class' => 'form-horizontal')) }}
 
@@ -101,9 +96,9 @@
     </div>
 
     <div class="form-group">
-        {{ Form::label('member_type', 'Member Type', array('class' => "col-sm-2 control-label")) }}
+        {{ Form::label('member_type_id', 'Member Type', array('class' => "col-sm-2 control-label")) }}
         <div class="col-sm-10">
-            {{ Form::select('member_type', $membertypes, Input::old('member_type'), array('class' => 'form-control')) }}
+            {{ Form::select('member_type_id', $membertypes, Input::old('member_type_id'), array('class' => 'form-control')) }}
         </div>
     </div>
 

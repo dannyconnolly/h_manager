@@ -6,6 +6,7 @@
 </div>
 
 <div class="col-md-12">
+    @include('partials.notifications')
     <p>
         <strong>Name:</strong> {{ $member->first_name }} {{ $member->last_name }}<br>
         <strong>Email:</strong> {{ $member->email }}<br>
@@ -18,7 +19,7 @@
         <strong>Country:</strong> {{ $member->address_country }}<br>
         <strong>Primary Contact Number:</strong> {{ $member->phone_1 }}<br>
         <strong>Secondary Contact Number:</strong> {{ $member->phone_2 }}<br>
-        <strong>Member Type:</strong> {{ $member->member_type }}<br>
+        <strong>Member Type:</strong> {{ $member->member_type_id }}<br>
         <strong>Comments:</strong> {{ $member->comments }}<br>
         <strong>Purchase Date:</strong> {{ $member->purchase_date }}<br>
         <strong>Expiry Date:</strong> {{ $member->expiry_date }}<br>

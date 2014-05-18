@@ -7,22 +7,19 @@
 
 <div class="col-md-12">
 
-    <!-- will be used to show any messages -->
-    @if (Session::has('message'))
-    <div class="alert alert-info">{{ Session::get('message') }}</div>
-    @endif
+    @include('partials.notifications')
 
     <table class="table table-striped table-bordered table-hover">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Member Type</th>
-                <th>Purchase Date</th>
-                <th>Expiry Date</th>
-                <th>Payment Received</th>
+                <th>ID<i class="fa fa-sort"></i></th>
+                <th>First Name<i class="fa fa-sort"></i></th>
+                <th>Last Name<i class="fa fa-sort"></i></th>
+                <th>Email<i class="fa fa-sort"></i></th>
+                <th>Member Type<i class="fa fa-sort"></i></th>
+                <th>Purchase Date<i class="fa fa-sort"></i></th>
+                <th>Expiry Date<i class="fa fa-sort"></i></th>
+                <th>Payment Received<i class="fa fa-sort"></i></th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -33,23 +30,23 @@
                 <td>{{ $value->first_name }}</td>
                 <td>{{ $value->last_name }}</td>
                 <td>{{ $value->email }}</td>
-                <td>{{ $value->member_type }}</td>
+                <td>{{ $value->member_type_id }}</td>
                 <td>{{ $value->purchase_date }}</td>
                 <td>{{ $value->expiry_date }}</td>
                 <td>{{ $value->payement_recieved }}</td>
                 <!-- we will also add show, edit, and delete buttons -->
                 <td>
                     <!-- show the member (uses the show method found at GET /members/{id} -->
-                    <a class="btn btn-small btn-success" href="{{ URL::to('members/' . $value->id) }}"><span class="glyphicon glyphicon-eye-open"></span></a>
+                    <a class="btn btn-small btn-success" href="{{ URL::to('members/' . $value->id) }}"><i class="fa fa-eye"></i>View</a>
 
                     <!-- edit this member (uses the edit method found at GET /members/{id}/edit -->
-                    <a class="btn btn-small btn-info" href="{{ URL::to('members/' . $value->id . '/edit') }}"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="btn btn-small btn-info" href="{{ URL::to('members/' . $value->id . '/edit') }}"><i class="fa fa-pencil"></i>Edit</a>
 
                     <!-- delete the member (uses the destroy method DESTROY /members/{id} -->
                     <!-- we will add this later since its a little more complicated than the other two buttons -->
                     {{ Form::open(array('url' => 'members/' . $value->id, 'class' => 'pull-right')) }}
                     {{ Form::hidden('_method', 'DELETE') }}
-                    {{ Form::submit('Delete', array('class' => 'btn btn-warning')) }}
+                    {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
                     {{ Form::close() }}
                 </td>
             </tr>

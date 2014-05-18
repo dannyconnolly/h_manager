@@ -8,7 +8,7 @@
 <div class="col-md-12">
 
     <!-- if there are creation errors, they will show here -->
-    {{ HTML::ul($errors->all()) }}
+    @include('partials.notifications')
 
     {{ Form::model($event, array('route' => array('events.update', $event->id), 'class' => 'form-horizontal', 'method' => 'PUT')) }}
 
@@ -20,9 +20,9 @@
     </div>
 
     <div class="form-group">
-        {{ Form::label('event_type', 'Event Type', array('class' => "col-sm-2 control-label")) }}
+        {{ Form::label('event_type_id', 'Event Type', array('class' => "col-sm-2 control-label")) }}
         <div class="col-sm-10">
-            {{ Form::select('event_type', $eventtypes, null, array('class' => 'form-control')) }}
+            {{ Form::select('event_type_id', $eventtypes, null, array('class' => 'form-control')) }}
         </div>
     </div>
 

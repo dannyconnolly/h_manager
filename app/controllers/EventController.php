@@ -43,7 +43,7 @@ class EventController extends \BaseController {
         // validate
         $rules = array(
             'title' => 'required',
-            'type' => 'required|numeric',
+            'event_type_id' => 'required|numeric',
             'hostel' => 'required|numeric',
             'county' => 'required|numeric',
             'date_from' => 'required',
@@ -60,7 +60,7 @@ class EventController extends \BaseController {
         } else {
             $event = new Event;
             $event->title = Input::get('title');
-            $event->type = Input::get('type');
+            $event->event_type_id = Input::get('event_type_id');
             $event->hostel = Input::get('hostel');
             $event->county = Input::get('county');
             $event->date_from = Input::get('date_from');
@@ -83,7 +83,6 @@ class EventController extends \BaseController {
     public function show($id) {
         // get event
         $event = Event::find($id);
-
         // show view and pass event
         $this->layout->title = 'Show Event | H Manager';
         $this->layout->main = View::make('events.show')
@@ -119,7 +118,7 @@ class EventController extends \BaseController {
         // validate
         $rules = array(
             'title' => 'required',
-            'type' => 'required|numeric',
+            'event_type_id' => 'required|numeric',
             'hostel' => 'required|numeric',
             'county' => 'required|numeric',
             'date_from' => 'required',
@@ -136,7 +135,7 @@ class EventController extends \BaseController {
             // store
             $event = Event::find($id);
             $event->title = Input::get('title');
-            $event->type = Input::get('type');
+            $event->event_type_id = Input::get('event_type_id');
             $event->hostel = Input::get('hostel');
             $event->county = Input::get('county');
             $event->date_from = Input::get('date_from');

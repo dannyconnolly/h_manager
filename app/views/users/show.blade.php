@@ -6,6 +6,8 @@
 </div>
 
 <div class="col-md-12">
+    @include('partials.notifications')
+
     <p>
         <strong>Username:</strong> {{ $user->username }}<br>
         <strong>Email:</strong> {{ $user->email }}<br>

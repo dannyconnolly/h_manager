@@ -6,10 +6,7 @@
 </div>
 <div class="col-md-12">
 
-    <!-- will be used to show any messages -->
-    @if (Session::has('message'))
-    <div class="alert alert-info">{{ Session::get('message') }}</div>
-    @endif
+    @include('partials.notifications')
 
     @if ($basket == 0)
     <p>There are currently no items in your cart</p>
@@ -21,10 +18,10 @@
                 <th>No. Nights</th>
                 <th>Cost Per Night</th>
                 <th>No. Guests</th>
-                <th>Snr Males</th>
+                <!--<th>Snr Males</th>
                 <th>Snr Females</th>
                 <th>Jr Males</th>
-                <th>Jr Females</th>
+                <th>Jr Females</th>-->
                 <th>Subtotal</th>
                 <th>Actions</th>
             </tr>
@@ -48,7 +45,7 @@
                     {{ $value->options['total_guests'] }}
                     @endif
                 </td>
-                <td>
+               <!-- <td>
                     @if ($value->hasOptions()) 
                     {{ $value->options['snr_male_guests'] }}
                     @endif
@@ -67,7 +64,7 @@
                     @if ($value->hasOptions()) 
                     {{ $value->options['jr_female_guests'] }}
                     @endif
-                </td>
+                </td>-->
                 <td>
                     &euro;{{ $value->subtotal }}
                 </td>
@@ -82,11 +79,11 @@
             </tr>
             @endforeach
             <tr>
-                <td colspan="8">
+                <td colspan="4">
                     <a class="btn btn-small btn-success" href="{{ URL::to('/') }}">View more hostels</a>                    
                 </td>
                 <td colspan="2">
-                    <a class="btn btn-small btn-success" href="{{ URL::to('/') }}">Proceed to checkout</a>
+                    <a class="btn btn-small btn-success" href="{{ URL::to('bookings/create') }}">Proceed to checkout</a>
                 </td>
             </tr>
         </tbody>

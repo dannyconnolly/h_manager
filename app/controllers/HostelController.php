@@ -3,7 +3,7 @@
 class HostelController extends \BaseController {
 
     public function __construct() {
-        $this->beforeFilter('auth');
+        $this->beforeFilter('auth', array('except' => 'show'));
     }
 
     /**

@@ -7,20 +7,17 @@
 
 <div class="col-md-12">
 
-    <!-- will be used to show any messages -->
-    @if (Session::has('message'))
-    <div class="alert alert-info">{{ Session::get('message') }}</div>
-    @endif
+    @include('partials.notifications')
 
     <table class="table table-striped table-bordered table-hover">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Order Id</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Status</th>
+                <th>ID<i class="fa fa-sort"></i></th>
+                <th>Order Id<i class="fa fa-sort"></i></th>
+                <th>First Name<i class="fa fa-sort"></i></th>
+                <th>Last Name<i class="fa fa-sort"></i></th>
+                <th>Email<i class="fa fa-sort"></i></th>
+                <th>Status<i class="fa fa-sort"></i></th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -37,16 +34,16 @@
                 <!-- we will also add show, edit, and delete buttons -->
                 <td>
                     <!-- show the booking (uses the show method found at GET /bookings/{id} -->
-                    <a class="btn btn-small btn-success" href="{{ URL::to('bookings/' . $value->id) }}"><span class="glyphicon glyphicon-eye-open"></span></a>
+                    <a class="btn btn-small btn-success" href="{{ URL::to('bookings/' . $value->id) }}"><i class="fa fa-eye"></i>View</a>
 
                     <!-- edit this booking (uses the edit method found at GET /bookings/{id}/edit -->
-                    <a class="btn btn-small btn-info" href="{{ URL::to('bookings/' . $value->id . '/edit') }}"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="btn btn-small btn-info" href="{{ URL::to('bookings/' . $value->id . '/edit') }}"><i class="fa fa-pencil"></i>Edit</a>
 
                     <!-- delete the booking (uses the destroy method DESTROY /bookings/{id} -->
                     <!-- we will add this later since its a little more complicated than the other two buttons -->
                     {{ Form::open(array('url' => 'bookings/' . $value->id, 'class' => 'pull-right')) }}
                     {{ Form::hidden('_method', 'DELETE') }}
-                    {{ Form::submit('Delete', array('class' => 'btn btn-warning')) }}
+                    {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
                     {{ Form::close() }}
                 </td>
             </tr>

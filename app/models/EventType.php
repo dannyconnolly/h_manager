@@ -15,4 +15,8 @@ class EventType extends Eloquent {
      */
     protected $table = 'event_types';
 
+    public function events() {
+        return $this->hasMany('Event');
+    }
+
 }
