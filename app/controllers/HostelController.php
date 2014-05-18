@@ -4,6 +4,7 @@ class HostelController extends \BaseController {
 
     public function __construct() {
         $this->beforeFilter('auth', array('except' => 'show'));
+        $this->beforeFilter('csrf', array('on' => 'post'));
     }
 
     /**
