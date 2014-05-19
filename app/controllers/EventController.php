@@ -44,9 +44,9 @@ class EventController extends \BaseController {
         // validate
         $rules = array(
             'title' => 'required',
-            'event_type_id' => 'required|numeric',
-            'hostel' => 'required|numeric',
-            'county' => 'required|numeric',
+            'eventtype_id' => 'required|numeric',
+            'hostel_id' => 'required|numeric',
+            'county_id' => 'required|numeric',
             'date_from' => 'required',
             'date_to' => 'required'
         );
@@ -61,9 +61,9 @@ class EventController extends \BaseController {
         } else {
             $event = new Event;
             $event->title = Input::get('title');
-            $event->event_type_id = Input::get('event_type_id');
-            $event->hostel = Input::get('hostel');
-            $event->county = Input::get('county');
+            $event->eventtype_id = Input::get('eventtype_id');
+            $event->hostel_id = Input::get('hostel_id');
+            $event->county_id = Input::get('county_id');
             $event->date_from = Input::get('date_from');
             $event->date_to = Input::get('date_to');
             $event->details = Input::get('details');
@@ -83,7 +83,9 @@ class EventController extends \BaseController {
      */
     public function show($id) {
         // get event
-        $event = Event::find($id);
+        //$event = Event::find($id);
+        $event = Event::with('eventtype')->find($id);
+
         // show view and pass event
         $this->layout->title = 'Show Event | H Manager';
         $this->layout->main = View::make('events.show')
@@ -119,9 +121,9 @@ class EventController extends \BaseController {
         // validate
         $rules = array(
             'title' => 'required',
-            'event_type_id' => 'required|numeric',
-            'hostel' => 'required|numeric',
-            'county' => 'required|numeric',
+            'eventtype_id' => 'required|numeric',
+            'hostel_id' => 'required|numeric',
+            'county_id' => 'required|numeric',
             'date_from' => 'required',
             'date_to' => 'required'
         );
@@ -136,9 +138,9 @@ class EventController extends \BaseController {
             // store
             $event = Event::find($id);
             $event->title = Input::get('title');
-            $event->event_type_id = Input::get('event_type_id');
-            $event->hostel = Input::get('hostel');
-            $event->county = Input::get('county');
+            $event->eventtype_id = Input::get('eventtype_id');
+            $event->hostel_id = Input::get('hostel_id');
+            $event->county_id = Input::get('county_id');
             $event->date_from = Input::get('date_from');
             $event->date_to = Input::get('date_to');
             $event->details = Input::get('details');

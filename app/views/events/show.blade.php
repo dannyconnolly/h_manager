@@ -8,9 +8,9 @@
     @include('partials.notifications')
     <p>
         <strong>Title:</strong> {{ $event->title }}<br>
-        <strong>Type:</strong> {{ $event->event_type_id }}<br>
-        <strong>Hostel:</strong> {{ $event->hostel }}<br>
-        <strong>County:</strong> {{ $event->county }}<br>
+        <strong>Type:</strong> {{ $event->eventtype->name }}<br>
+        <strong>Hostel:</strong> {{ $event->hostel_id }}<br>
+        <strong>County:</strong> {{ $event->county_id }}<br>
         <strong>Date From:</strong> {{ $event->date_from }}<br>
         <strong>Date To:</strong> {{ $event->date_to }}<br>
         <strong>Details:</strong> {{ $event->details }}

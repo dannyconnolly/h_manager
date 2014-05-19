@@ -26,16 +26,16 @@
     </div>
 
     <div class="form-group">
-        {{ Form::label('hostel', 'Hostel', array('class' => "col-sm-2 control-label")) }}
+        {{ Form::label('hostel_id', 'Hostel', array('class' => "col-sm-2 control-label")) }}
         <div class="col-sm-10">
-            {{ Form::select('hostel', $hostels, Input::old('hostel'), array('class' => 'form-control')) }}
+            {{ Form::select('hostel_id', $hostels, Input::old('hostel_id'), array('class' => 'form-control')) }}
         </div>
     </div>
 
     <div class="form-group">
-        {{ Form::label('county', 'County', array('class' => "col-sm-2 control-label")) }}
+        {{ Form::label('county_id', 'County', array('class' => "col-sm-2 control-label")) }}
         <div class="col-sm-10">
-            {{ Form::select('county', $counties, Input::old('county'), array('class' => 'form-control')) }}
+            {{ Form::select('county_id', $counties, Input::old('county_id'), array('class' => 'form-control')) }}
         </div>
     </div>
 

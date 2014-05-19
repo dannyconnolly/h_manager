@@ -20,23 +20,23 @@
     </div>
 
     <div class="form-group">
-        {{ Form::label('event_type_id', 'Event Type', array('class' => "col-sm-2 control-label")) }}
+        {{ Form::label('eventtype_id', 'Event Type', array('class' => "col-sm-2 control-label")) }}
         <div class="col-sm-10">
-            {{ Form::select('event_type_id', $eventtypes, null, array('class' => 'form-control')) }}
+            {{ Form::select('eventtype_id', $eventtypes, null, array('class' => 'form-control')) }}
         </div>
     </div>
 
     <div class="form-group">
-        {{ Form::label('hostel', 'Hostel', array('class' => "col-sm-2 control-label")) }}
+        {{ Form::label('hostel_id', 'Hostel', array('class' => "col-sm-2 control-label")) }}
         <div class="col-sm-10">
-            {{ Form::select('hostel', $hostels, null, array('class' => 'form-control')) }}
+            {{ Form::select('hostel_id', $hostels, null, array('class' => 'form-control')) }}
         </div>
     </div>
 
     <div class="form-group">
-        {{ Form::label('county', 'County', array('class' => "col-sm-2 control-label")) }}
+        {{ Form::label('county_id', 'County', array('class' => "col-sm-2 control-label")) }}
         <div class="col-sm-10">
-            {{ Form::select('county', $counties, null, array('class' => 'form-control')) }}
+            {{ Form::select('county_id', $counties, null, array('class' => 'form-control')) }}
         </div>
     </div>
 

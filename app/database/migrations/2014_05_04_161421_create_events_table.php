@@ -13,7 +13,7 @@ class CreateEventsTable extends Migration {
     public function up() {
         Schema::create('events', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('event_type_id');
+            $table->integer('eventtype_id');
             $table->integer('hostel');
             $table->integer('county');
             $table->date('date_from');

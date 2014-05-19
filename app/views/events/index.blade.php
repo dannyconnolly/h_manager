@@ -25,9 +25,9 @@
             <tr>
                 <td>{{ $value->id }}</td>
                 <td>{{ $value->title }}</td>
-                <td>{{ $value->event_type_id }}</td>
-                <td>{{ $value->hostel }}</td>
-                <td>{{ $value->county }}</td>
+                <td>{{ $value->eventtype->name }}</td>
+                <td>{{ $value->hostel->name }}</td>
+                <td>{{ $value->county_id }}</td>
                 <td>{{ $value->date_from }}</td>
                 <td>{{ $value->date_to }}</td>
 
