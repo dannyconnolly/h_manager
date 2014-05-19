@@ -12,7 +12,7 @@ class ChangeTypeColumnInEvents extends Migration {
      */
     public function up() {
         Schema::table('events', function($table) {
-            $table->renameColumn('type', 'event_type');
+            //$table->renameColumn('type', 'eventtype_id');
         });
     }
 
@@ -23,7 +23,7 @@ class ChangeTypeColumnInEvents extends Migration {
      */
     public function down() {
         Schema::table('events', function($table) {
-            $table->renameColumn('event_type', 'type');
+            //$table->renameColumn('eventtype', 'type');
         });
     }
 

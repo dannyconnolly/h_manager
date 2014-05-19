@@ -8,7 +8,7 @@ class CartController extends \BaseController {
      * @return Response
      */
     public function index() {
-//
+        //
         $cart = Cart::contents();
         $basket = Cart::totalItems(true);
 
@@ -35,10 +35,7 @@ class CartController extends \BaseController {
         $rules = array(
             'total_guests' => 'required|numeric',
             'arrival_date' => 'date',
-            'snr_male_guests' => 'numeric',
-            'snr_female_guests' => 'numeric',
-            'jr_male_guests' => 'numeric',
-            'jr_female_guests' => 'numeric',
+            'nights_stay' => 'numeric'
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -49,18 +46,16 @@ class CartController extends \BaseController {
                             ->withErrors($validator)
                             ->withInput(Input::all());
         } else {
+
+            $product = Product::find(Input::get('hostel_id'));
             $items = array(
-                'id' => Input::get('hostel_id'),
-                'name' => Input::get('name'),
+                'id' => $product->id,
+                'name' => $product->name,
                 'price' => Input::get('price'),
                 'quantity' => Input::get('nights_stay'),
                 'options' => array(
                     'arrival_date' => Input::get('arrival_date'),
                     'total_guests' => Input::get('total_guests'),
-                    'snr_male_guests' => Input::get('snr_male_guests'),
-                    'snr_female_guests' => Input::get('snr_female_guests'),
-                    'jr_male_guests' => Input::get('jr_male_guests'),
-                    'jr_female_guests' => Input::get('jr_female_guests'),
                 )
             );
 
@@ -142,6 +137,10 @@ class CartController extends \BaseController {
         // redirect
         Session::flash('message', 'Successfully deleted item');
         return Redirect::to('cart');
+    }
+
+    public function getRemoveItem($identifier) {
+        
     }
 
 }

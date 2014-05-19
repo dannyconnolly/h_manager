@@ -24,11 +24,11 @@
                         <option value="{{ $value->id }}">{{ $value->name }}</option>
                         @endforeach
                     </select> 
-                    {{Form::hidden('name',  null, array('id' => 'hostel_name_hidden'))}}
+                    <!--{{Form::hidden('name',  null, array('id' => 'hostel_name_hidden'))}}-->
                     <script>
-                        function setHostelName(selObj) {
-                            document.forms['booking_form'].hostel_name_hidden.value = selObj.options[selObj.options.selectedIndex].text;
-                        }
+                        /*function setHostelName(selObj) {
+                         document.forms['booking_form'].hostel_name_hidden.value = selObj.options[selObj.options.selectedIndex].text;
+                         }*/
                     </script>
                 </div>
 
