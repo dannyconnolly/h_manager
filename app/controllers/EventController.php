@@ -14,7 +14,7 @@ class EventController extends \BaseController {
      */
     public function index() {
         // get all events
-        $events = Event::paginate(20);
+        $events = Event::with('eventtype')->paginate(20);
 
         // load view nd pass events
         $this->layout->title = 'Events | H Manager';

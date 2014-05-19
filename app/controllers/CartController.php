@@ -47,11 +47,11 @@ class CartController extends \BaseController {
                             ->withInput(Input::all());
         } else {
 
-            $product = Product::find(Input::get('hostel_id'));
+            $hostel = Hostel::find(Input::get('hostel_id'));
             $items = array(
-                'id' => $product->id,
+                'id' => $hostel->id,
                 'name' => $product->name,
-                'price' => Input::get('price'),
+                'price' => $hostel->snr_price,
                 'quantity' => Input::get('nights_stay'),
                 'options' => array(
                     'arrival_date' => Input::get('arrival_date'),
