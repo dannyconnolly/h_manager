@@ -13,13 +13,13 @@
         <strong>Date of Birth:</strong> {{ $member->date_of_birth }}<br>
         <strong>Address Line 1:</strong> {{ $member->address_line_1 }}<br>
         <strong>Address Line 2:</strong> {{ $member->address_line_2 }}<br>
-        <strong>Town/City:</strong> {{ $member->address_town_city }}<br>
-        <strong>State/County:</strong> {{ $member->address_state_county }}<br>
-        <strong>Postcode:</strong> {{ $member->address_postcode }}<br>
-        <strong>Country:</strong> {{ $member->address_country }}<br>
+        <strong>Town/City:</strong> {{ $member->town_city }}<br>
+        <strong>State/County:</strong> {{ $member->state_county }}<br>
+        <strong>Postcode:</strong> {{ $member->postcode }}<br>
+        <strong>Country:</strong> {{ $member->country }}<br>
         <strong>Primary Contact Number:</strong> {{ $member->phone_1 }}<br>
         <strong>Secondary Contact Number:</strong> {{ $member->phone_2 }}<br>
-        <strong>Member Type:</strong> {{ $member->member_type_id }}<br>
+        <strong>Member Type:</strong> {{ $member->membertype_id }}<br>
         <strong>Comments:</strong> {{ $member->comments }}<br>
         <strong>Purchase Date:</strong> {{ $member->purchase_date }}<br>
         <strong>Expiry Date:</strong> {{ $member->expiry_date }}<br>

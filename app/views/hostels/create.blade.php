@@ -32,16 +32,16 @@
     </div>
 
     <div class="form-group">
-        {{ Form::label('address_town_city', 'Town/City', array('class' => "col-sm-2 control-label")) }}
+        {{ Form::label('town_city', 'Town/City', array('class' => "col-sm-2 control-label")) }}
         <div class="col-sm-10">
-            {{ Form::text('address_town_city', Input::old('address_town_city'), array('class' => 'form-control')) }}
+            {{ Form::text('town_city', Input::old('town_city'), array('class' => 'form-control')) }}
         </div>
     </div>
 
     <div class="form-group">
-        {{ Form::label('address_state_county', 'County', array('class' => "col-sm-2 control-label")) }}
+        {{ Form::label('state_county', 'County', array('class' => "col-sm-2 control-label")) }}
         <div class="col-sm-10">
-            {{ Form::select('address_state_county', $counties, Input::old('address_state_county'), array('class' => 'form-control')) }}
+            {{ Form::select('state_county', $counties, Input::old('state_county'), array('class' => 'form-control')) }}
         </div>
     </div>
 
@@ -107,6 +107,21 @@
             {{ Form::text('open_to', Input::old('open_to'), array('class' => 'form-control date-input')) }}
         </div>
     </div>
+
+    <div class="form-group">
+        {{ Form::label('snr_price', 'Snr Price', array('class' => "col-sm-2 control-label")) }}
+        <div class="col-sm-10">
+            {{ Form::text('snr_price', Input::old('snr_price'), array('class' => 'form-control')) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('jnr_price', 'Jnr Price', array('class' => "col-sm-2 control-label")) }}
+        <div class="col-sm-10">
+            {{ Form::text('jnr_price', Input::old('jnr_price'), array('class' => 'form-control date-input')) }}
+        </div>
+    </div>
+
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             {{ Form::submit('Create the Hostel!', array('class' => 'btn btn-primary')) }}

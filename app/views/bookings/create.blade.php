@@ -6,7 +6,9 @@
 </div>
 
 <div class="col-md-12">
-
+    <pre>
+        <?php var_dump($input); ?>
+    </pre>
     @include('partials.notifications')
 
     {{ Form::open(array('url' => 'bookings', 'class' => 'form-horizontal')) }}

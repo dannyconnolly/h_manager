@@ -41,8 +41,8 @@ class HostelsTableSeeder extends Seeder {
                 'photo' => 'uploads/image1.jpg',
                 'open_from' => $faker->date(),
                 'open_to' => $faker->date(),
-                'jnr_price' => $faker->randomFloat(2, 10.00, 90.00),
-                'snr_price' => $faker->randomFloat(2, 10.00, 90.00)
+                'jnr_price' => $faker->randomFloat(2, 10, 90),
+                'snr_price' => $faker->randomFloat(2, 10, 90)
             ));
         }
 

@@ -31,15 +31,15 @@
         </div>
     </div>
     <div class="form-group">
-        {{ Form::label('address_town_city', 'Town/City', array('class' => "col-sm-2 control-label")) }}
+        {{ Form::label('town_city', 'Town/City', array('class' => "col-sm-2 control-label")) }}
         <div class="col-sm-10">
-            {{ Form::text('address_town_city', null, array('class' => 'form-control')) }}
+            {{ Form::text('town_city', null, array('class' => 'form-control')) }}
         </div>
     </div>
     <div class="form-group">
-        {{ Form::label('address_state_county', 'County', array('class' => "col-sm-2 control-label")) }}
+        {{ Form::label('state_county', 'County', array('class' => "col-sm-2 control-label")) }}
         <div class="col-sm-10">
-            {{ Form::select('address_state_county', $counties, null, array('class' => 'form-control')) }}
+            {{ Form::select('state_county', $counties, null, array('class' => 'form-control')) }}
         </div>
     </div>
     <div class="form-group">
@@ -96,14 +96,26 @@
         <div class="col-sm-10">
             {{ Form::text('open_to', null, array('class' => 'form-control date-input')) }}
         </div>
-    </div>
 
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            {{ Form::submit('Edit the Hostel!', array('class' => 'btn btn-primary')) }}
+        <div class="form-group">
+            {{ Form::label('snr_price', 'Snr Price', array('class' => "col-sm-2 control-label")) }}
+            <div class="col-sm-10">
+                {{ Form::text('snr_price', null, array('class' => 'form-control')) }}
+            </div>
         </div>
+        <div class="form-group">
+            {{ Form::label('jnr_price', 'Jnr Price', array('class' => "col-sm-2 control-label")) }}
+            <div class="col-sm-10">
+                {{ Form::text('jnr_price', null, array('class' => 'form-control date-input')) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                {{ Form::submit('Edit the Hostel!', array('class' => 'btn btn-primary')) }}
+            </div>
+        </div>
+
+
+        {{ Form::close() }}
     </div>
-
-
-    {{ Form::close() }}
-</div>

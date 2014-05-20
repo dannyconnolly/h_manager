@@ -50,7 +50,7 @@ class CartController extends \BaseController {
             $hostel = Hostel::find(Input::get('hostel_id'));
             $items = array(
                 'id' => $hostel->id,
-                'name' => $product->name,
+                'name' => $hostel->name,
                 'price' => $hostel->snr_price,
                 'quantity' => Input::get('nights_stay'),
                 'options' => array(
@@ -140,7 +140,20 @@ class CartController extends \BaseController {
     }
 
     public function getRemoveItem($identifier) {
-        
+        $item = Cart::item($identifier);
+        $item->remove();
+
+        // redirect
+        Session::flash('message', 'Successfully deleted item');
+        return Redirect::to('cart');
+    }
+
+    public function postToCheckout() {
+        $input = Input::all();
+        $countries = Country::lists('name', 'id');
+        $membertypes = MemberType::lists('name', 'id');
+        $this->layout->title = 'Checkout | H Manager';
+        $this->layout->main = View::make('bookings.create')->with(array('countries' => $countries, 'membertypes' => $membertypes, 'input' => $input));
     }
 
 }
