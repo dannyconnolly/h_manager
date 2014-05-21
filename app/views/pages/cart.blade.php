@@ -31,18 +31,18 @@
                     {{ $value->name }}
                 </td>
                 <td>
-                    {{ $value->quantity }}
+                    {{ Form::html5_field('number', 'quantity', $value->quantity, array('class' => 'form-control', 'min' => '1', 'max' => '20')) }}
                 </td>
                 <td>
                     &euro;{{ number_format($value->price, 2) }}
                 </td>
                 <td>
                     @if ($value->hasOptions())
-                    {{ $value->options['total_guests'] }}
+                    {{ Form::html5_field('number', 'total_guests', $value->options['total_guests'], array('class' => 'form-control', 'min' => '1', 'max' => '20')) }}
                     @endif
                 </td>
                 <td>
-                    &euro;{{ number_format($value->total(),2) }}
+                    &euro;{{ $subtotal = $value->options['total_guests'] * number_format($value->total(),2) }}
                 </td>
                 <td>
                     <!-- delete the user (uses the destroy method DESTROY /users/{id} -->
@@ -62,7 +62,8 @@
                     <a class="btn btn-small btn-success" href="{{ URL::to('/') }}">View more hostels</a>                    
                 </td>
                 <td colspan="2">
-                    {{ Form::submit('Proceed to checkout', array('class' => 'btn btn-success')) }}
+                    {{ Form::submit('Update Cart', array('class' => 'btn btn-info', 'name' => 'update_cart')) }}
+                    {{ Form::submit('Proceed to checkout', array('class' => 'btn btn-success', 'name' => 'checkout')) }}
                 </td>
             </tr>
         </tbody>

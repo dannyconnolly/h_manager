@@ -77,7 +77,7 @@ class BookingController extends \BaseController {
             $booking->member = Input::get('member');
             $booking->membership_number = Input::get('membership_number');
             $booking->member_signup = Input::get('member_signup');
-            $booking->member_type = Input::get('member_type');
+            $booking->membertype_id = Input::get('membertype_id');
             $booking->comments = Input::get('comments');
             $booking->requests = Input::get('requests');
             $booking->comments = Input::get('requests');
@@ -172,7 +172,7 @@ class BookingController extends \BaseController {
             $booking->member = Input::get('member');
             $booking->membership_number = Input::get('membership_number');
             $booking->member_signup = Input::get('member_signup');
-            $booking->member_type = Input::get('member_type');
+            $booking->membertype_id = Input::get('membertype_id');
             $booking->comments = Input::get('comments');
             $booking->requests = Input::get('requests');
             $booking->comments = Input::get('requests');

@@ -6,9 +6,6 @@
 </div>
 
 <div class="col-md-12">
-    <pre>
-        <?php var_dump($input); ?>
-    </pre>
     @include('partials.notifications')
 
     {{ Form::open(array('url' => 'bookings', 'class' => 'form-horizontal')) }}
@@ -125,9 +122,9 @@
 
     <!-- If choose to become member select member ship -->
     <div class="form-group">
-        {{ Form::label('member_type', 'Which membership would you like to join?', array('class' => "col-sm-2 control-label")) }}
+        {{ Form::label('membertype_id', 'Which membership would you like to join?', array('class' => "col-sm-2 control-label")) }}
         <div class="col-sm-10">
-            {{ Form::select('member_type', $membertypes, Input::old('member_type'), array('class' => 'form-control')) }}
+            {{ Form::select('membertype_id', $membertypes, Input::old('membertype_id'), array('class' => 'form-control')) }}
         </div>
     </div>
 

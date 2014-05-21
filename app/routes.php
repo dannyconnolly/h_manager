@@ -25,5 +25,5 @@ Route::resource('eventtypes', 'EventTypeController');
 Route::resource('events', 'EventController');
 Route::resource('bookings', 'BookingController');
 Route::resource('bookingitems', 'BookingItemController');
-Route::post('checkout', array('as' => 'checkout', 'uses' => 'CartController@postToCheckout'));
+Route::post('checkout', array('as' => 'checkout', 'uses' => 'CartController@postCheckType'));
 Route::resource('cart', 'CartController');
