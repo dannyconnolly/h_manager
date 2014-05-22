@@ -96,6 +96,34 @@
     </div>
 
     <div class="form-group">
+        {{ Form::label('snr_male_guests', 'Snr Male Guests', array('class' => "col-sm-2 control-label")) }}
+        <div class="col-sm-10">
+            {{ Form::html5_field('number', 'snr_male_guests', Input::old('snr_male_guests'), array('class' => 'form-control', 'min' => '1', 'max' => '20')) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('snr_female_guests', 'Snr Female Guests', array('class' => "col-sm-2 control-label")) }}
+        <div class="col-sm-10">
+            {{ Form::html5_field('number', 'snr_female_guests', Input::old('snr_female_guests'), array('class' => 'form-control', 'min' => '1', 'max' => '20')) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('jr_male_guests', 'Jr Male Guests', array('class' => "col-sm-2 control-label")) }}
+        <div class="col-sm-10">
+            {{ Form::html5_field('number', 'jr_male_guests', Input::old('jr_male_guests'), array('class' => 'form-control', 'min' => '1', 'max' => '20')) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('jr_female_guests', 'Jr Female Guests', array('class' => "col-sm-2 control-label")) }}
+        <div class="col-sm-10">
+            {{ Form::html5_field('number', 'jr_female_guests', Input::old('jr_female_guests'), array('class' => 'form-control', 'min' => '1', 'max' => '20')) }}
+        </div>
+    </div>
+
+    <div class="form-group">
         {{ Form::label('member', 'Already a member?', array('class' => "col-sm-2 control-label")) }}
         <div class="col-sm-10">
             No {{ Form::radio('member', '0', (Input::old('member') == '0') ? true : false) }}
@@ -135,9 +163,22 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <!--<div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             {{ Form::submit('Create the Booking!', array('class' => 'btn btn-primary')) }}
+        </div>
+    </div>-->
+    <div class="control-group">
+        <label for="payment" class="control-label">Payment*</label>
+        <div class="controls">
+            <script
+                src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+                data-key="pk_test_j0p8qXRAWrtz3hbWvvjIMkjx"
+                data-amount="1000"
+                data-name="Myshop"
+                data-description="Quadcopter"
+                data-image="{{url('img/stripe-128x128.png')}}">
+            </script>
         </div>
     </div>
 
