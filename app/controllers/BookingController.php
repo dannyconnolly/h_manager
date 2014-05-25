@@ -88,8 +88,6 @@ class BookingController extends \BaseController {
                                 ->with(array('card_errors' => $error));
             }
 
-            // Stripe charge was successfull, continue 
-
             $booking = new Booking();
             $booking->order_id = Input::get('order_id');
             $booking->booking_date = Input::get('booking_date');

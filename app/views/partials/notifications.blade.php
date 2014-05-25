@@ -1,5 +1,4 @@
-<div class="row">
-
+<div class="">
     <!-- will be used to show any messages -->
     @if (Session::has('message'))
     <div class="alert alert-success">{{ Session::get('message') }}</div>
@@ -11,5 +10,4 @@
         {{ HTML::ul($errors->all()) }}
     </div>
     @endif
-
 </div>

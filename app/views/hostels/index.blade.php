@@ -1,7 +1,5 @@
-<div class="col-md-10">
-    <h1>Hostels</h1>
-</div>
-<div class="col-md-2">
+<div class="page-header">
+    <h1 class="">Hostels</h1>
     <a href="{{ URL::to('hostels/create') }}" class="btn btn-info">Create a Hostel</a>
 </div>
 

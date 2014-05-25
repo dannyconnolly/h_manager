@@ -1,8 +1,5 @@
-<div class="col-md-10">
+<div class="page-header">
     <h1>Cart</h1>
-</div>
-<div class="col-md-2">
-
 </div>
 <div class="col-md-12">
 

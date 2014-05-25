@@ -1,8 +1,6 @@
-<div class="col-md-10">
+<div class="page-header">
     <h1>Event Types</h1>
-</div>
-<div class="col-md-2">
-    <a href="{{ URL::to('eventtypes/create') }}" class="btn btn-info">Create Event Type</a>
+    <a href="{{ URL::to('eventtypes/create') }}" class="btn btn-info">Create an Event Type</a>
 </div>
 
 <div class="col-md-12">

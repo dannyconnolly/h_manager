@@ -17,12 +17,12 @@
         <strong>Town/City:</strong> {{ $booking->town_city }}<br>
         <strong>State/County:</strong> {{ $booking->state_county }}<br>
         <strong>Postcode:</strong> {{ $booking->post_code }}<br>
-        <strong>Country:</strong> {{ $booking->country_id }}<br>
+        <strong>Country:</strong> {{ SiteHelper::getCountryName($booking->country_id) }}<br>
         <strong>Primary Contact Number:</strong> {{ $booking->phone_1 }}<br>
         <strong>Secondary Contact Number:</strong> {{ $booking->phone_2 }}<br>
-        <strong>Member:</strong> {{ $booking->member }}<br>
+        <strong>Member:</strong> {{ $member_already = $booking->member = 1 ? 'Yes' : 'No' }}<br>
         <strong>Membership Number:</strong> {{ $booking->membership_number }}<br>
-        <strong>Member Signup:</strong> {{ $booking->member_signup }}<br>
+        <strong>Member Signup:</strong> {{ $sign_up_as_member = $booking->member_signup = 1 ? 'Yes' : 'No' }}<br>
         <strong>Member Type:</strong> {{ $booking->member_type }}<br>
         <strong>Status:</strong> {{ $booking->status }}<br>
         <strong>Who Added:</strong> {{ $booking->who_added }}<br>

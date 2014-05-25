@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 @if(Auth::check())
-                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Users<b class="caret"></b></a>
+                <!--<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Users<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ URL::to('users') }}">Users</a></li>
                         <li><a href="{{ URL::to('users/create') }}">Create a User</a></li>
@@ -41,7 +41,7 @@
                         <li><a href="{{ URL::to('eventtypes') }}">Event Types</a></li>
                         <li><a href="{{ URL::to('eventtypes/create') }}">Create an Event Type</a></li>
                     </ul>
-                </li>
+                </li>-->
                 <li><a href="{{ URL::to('logout') }}">Logout</a></li>
                 @else 
                 <li><a href="{{ URL::to('/') }}">Book a hostel</a></li>
@@ -50,7 +50,7 @@
                 @endif
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ URL::to('cart') }}">{{ $basket }} items in your basket | View Cart</a></li>
+                <li><a href="{{ URL::to('cart') }}"><i class="fa fa-shopping-cart"></i>{{ $basket }} items in your basket | View Cart</a></li>
             </ul>
         </div>
     </div>

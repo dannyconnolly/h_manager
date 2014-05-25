@@ -14,7 +14,7 @@ class HostelController extends \BaseController {
      */
     public function index() {
         // get all hostels
-        $hostels = Hostel::paginate(20);
+        $hostels = Hostel::paginate(10);
 
         // load view nd pass hostels
         $this->layout->title = 'Hostels | H Manager';

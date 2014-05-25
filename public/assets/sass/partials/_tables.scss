@@ -1,21 +1,29 @@
 table{
     thead{
-        th.tablesorter-header{
-            
-            cursor: pointer;
-            i{
-                float:right;
-                font-size: 20px;
-            }
+        th{
+            vertical-align: middle;
         } 
-        th.tablesorter-headerUnSorted{
-
-        }
-        th.tablesorter-headerAsc{
-            background: #e3e3d2;
-        }
-        .tablesorter-headerDesc{
-            background: #e3e3d2;
+    }
+    tbody{
+        td{
+            vertical-align: middle;
         }
     }
+}
+
+th.tablesorter-header{            
+    cursor: pointer;
+    i{
+        float:right;
+        font-size: 20px;
+    }
+} 
+th.tablesorter-headerUnSorted{
+
+}
+th.tablesorter-headerAsc{
+    background: #e3e3d2;
+}
+.tablesorter-headerDesc{
+    background: #e3e3d2;
 }

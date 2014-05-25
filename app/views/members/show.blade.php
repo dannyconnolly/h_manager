@@ -1,11 +1,9 @@
-<div class="col-md-10">
-    <h1>Showing {{ $member->first_name }} {{ $member->last_name }}</h1>
-</div>
-<div class="col-md-2">
+<div class="page-header">
+    <h1 class="">{{ $member->first_name }} {{ $member->last_name }}</h1>
     <a class="btn btn-small btn-info" href="{{ URL::to('members/' . $member->id . '/edit') }}">Edit this Member</a>
 </div>
 
-<div class="col-md-12">
+<div class="col-md-7">
     @include('partials.notifications')
     <p>
         <strong>Name:</strong> {{ $member->first_name }} {{ $member->last_name }}<br>
@@ -16,10 +14,10 @@
         <strong>Town/City:</strong> {{ $member->town_city }}<br>
         <strong>State/County:</strong> {{ $member->state_county }}<br>
         <strong>Postcode:</strong> {{ $member->postcode }}<br>
-        <strong>Country:</strong> {{ $member->country }}<br>
+        <strong>Country:</strong> {{ SiteHelper::getCountryName($member->country) }}<br>
         <strong>Primary Contact Number:</strong> {{ $member->phone_1 }}<br>
         <strong>Secondary Contact Number:</strong> {{ $member->phone_2 }}<br>
-        <strong>Member Type:</strong> {{ $member->membertype_id }}<br>
+        <strong>Member Type:</strong> {{ $member->membertype->name }}<br>
         <strong>Comments:</strong> {{ $member->comments }}<br>
         <strong>Purchase Date:</strong> {{ $member->purchase_date }}<br>
         <strong>Expiry Date:</strong> {{ $member->expiry_date }}<br>

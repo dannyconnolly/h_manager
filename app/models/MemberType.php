@@ -15,4 +15,8 @@ class MemberType extends Eloquent {
      */
     protected $table = 'member_types';
 
+    public function members() {
+        return $this->hasMany('Member');
+    }
+
 }

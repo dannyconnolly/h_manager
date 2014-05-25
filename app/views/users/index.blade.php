@@ -1,7 +1,5 @@
-<div class="col-md-10">
-    <h1>All Users</h1>
-</div>
-<div class="col-md-2">
+<div class="page-header">
+    <h1 class="">All Users</h1>
     <a href="{{ URL::to('users/create') }}" class="btn btn-info">Create User</a>
 </div>
 

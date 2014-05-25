@@ -1,7 +1,5 @@
-<div class="col-md-10">
-    <h1>Showing {{ $user->username }}</h1>
-</div>
-<div class="col-md-2">
+<div class="page-header">
+    <h1 class="">{{ $user->username }}</h1>
     <a class="btn btn-small btn-info" href="{{ URL::to('users/' . $user->id . '/edit') }}">Edit</a>
 </div>
 

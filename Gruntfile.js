@@ -14,7 +14,6 @@ module.exports = function(grunt) {
                         'public/assets/js/vendor/jquery-migrate-1.2.1.js',
                         'public/assets/js/vendor/jquery-ui-1.10.4.js',
                         'public/bower_components/bootstrap-css/js/bootstrap.js',
-                        'public/inc/ckeditor/ckeditor.js',
                         'public/assets/js/vendor/jquery.tablesorter.js'
                     ]
                 }
