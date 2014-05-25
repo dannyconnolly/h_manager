@@ -1,0 +1,24 @@
+.navbar{
+    margin-bottom: 0;
+}
+.navbar-default{
+    @include border-radius(0);
+    @include box-shadow(none);
+    border-color: transparent;
+    background: #6AB14A;
+    .navbar-brand {
+        color: #FFF;
+        text-shadow: none;
+    }
+    .navbar-nav{
+        >li{
+            >a {
+                color: #FFF;
+                @include transition();
+            }
+        }
+    }
+}
+.page-header{
+    margin-top: 0;
+}

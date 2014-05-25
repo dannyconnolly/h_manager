@@ -3,7 +3,8 @@
 class HostelController extends \BaseController {
 
     public function __construct() {
-        $this->beforeFilter('auth', array('except' => 'show'));
+        $this->beforeFilter('auth');
+        $this->beforeFilter('csrf', array('on' => 'post'));
     }
 
     /**
@@ -13,7 +14,7 @@ class HostelController extends \BaseController {
      */
     public function index() {
         // get all hostels
-        $hostels = Hostel::paginate(20);
+        $hostels = Hostel::paginate(10);
 
         // load view nd pass hostels
         $this->layout->title = 'Hostels | H Manager';

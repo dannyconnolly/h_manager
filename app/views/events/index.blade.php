@@ -1,7 +1,5 @@
-<div class="col-md-10">
-    <h1>Events</h1>
-</div>
-<div class="col-md-2">
+<div class="page-header">
+    <h1 class="">Events</h1>
     <a href="{{ URL::to('events/create') }}" class="btn btn-info">Create an Event</a>
 </div>
 <div class="col-md-12">
@@ -25,9 +23,9 @@
             <tr>
                 <td>{{ $value->id }}</td>
                 <td>{{ $value->title }}</td>
-                <td>{{ $value->event_type_id }}</td>
-                <td>{{ $value->hostel }}</td>
-                <td>{{ $value->county }}</td>
+                <td>{{ $value->eventtype->name }}</td>
+                <td>{{ $value->hostel_id }}</td>
+                <td>{{ $value->county_id }}</td>
                 <td>{{ $value->date_from }}</td>
                 <td>{{ $value->date_to }}</td>
 

@@ -15,4 +15,8 @@ class Member extends Eloquent {
      */
     protected $table = 'members';
 
+    public function membertype() {
+        return $this->belongsTo('MemberType');
+    }
+
 }

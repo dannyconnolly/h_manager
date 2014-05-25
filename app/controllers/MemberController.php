@@ -3,7 +3,8 @@
 class MemberController extends \BaseController {
 
     public function __construct() {
-        $this->beforeFilter('auth', array('except' => 'create'));
+        $this->beforeFilter('auth');
+        $this->beforeFilter('csrf', array('on' => 'post'));
     }
 
     /**
@@ -13,7 +14,7 @@ class MemberController extends \BaseController {
      */
     public function index() {
         // get all members
-        $members = Member::paginate(20);
+        $members = Member::with('membertype')->paginate(20);
 
         // load view and pass members
         $this->layout->title = 'Members | H Manager';
@@ -47,11 +48,11 @@ class MemberController extends \BaseController {
             'date_of_birth' => 'required',
             'email' => 'required|email',
             'address_line_1' => 'required',
-            'address_town_city' => 'required',
-            'address_state_county' => 'required',
-            'address_country' => 'required|numeric',
+            'town_city' => 'required',
+            'state_county' => 'required',
+            'country' => 'required|numeric',
             'phone_1' => 'required',
-            'member_type_id' => 'required|numeric'
+            'membertype_id' => 'required|numeric'
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -69,13 +70,13 @@ class MemberController extends \BaseController {
             $member->email = Input::get('email');
             $member->address_line_1 = Input::get('address_line_1');
             $member->address_line_2 = Input::get('address_line_2');
-            $member->address_town_city = Input::get('address_town_city');
-            $member->address_state_county = Input::get('address_state_county');
-            $member->address_postcode = Input::get('address_postcode');
-            $member->address_country = Input::get('address_country');
+            $member->town_city = Input::get('town_city');
+            $member->state_county = Input::get('state_county');
+            $member->postcode = Input::get('postcode');
+            $member->country = Input::get('country');
             $member->phone_1 = Input::get('phone_1');
             $member->phone_2 = Input::get('phone_2');
-            $member->member_type_id = Input::get('member_type_id');
+            $member->membertype_id = Input::get('membertype_id');
             $member->comments = Input::get('comments');
             $member->purchase_date = date('Y-m-d');
             $member->expiry_date = date('Y-m-d');
@@ -95,7 +96,7 @@ class MemberController extends \BaseController {
      */
     public function show($id) {
         // get member
-        $member = Member::find($id);
+        $member = Member::with('membertype')->find($id);
 
         // show view and pass member
         $this->layout->title = 'Show Member | H Manager';
@@ -135,11 +136,11 @@ class MemberController extends \BaseController {
             'date_of_birth' => 'required',
             'email' => 'required|email',
             'address_line_1' => 'required',
-            'address_town_city' => 'required',
-            'address_state_county' => 'required',
-            'address_country' => 'required|numeric',
+            'town_city' => 'required',
+            'state_county' => 'required',
+            'country' => 'required|numeric',
             'phone_1' => 'required',
-            'member_type_id' => 'required|numeric'
+            'membertype_id' => 'required|numeric'
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -157,13 +158,13 @@ class MemberController extends \BaseController {
             $member->email = Input::get('email');
             $member->address_line_1 = Input::get('address_line_1');
             $member->address_line_2 = Input::get('address_line_2');
-            $member->address_town_city = Input::get('address_town_city');
-            $member->address_state_county = Input::get('address_state_county');
-            $member->address_postcode = Input::get('address_postcode');
-            $member->address_country = Input::get('address_country');
+            $member->town_city = Input::get('town_city');
+            $member->state_county = Input::get('state_county');
+            $member->postcode = Input::get('postcode');
+            $member->country = Input::get('country');
             $member->phone_1 = Input::get('phone_1');
             $member->phone_2 = Input::get('phone_2');
-            $member->member_type_id = Input::get('member_type_id');
+            $member->membertype_id = Input::get('membertype_id');
             $member->comments = Input::get('comments');
             $member->purchase_date = date('Y-m-d');
             $member->expiry_date = date('Y-m-d');
@@ -171,7 +172,7 @@ class MemberController extends \BaseController {
 
             // redirect
             Session::flash('message', 'Successfully updated member');
-            return Redirect::to('members');
+            return Redirect::to('members/' . $id);
         }
     }
 

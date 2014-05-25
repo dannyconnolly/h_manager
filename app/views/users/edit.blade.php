@@ -1,11 +1,8 @@
-<div class="col-md-10">
-    <h1>Edit {{ $user->username }}</h1>
+<div class="page-header">
+    <h1 class="">Edit {{ $user->username }}</h1>
+    <a href="{{ URL::to('users/' . $user->id) }}" class="btn btn-info">View</a>
 </div>
-<div class="col-md-2">
-    <a href="{{ URL::to('users') }}" class="btn btn-info">Users</a>
-</div>
-
-<div class="col-md-12">
+<div class="col-md-7">
 
     @include('partials.notifications')
 

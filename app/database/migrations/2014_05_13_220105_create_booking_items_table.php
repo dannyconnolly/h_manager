@@ -18,10 +18,6 @@ class CreateBookingItemsTable extends Migration {
             $table->date('arrival_date');
             $table->integer('nights_stay');
             $table->integer('total_guests');
-            $table->integer('snr_male_guests');
-            $table->integer('snr_female_guests');
-            $table->integer('jr_male_guests');
-            $table->integer('jr_female_guests');
             $table->timestamps();
         });
     }

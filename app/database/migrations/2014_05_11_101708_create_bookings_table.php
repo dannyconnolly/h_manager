@@ -30,12 +30,16 @@ class CreateBookingsTable extends Migration {
             $table->integer('member');
             $table->string('membership_number', 255);
             $table->integer('member_signup');
-            $table->integer('member_type');
+            $table->integer('membertype_id');
             $table->text('comments');
             $table->text('requests');
             $table->integer('status');
             $table->string('who_added', 25);
             $table->string('source', 255);
+            $table->integer('snr_male_guests');
+            $table->integer('snr_female_guests');
+            $table->integer('jr_male_guests');
+            $table->integer('jr_female_guests');
             $table->timestamps();
         });
     }

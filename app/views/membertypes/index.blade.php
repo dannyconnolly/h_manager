@@ -1,8 +1,6 @@
-<div class="col-md-10">
-    <h1>All the Member Types</h1>
-</div>
-<div class="col-md-2">
-    <a href="{{ URL::to('membertypes/create') }}" class="btn btn-info">Create Member Type</a>
+<div class="page-header">
+    <h1>Member Types</h1>
+    <a href="{{ URL::to('membertypes/create') }}" class="btn btn-info">Create a Member Type</a>
 </div>
 
 <div class="col-md-12">

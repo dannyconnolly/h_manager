@@ -19,4 +19,8 @@ class Event extends Eloquent {
         return $this->belongsTo('EventType');
     }
 
+    public function hostel() {
+        return $this->belongsTo('Hostel');
+    }
+
 }

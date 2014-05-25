@@ -1,7 +1,5 @@
-<div class="col-md-10">
-    <h1>Members</h1>
-</div>
-<div class="col-md-2">
+<div class="page-header">
+    <h1 class="">Members</h1>
     <a href="{{ URL::to('members/create') }}" class="btn btn-info">Create Member</a>
 </div>
 
@@ -30,7 +28,7 @@
                 <td>{{ $value->first_name }}</td>
                 <td>{{ $value->last_name }}</td>
                 <td>{{ $value->email }}</td>
-                <td>{{ $value->member_type_id }}</td>
+                <td>{{ $value->membertype->name }}</td>
                 <td>{{ $value->purchase_date }}</td>
                 <td>{{ $value->expiry_date }}</td>
                 <td>{{ $value->payement_recieved }}</td>

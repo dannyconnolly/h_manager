@@ -3,7 +3,8 @@
 class BookingController extends \BaseController {
 
     public function __construct() {
-        $this->beforeFilter('auth');
+        //$this->beforeFilter('auth');
+        //$this->beforeFilter('csrf', array('on' => 'post'));
     }
 
     /**
@@ -47,7 +48,11 @@ class BookingController extends \BaseController {
             'town_city' => 'required',
             'state_county' => 'required',
             'country_id' => 'required|numeric',
-            'phone_1' => 'required'
+            'phone_1' => 'required',
+            'snr_male_guests' => 'numeric',
+            'snr_female_guests' => 'numeric',
+            'jr_male_guests' => 'numeric',
+            'jr_female_guests' => 'numeric',
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -58,6 +63,31 @@ class BookingController extends \BaseController {
                             ->withErrors($validator)
                             ->withInput(Input::all());
         } else {
+            // Set up Stripe private api key
+            Stripe::setApiKey('sk_test_P9JEMGOEUFQQnaPI7REueKxG');
+
+// Get the credit card details submitted by the form
+            $token = Input::get('stripeToken');
+
+// Create the charge on Stripe's servers - this will charge the user's card
+            try {
+                $charge = Stripe_Charge::create(array(
+                            "amount" => 1000,
+                            "currency" => "usd",
+                            "card" => $token,
+                            "description" => 'Charge for my product')
+                );
+            } catch (Stripe_CardError $e) {
+                $e_json = $e->getJsonBody();
+                $error = $e_json['error'];
+                // The card has been declined
+                // redirect back to checkout page
+
+                return Redirect::to('checkout')
+                                ->with_input()
+                                ->with(array('card_errors' => $error));
+            }
+
             $booking = new Booking();
             $booking->order_id = Input::get('order_id');
             $booking->booking_date = Input::get('booking_date');
@@ -76,15 +106,20 @@ class BookingController extends \BaseController {
             $booking->member = Input::get('member');
             $booking->membership_number = Input::get('membership_number');
             $booking->member_signup = Input::get('member_signup');
-            $booking->member_type = Input::get('member_type');
+            $booking->membertype_id = 1;
             $booking->comments = Input::get('comments');
             $booking->requests = Input::get('requests');
             $booking->comments = Input::get('requests');
+            $booking->snr_male_guests = Input::get('snr_male_guests');
+            $booking->snr_female_guests = Input::get('snr_female_guests');
+            $booking->jr_male_guests = Input::get('jr_male_guests');
+            $booking->jr_female_guests = Input::get('jr_female_guests');
             $booking->status = 0;
             $booking->who_added = 'admin';
             $booking->source = 'website';
             $booking->save();
 
+            Cart::destroy();
             // Redirect
             Session::flash('message', 'Successfully created booking');
             return Redirect::to('bookings');
@@ -171,7 +206,7 @@ class BookingController extends \BaseController {
             $booking->member = Input::get('member');
             $booking->membership_number = Input::get('membership_number');
             $booking->member_signup = Input::get('member_signup');
-            $booking->member_type = Input::get('member_type');
+            $booking->membertype_id = Input::get('membertype_id');
             $booking->comments = Input::get('comments');
             $booking->requests = Input::get('requests');
             $booking->comments = Input::get('requests');

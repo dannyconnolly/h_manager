@@ -8,7 +8,7 @@ class CartController extends \BaseController {
      * @return Response
      */
     public function index() {
-//
+        //
         $cart = Cart::contents();
         $basket = Cart::totalItems(true);
 
@@ -35,10 +35,7 @@ class CartController extends \BaseController {
         $rules = array(
             'total_guests' => 'required|numeric',
             'arrival_date' => 'date',
-            'snr_male_guests' => 'numeric',
-            'snr_female_guests' => 'numeric',
-            'jr_male_guests' => 'numeric',
-            'jr_female_guests' => 'numeric',
+            'nights_stay' => 'numeric'
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -49,18 +46,16 @@ class CartController extends \BaseController {
                             ->withErrors($validator)
                             ->withInput(Input::all());
         } else {
+
+            $hostel = Hostel::find(Input::get('hostel_id'));
             $items = array(
-                'id' => Input::get('hostel_id'),
-                'name' => Input::get('name'),
-                'price' => Input::get('price'),
+                'id' => $hostel->id,
+                'name' => $hostel->name,
+                'price' => $hostel->snr_price,
                 'quantity' => Input::get('nights_stay'),
                 'options' => array(
                     'arrival_date' => Input::get('arrival_date'),
                     'total_guests' => Input::get('total_guests'),
-                    'snr_male_guests' => Input::get('snr_male_guests'),
-                    'snr_female_guests' => Input::get('snr_female_guests'),
-                    'jr_male_guests' => Input::get('jr_male_guests'),
-                    'jr_female_guests' => Input::get('jr_female_guests'),
                 )
             );
 
@@ -142,6 +137,46 @@ class CartController extends \BaseController {
         // redirect
         Session::flash('message', 'Successfully deleted item');
         return Redirect::to('cart');
+    }
+
+    public function getRemoveItem($identifier) {
+        $item = Cart::item($identifier);
+        $item->remove();
+
+        // redirect
+        Session::flash('message', 'Successfully deleted item');
+        return Redirect::to('cart');
+    }
+
+    public function postCheckType() {
+        //check which submit was clicked on
+        if (Input::get('update_cart')) {
+            $this->postToUpdateCart(); //if login then use this method
+        } elseif (Input::get('checkout')) {
+            $this->postToCheckout(); //if register then use this method
+        }
+    }
+
+    public function postToCheckout() {
+        $input = Input::all();
+        $countries = Country::lists('name', 'id');
+        $membertypes = MemberType::lists('name', 'id');
+        $this->layout->title = 'Checkout | H Manager';
+        $this->layout->main = View::make('bookings.create')->with(array('countries' => $countries, 'membertypes' => $membertypes, 'input' => $input));
+    }
+
+    public function postToUpdateCart() {
+
+        $cart = Cart::contents();
+        $basket = Cart::totalItems(true);
+
+        foreach (Cart::contents() as $item) {
+            $item->quantity = Input::get('quantity');
+            $item->total_guests = Input::get('total_guests');
+        }
+
+        $this->layout->title = 'Cart | H Manager';
+        $this->layout->main = View::make('pages.cart')->with(array('cart' => $cart, 'basket' => $basket));
     }
 
 }
