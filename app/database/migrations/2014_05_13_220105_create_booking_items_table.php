@@ -13,7 +13,7 @@ class CreateBookingItemsTable extends Migration {
     public function up() {
         Schema::create('booking_items', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('booking_id');
+            $table->string('order_id', 255);
             $table->integer('hostel_id');
             $table->date('arrival_date');
             $table->integer('nights_stay');

@@ -12,31 +12,22 @@
     <table class="table table-striped table-bordered table-hover">
         <thead>
             <tr>
-                <th>booking_id<i class="fa fa-sort"></i></th>
-                <th>hostel_id<i class="fa fa-sort"></i></th>
-                <th>arrival_date<i class="fa fa-sort"></i></th>
-                <th>nights_stay<i class="fa fa-sort"></i></th>
-                <th>total_guests<i class="fa fa-sort"></i></th>
-                <th>snr_male_guests<i class="fa fa-sort"></i></th>
-                <th>snr_female_guests<i class="fa fa-sort"></i></th>
-                <th>jr_male_guests<i class="fa fa-sort"></i></th>
-                <th>jr_female_guests<i class="fa fa-sort"></i></th>
+                <th>Order Id<i class="fa fa-sort"></i></th>
+                <th>Hostel<i class="fa fa-sort"></i></th>
+                <th>Arrival Date<i class="fa fa-sort"></i></th>
+                <th>No. Nights<i class="fa fa-sort"></i></th>
+                <th>Total Guests<i class="fa fa-sort"></i></th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             @foreach($bookingitems as $key => $value)
             <tr>
-                <td>{{ $value->booking_id }}</td>
-                <td>{{ $value->hostel_id }}</td>
+                <td>{{ $value->order_id }}</td>
+                <td>{{ SiteHelper::getHostelName($value->hostel_id) }}</td>
                 <td>{{ $value->arrival_date }}</td>
                 <td>{{ $value->nights_stay }}</td>
                 <td>{{ $value->total_guests }}</td>
-                <td>{{ $value->snr_male_guests }}</td>
-                <td>{{ $value->snr_female_guests }}</td>
-                <td>{{ $value->jr_male_guests }}</td>
-                <td>{{ $value->jr_female_guests }}</td>
-
                 <!-- we will also add show, edit, and delete buttons -->
                 <td>
                     <!-- show the bookingitem (uses the show method found at GET /bookingitems/{id} -->

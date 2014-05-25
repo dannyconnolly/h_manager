@@ -15,4 +15,8 @@ class BookingItem extends Eloquent {
      */
     protected $table = 'booking_items';
 
+    public function booking() {
+        return $this->belongsTo('Booking');
+    }
+
 }

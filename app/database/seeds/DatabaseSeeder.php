@@ -25,6 +25,10 @@ class DatabaseSeeder extends Seeder {
         $this->command->info('Events table seeded!');
         $this->call('HostelsTableSeeder');
         $this->command->info('Hostels table seeded!');
+        $this->call('MemberTypesTableSeeder');
+        $this->command->info('Member Types table seeded!');
+        $this->call('EventTypesTableSeeder');
+        $this->command->info('Event Types table seeded!');
     }
 
 }

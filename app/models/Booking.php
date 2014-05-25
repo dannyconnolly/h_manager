@@ -15,4 +15,8 @@ class Booking extends Eloquent {
      */
     protected $table = 'bookings';
 
+    public function bookingitems() {
+        return $this->hasMany('BookingItem');
+    }
+
 }

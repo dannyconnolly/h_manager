@@ -23,6 +23,7 @@
             @include('partials.sidenavigation')
             @endif
             <div class="main-content">
+
                 <div class="breadcrumbs" id="breadcrumbs">
                     <ul class="breadcrumb">
                         <li>

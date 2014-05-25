@@ -13,33 +13,33 @@ class CreateBookingsTable extends Migration {
     public function up() {
         Schema::create('bookings', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('order_id', 255);
+            $table->string('order_id', 255)->unique();
             $table->dateTime('booking_date');
             $table->string('first_name', 64);
             $table->string('last_name', 64);
             $table->string('email', 64);
             $table->date('date_of_birth');
             $table->string('address_line_1', 255);
-            $table->string('address_line_2', 255);
+            $table->string('address_line_2', 255)->nullable();
             $table->string('town_city', 255);
             $table->string('state_county', 255);
             $table->integer('country_id');
-            $table->string('post_code', 32);
+            $table->string('post_code', 32)->nullable();
             $table->string('phone_1', 64);
-            $table->string('phone_2', 64);
+            $table->string('phone_2', 64)->nullable();
             $table->integer('member');
-            $table->string('membership_number', 255);
+            $table->string('membership_number', 255)->nullable();
             $table->integer('member_signup');
-            $table->integer('membertype_id');
-            $table->text('comments');
-            $table->text('requests');
-            $table->integer('status');
-            $table->string('who_added', 25);
-            $table->string('source', 255);
-            $table->integer('snr_male_guests');
-            $table->integer('snr_female_guests');
-            $table->integer('jr_male_guests');
-            $table->integer('jr_female_guests');
+            $table->integer('membertype_id')->nullable();
+            $table->text('comments')->nullable();
+            $table->text('requests')->nullable();
+            $table->integer('status')->nullable();
+            $table->string('who_added', 25)->nullable();
+            $table->string('source', 255)->nullable();
+            $table->integer('snr_male_guests')->nullable();
+            $table->integer('snr_female_guests')->nullable();
+            $table->integer('jr_male_guests')->nullable();
+            $table->integer('jr_female_guests')->nullable();
             $table->timestamps();
         });
     }

@@ -7,8 +7,7 @@
     @include('partials.notifications')
 
     {{ Form::open(array('url' => 'bookings', 'class' => 'form-horizontal')) }}
-    {{ Form::hidden('order_id', 'dfghjmdfgdsfgfcfvcfvfcfvx') }}
-    {{ Form::hidden('booking_date', '2013-02-02') }}
+    {{ Form::hidden('order_id', time() . mt_rand()) }}
     <div class="form-group">
         {{ Form::label('first_name', 'First Name', array('class' => "col-sm-4")) }}
         <div class="col-sm-8">

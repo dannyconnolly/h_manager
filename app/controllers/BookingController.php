@@ -66,10 +66,10 @@ class BookingController extends \BaseController {
             // Set up Stripe private api key
             Stripe::setApiKey('sk_test_P9JEMGOEUFQQnaPI7REueKxG');
 
-// Get the credit card details submitted by the form
+            // Get the credit card details submitted by the form
             $token = Input::get('stripeToken');
 
-// Create the charge on Stripe's servers - this will charge the user's card
+            // Create the charge on Stripe's servers - this will charge the user's card
             try {
                 $charge = Stripe_Charge::create(array(
                             "amount" => 1000,
@@ -88,9 +88,21 @@ class BookingController extends \BaseController {
                                 ->with(array('card_errors' => $error));
             }
 
+            foreach (Cart::contents() as $item) {
+                $item_array = $item->toArray();
+                $item_options = $item_array['options'];
+                $bookingitem = new BookingItem();
+                $bookingitem->order_id = Input::get('order_id');
+                $bookingitem->hostel_id = $item->id;
+                $bookingitem->arrival_date = $item_options['arrival_date'];
+                $bookingitem->nights_stay = $item->quantity;
+                $bookingitem->total_guests = $item_options['total_guests'];
+                $bookingitem->save();
+            }
+
             $booking = new Booking();
             $booking->order_id = Input::get('order_id');
-            $booking->booking_date = Input::get('booking_date');
+            $booking->booking_date = date("Y-m-d");
             $booking->first_name = Input::get('first_name');
             $booking->last_name = Input::get('last_name');
             $booking->email = Input::get('email');
@@ -190,7 +202,7 @@ class BookingController extends \BaseController {
             // store
             $booking = Booking::find($id);
             $booking->order_id = Input::get('order_id');
-            $booking->booking_date = Input::get('booking_date');
+            $booking->booking_date = date("Y-m-d");
             $booking->first_name = Input::get('first_name');
             $booking->last_name = Input::get('last_name');
             $booking->email = Input::get('email');
