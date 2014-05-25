@@ -30,5 +30,14 @@
                 <li><a href="{{ URL::to('eventtypes/create') }}">Create an Event Type</a></li>
             </ul>
         </li>
+        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="menu-icon fa fa-book"></i><span class="menu-text">Bookings</span></a><b class="arrow fa fa-angle-down"></b>
+            <ul class="submenu nav-hide">
+                <li><a href="{{ URL::to('bookings') }}">Bookings</a></li>
+                <li><a href="{{ URL::to('bookings/create') }}">Create a Booking</a></li>
+                <li class="divider"></li>
+                <li><a href="{{ URL::to('bookingitems') }}">Booking Items</a></li>
+                <li><a href="{{ URL::to('bookingitems/create') }}">Create a Booking Item</a></li>
+            </ul>
+        </li>
     </ul>
 </div>

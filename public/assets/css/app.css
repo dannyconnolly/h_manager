@@ -81,11 +81,23 @@ body {
   top: 0;
 }
 
+.view p {
+  border-bottom: 1px solid #e8e8e8;
+}
+.view p strong {
+  width: 250px;
+  display: inline-block;
+}
+
 footer {
   clear: both;
   background: #e9e9e3;
   text-align: center;
   padding: 40px 0;
+}
+
+.cke {
+  width: 800px !important;
 }
 
 .booking-form label {

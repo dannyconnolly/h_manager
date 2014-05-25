@@ -17,4 +17,9 @@ class SiteHelper {
         return $county->name;
     }
 
+    public static function getRoleName($id) {
+        $role = Role::find($id);
+        return $role->name;
+    }
+
 }

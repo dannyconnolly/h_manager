@@ -19,7 +19,9 @@
         @include('partials.navigation')
 
         <div class="main-container" id="main-container">
+            @if(Auth::check())
             @include('partials.sidenavigation')
+            @endif
             <div class="main-content">
                 <div class="breadcrumbs" id="breadcrumbs">
                     <ul class="breadcrumb">
