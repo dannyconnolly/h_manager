@@ -71,8 +71,9 @@ class BookingController extends \BaseController {
 
             // Create the charge on Stripe's servers - this will charge the user's card
             try {
+                $amount = number_format(Cart::Total(), 2) * 100;
                 $charge = Stripe_Charge::create(array(
-                            "amount" => 1000,
+                            "amount" => $amount,
                             "currency" => "usd",
                             "card" => $token,
                             "description" => 'Charge for my product')
@@ -102,6 +103,7 @@ class BookingController extends \BaseController {
 
             $booking = new Booking();
             $booking->order_id = Input::get('order_id');
+            $booking->total_amount = number_format(Cart::Total(), 2);
             $booking->booking_date = date("Y-m-d");
             $booking->first_name = Input::get('first_name');
             $booking->last_name = Input::get('last_name');
@@ -147,11 +149,12 @@ class BookingController extends \BaseController {
     public function show($id) {
         // get booking
         $booking = Booking::find($id);
+        $bookingitems = BookingItem::where('order_id', '=', $booking->order_id)->get();
 
         // show view and pass booking
         $this->layout->title = 'Show Booking | H Manager';
         $this->layout->main = View::make('bookings.show')
-                ->with(array('booking' => $booking));
+                ->with(array('booking' => $booking, 'bookingitems' => $bookingitems));
     }
 
     /**
@@ -202,6 +205,7 @@ class BookingController extends \BaseController {
             // store
             $booking = Booking::find($id);
             $booking->order_id = Input::get('order_id');
+            $booking->total_amount = number_format(Cart::Total(), 2);
             $booking->booking_date = date("Y-m-d");
             $booking->first_name = Input::get('first_name');
             $booking->last_name = Input::get('last_name');

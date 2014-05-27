@@ -39,12 +39,13 @@
                     @endif
                 </td>
                 <td>
+
                     &euro;{{ $subtotal = $value->options['total_guests'] * number_format($value->total(),2) }}
                 </td>
                 <td>
                     <!-- delete the user (uses the destroy method DESTROY /users/{id} -->
                     <!-- we will add this later since its a little more complicated than the other two buttons -->
-
+                    <a href="/cart/removeitem/{{ $value->identifier }}" class="btn btn-danger"><i class="fa fa-times"></i></a>
                 </td>
             </tr>
             @endforeach

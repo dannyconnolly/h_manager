@@ -14,6 +14,7 @@ class CreateBookingsTable extends Migration {
         Schema::create('bookings', function(Blueprint $table) {
             $table->increments('id');
             $table->string('order_id', 255)->unique();
+            $table->float('total_amount');
             $table->dateTime('booking_date');
             $table->string('first_name', 64);
             $table->string('last_name', 64);

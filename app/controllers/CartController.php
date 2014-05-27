@@ -139,7 +139,7 @@ class CartController extends \BaseController {
         return Redirect::to('cart');
     }
 
-    public function getRemoveItem($identifier) {
+    public function getRemoveitem($identifier) {
         $item = Cart::item($identifier);
         $item->remove();
 

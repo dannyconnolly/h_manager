@@ -50,3 +50,25 @@ footer{
 .cke{
     width: 800px !important;
 }
+.invoice-page{
+    border: 15px solid #F3F3F4;
+    overflow: hidden;
+    .view{
+        border: 1px solid #E7EAEC;
+        padding: 40px;
+        p{
+            border: none;
+        }
+    }
+}
+.invoice-note {
+    color: #999;
+    margin-top: 80px;
+    font-size: 85%;
+    margin-bottom: 20px;
+}
+.invoice-footer {
+    border-top: 1px solid #DDD;
+    padding-top: 10px;
+    font-size: 10px;
+}

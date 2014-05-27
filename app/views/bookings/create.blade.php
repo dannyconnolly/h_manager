@@ -8,6 +8,7 @@
 
     {{ Form::open(array('url' => 'bookings', 'class' => 'form-horizontal')) }}
     {{ Form::hidden('order_id', time() . mt_rand()) }}
+    {{ Form::hidden('price', number_format(Cart::Total(), 2), array('id' => 'price')) }}
     <div class="form-group">
         {{ Form::label('first_name', 'First Name', array('class' => "col-sm-4")) }}
         <div class="col-sm-8">
@@ -167,10 +168,13 @@
     </div>-->
     <div class="form-group">
         <div class="col-sm-offset-4 col-sm-8">
+            <script>
+                var price = document.getElementById('price');
+            </script>
             <script
                 src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
                 data-key="pk_test_j0p8qXRAWrtz3hbWvvjIMkjx"
-                data-amount="1000"
+                data-amount="{{number_format(Cart::Total(), 2) * 100}}"
                 data-name="Myshop"
                 data-description="Quadcopter"
                 data-image="{{url('img/stripe-128x128.png')}}">
