@@ -24,37 +24,91 @@
     </div>
 
     <div class="form-group">
-        {{ Form::label('hostel_id', 'Hostel', array('class' => "col-sm-4")) }}
+        {{ Form::label('address_line_1', 'Address Line 1', array('class' => "col-sm-4")) }}
         <div class="col-sm-8">
-            {{ Form::select('hostel_id', $hostels, Input::old('hostel_id'), array('class' => 'form-control')) }}
+            {{ Form::text('address_line_1',Input::old('address_line_1'), array('class' => 'form-control')) }}
         </div>
     </div>
 
     <div class="form-group">
-        {{ Form::label('county_id', 'County', array('class' => "col-sm-4")) }}
+        {{ Form::label('address_line_2', 'Address Line 2', array('class' => "col-sm-4")) }}
         <div class="col-sm-8">
-            {{ Form::select('county_id', $counties, Input::old('county_id'), array('class' => 'form-control')) }}
+            {{ Form::text('address_line_2', Input::old('address_line_2'), array('class' => 'form-control')) }}
         </div>
     </div>
 
     <div class="form-group">
-        {{ Form::label('date_from', 'Date From', array('class' => "col-sm-4")) }}
+        {{ Form::label('town_city', 'Town/City', array('class' => "col-sm-4")) }}
         <div class="col-sm-8">
-            {{ Form::text('date_from', Input::old('date_from'), array('class' => 'form-control date-input')) }}
+            {{ Form::text('town_city', Input::old('town_city'), array('class' => 'form-control')) }}
         </div>
     </div>
 
     <div class="form-group">
-        {{ Form::label('date_to', 'Date To', array('class' => "col-sm-4")) }}
+        {{ Form::label('state_county', 'State/County', array('class' => "col-sm-4")) }}
         <div class="col-sm-8">
-            {{ Form::text('date_to', Input::old('date_to'), array('class' => 'form-control date-input')) }}
+            {{ Form::text('state_county', Input::old('state_county'), array('class' => 'form-control date-input')) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('latitude', 'Latitude', array('class' => "col-sm-4")) }}
+        <div class="col-sm-8">
+            {{ Form::text('latitude', Input::old('latitude'), array('class' => 'form-control')) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('longitude', 'Longitude', array('class' => "col-sm-4")) }}
+        <div class="col-sm-8">
+            {{ Form::text('longitude', Input::old('longitude'), array('class' => 'form-control')) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('email', 'Email', array('class' => "col-sm-4")) }}
+        <div class="col-sm-8">
+            {{ Form::html5_field('email', 'email', Input::old('email'), array('class' => 'form-control')) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('phone', 'Phone', array('class' => "col-sm-4")) }}
+        <div class="col-sm-8">
+            {{ Form::html5_field('tel', 'phone', Input::old('phone'), array('class' => 'form-control')) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('url', 'url', array('class' => "col-sm-4")) }}
+        <div class="col-sm-8">
+            {{ Form::html5_field('url', 'url', Input::old('url'), array('class' => 'form-control')) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('cost', 'cost', array('class' => "col-sm-4")) }}
+        <div class="col-sm-8">
+            {{ Form::text('cost', Input::old('url'), array('class' => 'form-control')) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('when', 'When', array('class' => "col-sm-4")) }}
+        <div class="col-sm-8">
+            <div class="input-group">
+                {{ Form::html5_field( 'date', 'when', Input::old('when'), array('class' => 'form-control')) }}
+                <span class="input-group-addon">
+                    <i class="fa fa-calendar bigger-110"></i>
+                </span>
+            </div>
         </div>
     </div>
 
     <div class="form-group">
         {{ Form::label('details', 'Details', array('class' => "col-sm-4")) }}
         <div class="col-sm-8">
-            {{ Form::textarea('details', Input::old('details'), array('class' => 'form-control')) }}
+            {{ Form::textarea('details',  Input::old('details'), array('class' => 'form-control')) }}
         </div>
     </div>
 

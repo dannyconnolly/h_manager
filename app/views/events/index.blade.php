@@ -11,10 +11,8 @@
                 <th>ID<i class="fa fa-sort"></i></th>
                 <th>Title<i class="fa fa-sort"></i></th>
                 <th>Event Type<i class="fa fa-sort"></i></th>
-                <th>Hostel<i class="fa fa-sort"></i></th>
-                <th>County<i class="fa fa-sort"></i></th>
-                <th>Date From<i class="fa fa-sort"></i></th>
-                <th>Date To<i class="fa fa-sort"></i></th>
+                <th>Cost<i class="fa fa-sort"></i></th>
+                <th>When<i class="fa fa-sort"></i></th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -24,10 +22,8 @@
                 <td>{{ $value->id }}</td>
                 <td>{{ $value->title }}</td>
                 <td>{{ $value->eventtype->name }}</td>
-                <td>{{ $value->hostel_id }}</td>
-                <td>{{ $value->county_id }}</td>
-                <td>{{ $value->date_from }}</td>
-                <td>{{ $value->date_to }}</td>
+                <td>{{ $value->cost }}</td>
+                <td>{{ $value->when }}</td>
 
                 <!-- we will also add show, edit, and delete buttons -->
                 <td>

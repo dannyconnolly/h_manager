@@ -21,6 +21,8 @@
         <div class="main-container" id="main-container">
             @if(Auth::check())
             @include('partials.sidenavigation')
+            @else
+            @include('partials.frontsidenavigation')
             @endif
             <div class="main-content">
 

@@ -14,11 +14,18 @@ class CreateEventsTable extends Migration {
         Schema::create('events', function(Blueprint $table) {
             $table->increments('id');
             $table->integer('eventtype_id');
-            $table->integer('hostel_id');
-            $table->integer('county_id');
-            $table->date('date_from');
-            $table->date('date_to');
+            $table->string('address_line_1', 255);
+            $table->string('address_line_2', 255);
+            $table->string('town_city', 255);
+            $table->string('state_county', 255);
+            $table->string('latitude', 255);
+            $table->string('longitude', 255);
+            $table->string('email', 255);
+            $table->string('phone', 255);
+            $table->string('url', 255);
+            $table->dateTime('when');
             $table->text('details');
+            $table->float('cost');
             $table->timestamps();
             $table->engine = 'MyISAM';
         });

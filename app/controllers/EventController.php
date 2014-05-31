@@ -45,10 +45,12 @@ class EventController extends \BaseController {
         $rules = array(
             'title' => 'required',
             'eventtype_id' => 'required|numeric',
-            'hostel_id' => 'required|numeric',
-            'county_id' => 'required|numeric',
-            'date_from' => 'required',
-            'date_to' => 'required'
+            'address_line_1' => 'required',
+            'town_city' => 'required',
+            'state_county' => 'required',
+            'details' => 'required',
+            'cost' => 'required|numeric',
+            'when' => 'required'
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -59,14 +61,21 @@ class EventController extends \BaseController {
                             ->withErrors($validator)
                             ->withInput(Input::all());
         } else {
+
             $event = new Event;
             $event->title = Input::get('title');
-            $event->eventtype_id = Input::get('eventtype_id');
-            $event->hostel_id = Input::get('hostel_id');
-            $event->county_id = Input::get('county_id');
-            $event->date_from = Input::get('date_from');
-            $event->date_to = Input::get('date_to');
+            $event->address_line_1 = Input::get('address_line_1');
+            $event->address_line_2 = Input::get('address_line_2');
+            $event->town_city = Input::get('town_city');
+            $event->state_county = Input::get('state_county');
+            $event->latitude = Input::get('latitude');
+            $event->longitude = Input::get('longitude');
+            $event->email = Input::get('email');
+            $event->phone = Input::get('phone');
+            $event->url = Input::get('url');
             $event->details = Input::get('details');
+            $event->cost = Input::get('cost');
+            $event->when = Input::get('when');
             $event->save();
 
             // Redirect
@@ -122,10 +131,12 @@ class EventController extends \BaseController {
         $rules = array(
             'title' => 'required',
             'eventtype_id' => 'required|numeric',
-            'hostel_id' => 'required|numeric',
-            'county_id' => 'required|numeric',
-            'date_from' => 'required',
-            'date_to' => 'required'
+            'address_line_1' => 'required',
+            'town_city' => 'required',
+            'state_county' => 'required',
+            'details' => 'required',
+            'cost' => 'required|numeric',
+            'when' => 'required'
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -138,12 +149,18 @@ class EventController extends \BaseController {
             // store
             $event = Event::find($id);
             $event->title = Input::get('title');
-            $event->eventtype_id = Input::get('eventtype_id');
-            $event->hostel_id = Input::get('hostel_id');
-            $event->county_id = Input::get('county_id');
-            $event->date_from = Input::get('date_from');
-            $event->date_to = Input::get('date_to');
+            $event->address_line_1 = Input::get('address_line_1');
+            $event->address_line_2 = Input::get('address_line_2');
+            $event->town_city = Input::get('town_city');
+            $event->state_county = Input::get('state_county');
+            $event->latitude = Input::get('latitude');
+            $event->longitude = Input::get('longitude');
+            $event->email = Input::get('email');
+            $event->phone = Input::get('phone');
+            $event->url = Input::get('url');
             $event->details = Input::get('details');
+            $event->cost = Input::get('cost');
+            $event->when = Input::get('when');
             $event->save();
 
             // redirect

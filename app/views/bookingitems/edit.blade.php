@@ -1,5 +1,5 @@
 <div class="col-md-10">
-    <h1>Edit {{ $bookingitem->bookingitemname }}</h1>
+    <h1>Edit {{ $bookingitem->name }}</h1>
 </div>
 <div class="col-md-2">
     <a href="{{ URL::to('bookingitems') }}" class="btn btn-info">BookingItems</a>
@@ -12,9 +12,7 @@
     {{ Form::model($bookingitem, array('route' => array('bookingitems.update', $bookingitem->id), 'class' => 'form-horizontal', 'method' => 'PUT')) }}
 
     <div class="form-group">
-        {{ /*Form::label('first_name', 'First Name', array('class' => "col-sm-2 control-label")) */}}
         <div class="col-sm-10">
-            {{ /*Form::text('first_name', null, array('class' => 'form-control')) */}}
         </div>
     </div>
 
