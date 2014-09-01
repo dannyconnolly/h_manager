@@ -72,3 +72,11 @@ footer{
     padding-top: 10px;
     font-size: 10px;
 }
+
+.hostel-list-group, .event-list-group{
+    @include list-group-styles;
+}
+ul.pagination{
+    clear: both;
+    width: 100%;
+}

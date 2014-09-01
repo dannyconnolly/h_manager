@@ -2,7 +2,7 @@
     <h1 class="">Become a Member</h1>
 </div>
 
-<div class="col-md-7">
+<div class="col-md-8 col-md-offset-2">
 
     @include('partials.notifications')
 

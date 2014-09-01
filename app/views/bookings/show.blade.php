@@ -83,9 +83,9 @@
                     THANK YOU FOR YOUR BUSINESS
                 </p>
                 <p class="text-center">
-                    <span class="m-r-10"><i class="fa fa-globe"></i> matiasgallipoli.com</span>
+                    <span class="m-r-10"><i class="fa fa-globe"></i> dannyconnolly.me</span>
                     <span class="m-r-10"><i class="fa fa-phone"></i> T:016-18192302</span>
-                    <span class="m-r-10"><i class="fa fa-envelope"></i> rtiemps@gmail.com</span>
+                    <span class="m-r-10"><i class="fa fa-envelope"></i> info@dannyconnolly.me</span>
                 </p>
             </div>
         </div>

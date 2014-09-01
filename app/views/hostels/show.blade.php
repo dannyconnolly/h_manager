@@ -1,6 +1,8 @@
 <div class="page-header">
     <h1 class="">{{ $hostel->name }}</h1>
+    @if(Auth::check())
     <a class="btn btn-small btn-info" href="{{ URL::to('hostels/' . $hostel->id . '/edit') }}">Edit Hostel</a>
+    @endif
 </div>
 
 <div class="col-md-12 view">

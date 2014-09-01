@@ -3,7 +3,7 @@
     <a class="btn btn-small btn-info" href="{{ URL::to('members/' . $member->id) }}">View</a>
 </div>
 
-<div class="col-md-12">
+<div class="col-md-8 col-md-offset-2">
     <!-- if there are creation errors, they will show here -->
     @if ( $errors->count() > 0 )
     <div class="alert alert-danger">

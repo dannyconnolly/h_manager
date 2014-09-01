@@ -31,10 +31,10 @@
                 <!-- we will also add show, edit, and delete buttons -->
                 <td>
                     <!-- show the bookingitem (uses the show method found at GET /bookingitems/{id} -->
-                    <a class="btn btn-small btn-success" href="{{ URL::to('bookingitems/' . $value->id) }}"><i class="fa fa-eye"></i>View</a>
+                    <a class="btn btn-small btn-success" href="{{ URL::to('bookingitems/' . $value->id) }}"><i class="fa fa-eye"></i></a>
 
                     <!-- edit this bookingitem (uses the edit method found at GET /bookingitems/{id}/edit -->
-                    <a class="btn btn-small btn-info" href="{{ URL::to('bookingitems/' . $value->id . '/edit') }}"><i class="fa fa-pencil"></i>Edit</a>
+                    <a class="btn btn-small btn-info" href="{{ URL::to('bookingitems/' . $value->id . '/edit') }}"><i class="fa fa-pencil"></i></a>
 
                     <!-- delete the bookingitem (uses the destroy method DESTROY /bookingitems/{id} -->
                     <!-- we will add this later since its a little more complicated than the other two buttons -->

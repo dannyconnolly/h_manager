@@ -2,7 +2,7 @@
     <h1 class="">Edit {{ $user->username }}</h1>
     <a href="{{ URL::to('users/' . $user->id) }}" class="btn btn-info">View</a>
 </div>
-<div class="col-md-7">
+<div class="col-md-8 col-md-offset-2">
 
     @include('partials.notifications')
 

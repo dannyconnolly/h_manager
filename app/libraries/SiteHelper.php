@@ -22,4 +22,9 @@ class SiteHelper {
         return $role->name;
     }
 
+    public static function calculateItemTotal($cost, $no_of_nights, $no_of_guests) {
+        $item_total = $cost * $no_of_nights * $no_of_guests;
+        return number_format($item_total, 2);
+    }
+
 }

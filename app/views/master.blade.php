@@ -21,7 +21,7 @@
         <div class="main-container" id="main-container">
             @if(Auth::check())
             @include('partials.sidenavigation')
-            @else
+            @else  
             @include('partials.frontsidenavigation')
             @endif
             <div class="main-content">
@@ -64,8 +64,17 @@
         <script>
             $(document).ready(function($) {
                 $(".date-input").datepicker({dateFormat: "yy-mm-dd"});
+
+                $('.book-btn').on('click', function(e) {
+                    var hostel = $(this).data('hostel');
+                    $('.hidden_hostel').val(hostel);
+                    $('.hostel_name').val(hostel);
+                    $('#myModal').modal('show');
+                    console.log(hostel);
+                });
+
             });
-        </script>
+        </script> 
 
 
     </body>

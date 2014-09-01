@@ -149,3 +149,17 @@
   -webkit-order: $val;  
   order: $val;
 }
+
+@mixin list-group-styles{
+    overflow: hidden;
+    li{
+        width: 50%;
+        float: left;
+        &:first-child, &:last-child{
+            border-radius: 0;
+        }
+    }
+    .media-heading{
+        font-weight: 700;
+    }
+}

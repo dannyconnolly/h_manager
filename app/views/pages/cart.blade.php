@@ -8,6 +8,7 @@
     @if ($basket == 0)
     <p>There are currently no items in your cart</p>
     @else
+    <?php $item_totals = array(); ?>
     {{ Form::open(array('route' => 'checkout', 'method' => 'post')) }}
     <table class="table table-bordered table-hover table-striped">
         <thead>
@@ -39,8 +40,7 @@
                     @endif
                 </td>
                 <td>
-
-                    &euro;{{ $subtotal = $value->options['total_guests'] * number_format($value->total(),2) }}
+                    &euro;{{ $subtotal = SiteHelper::calculateItemTotal($value->price, $value->quantity, $value->options['total_guests']) }}
                 </td>
                 <td>
                     <!-- delete the user (uses the destroy method DESTROY /users/{id} -->
@@ -50,9 +50,11 @@
             </tr>
             @endforeach
             <tr>
-                <td colspan="4"></td>
+                <td colspan="4">{{ Cart::totalItems(true);}}</td>
                 <td colspan="2">
-                    <strong>Total:</strong> &euro; {{ number_format(Cart::Total(), 2) }}
+                    <?php $item_totals[] = SiteHelper::calculateItemTotal($value->price, $value->quantity, $value->options['total_guests']); ?>
+                    <strong>Total:</strong> &euro; {{ array_sum($item_totals) }}
+                    <input type="hidden" value="{{ array_sum($item_totals) }}" name="cart_total" />
                 </td>
             </tr>
             <tr>

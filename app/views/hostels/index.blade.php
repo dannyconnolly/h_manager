@@ -28,10 +28,10 @@
                 <!-- we will also add show, edit, and delete buttons -->
                 <td>
                     <!-- show the hostel (uses the show method found at GET /hostels/{id} -->
-                    <a class="btn btn-small btn-success" href="{{ URL::to('hostels/' . $value->id) }}"><i class="fa fa-eye"></i>View</a>
+                    <a class="btn btn-small btn-success" href="{{ URL::to('hostels/' . $value->id) }}"><i class="fa fa-eye"></i></a>
 
                     <!-- edit this hostel (uses the edit method found at GET /hostels/{id}/edit -->
-                    <a class="btn btn-small btn-info" href="{{ URL::to('hostels/' . $value->id . '/edit') }}"><i class="fa fa-pencil"></i>Edit</a>
+                    <a class="btn btn-small btn-info" href="{{ URL::to('hostels/' . $value->id . '/edit') }}"><i class="fa fa-pencil"></i></a>
 
                     <!-- delete the hostel (uses the destroy method DESTROY /hostels/{id} -->
                     <!-- we will add this later since its a little more complicated than the other two buttons -->

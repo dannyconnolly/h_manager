@@ -28,9 +28,9 @@
                 <!-- we will also add show, edit, and delete buttons -->
                 <td>
                     <!-- show the event (uses the show method found at GET /events/{id} -->
-                    <a class="btn btn-small btn-success" href="{{ URL::to('events/' . $value->id) }}"><i class="fa fa-eye"></i>View</a>
+                    <a class="btn btn-small btn-success" href="{{ URL::to('events/' . $value->id) }}"><i class="fa fa-eye"></i></a>
                     <!-- edit this event (uses the edit method found at GET /events/{id}/edit -->
-                    <a class="btn btn-small btn-info" href="{{ URL::to('events/' . $value->id . '/edit') }}"><i class="fa fa-pencil"></i>Edit</a>
+                    <a class="btn btn-small btn-info" href="{{ URL::to('events/' . $value->id . '/edit') }}"><i class="fa fa-pencil"></i></a>
 
                     <!-- delete the event (uses the destroy method DESTROY /events/{id} -->
                     <!-- we will add this later since its a little more complicated than the other two buttons -->

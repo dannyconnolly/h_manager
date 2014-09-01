@@ -28,10 +28,10 @@
                 <!-- we will also add show, edit, and delete buttons -->
                 <td>
                     <!-- show the membertype (uses the show method found at GET /membertypes/{id} -->
-                    <a class="btn btn-small btn-success" href="{{ URL::to('membertypes/' . $value->id) }}"><i class="fa fa-eye"></i>View</a>
+                    <a class="btn btn-small btn-success" href="{{ URL::to('membertypes/' . $value->id) }}"><i class="fa fa-eye"></i></a>
 
                     <!-- edit this membertype (uses the edit method found at GET /membertypes/{id}/edit -->
-                    <a class="btn btn-small btn-info" href="{{ URL::to('membertypes/' . $value->id . '/edit') }}"><i class="fa fa-pencil"></i>Edit</a>
+                    <a class="btn btn-small btn-info" href="{{ URL::to('membertypes/' . $value->id . '/edit') }}"><i class="fa fa-pencil"></i></a>
 
                     <!-- delete the membertype (uses the destroy method DESTROY /membertypes/{id} -->
                     <!-- we will add this later since its a little more complicated than the other two buttons -->

@@ -27,3 +27,5 @@ Route::resource('bookings', 'BookingController');
 Route::resource('bookingitems', 'BookingItemController');
 Route::post('checkout', array('as' => 'checkout', 'uses' => 'CartController@postCheckType'));
 Route::resource('cart', 'CartController');
+Route::get('/hostel-listings', 'PageController@getHostelListings');
+Route::get('/event-listings', 'PageController@getEventListings');

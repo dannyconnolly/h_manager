@@ -2,7 +2,7 @@
     <h1>Edit: {{ $eventtype->name }}</h1>
     <a class="btn btn-small btn-info" href="{{ URL::to('eventtypes/' . $eventtype->id) }}">View</a>
 </div>
-<div class="col-md-7">
+<div class="col-md-8 col-md-offset-2">
 
     @include('partials.notifications')
 

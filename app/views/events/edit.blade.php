@@ -3,7 +3,7 @@
     <a class="btn btn-small btn-info" href="{{ URL::to('events/' . $event->id) }}">View</a>
 </div>
 
-<div class="col-md-7">
+<div class="col-md-8 col-md-offset-2">
 
     <!-- if there are creation errors, they will show here -->
     @include('partials.notifications')

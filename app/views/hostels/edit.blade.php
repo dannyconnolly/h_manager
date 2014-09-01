@@ -3,7 +3,7 @@
     <a class="btn btn-small btn-info" href="{{ URL::to('hostels/' . $hostel->id) }}">View</a>
 </div>
 
-<div class="col-md-7">
+<div class="col-md-8 col-md-offset-2">
 
     @include('partials.notifications')
 

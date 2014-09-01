@@ -71,7 +71,8 @@ class BookingController extends \BaseController {
 
             // Create the charge on Stripe's servers - this will charge the user's card
             try {
-                $amount = number_format(Cart::Total(), 2) * 100;
+                $t = Input::get('cart_total');
+                $amount = $t * 100;
                 $charge = Stripe_Charge::create(array(
                             "amount" => $amount,
                             "currency" => "usd",
@@ -103,7 +104,7 @@ class BookingController extends \BaseController {
 
             $booking = new Booking();
             $booking->order_id = Input::get('order_id');
-            $booking->total_amount = number_format(Cart::Total(), 2);
+            $booking->total_amount = Input::get('cart_total');
             $booking->booking_date = date("Y-m-d");
             $booking->first_name = Input::get('first_name');
             $booking->last_name = Input::get('last_name');
@@ -117,20 +118,12 @@ class BookingController extends \BaseController {
             $booking->post_code = Input::get('post_code');
             $booking->phone_1 = Input::get('phone_1');
             $booking->phone_2 = Input::get('phone_2');
-            $booking->member = Input::get('member');
-            $booking->membership_number = Input::get('membership_number');
-            $booking->member_signup = Input::get('member_signup');
-            $booking->membertype_id = 1;
             $booking->comments = Input::get('comments');
-            $booking->requests = Input::get('requests');
-            $booking->comments = Input::get('requests');
             $booking->snr_male_guests = Input::get('snr_male_guests');
             $booking->snr_female_guests = Input::get('snr_female_guests');
             $booking->jr_male_guests = Input::get('jr_male_guests');
             $booking->jr_female_guests = Input::get('jr_female_guests');
             $booking->status = 0;
-            $booking->who_added = 'admin';
-            $booking->source = 'website';
             $booking->save();
 
             Cart::destroy();
@@ -205,7 +198,7 @@ class BookingController extends \BaseController {
             // store
             $booking = Booking::find($id);
             $booking->order_id = Input::get('order_id');
-            $booking->total_amount = number_format(Cart::Total(), 2);
+            $booking->total_amount = Input::get('cart_total');
             $booking->booking_date = date("Y-m-d");
             $booking->first_name = Input::get('first_name');
             $booking->last_name = Input::get('last_name');
@@ -219,16 +212,12 @@ class BookingController extends \BaseController {
             $booking->post_code = Input::get('post_code');
             $booking->phone_1 = Input::get('phone_1');
             $booking->phone_2 = Input::get('phone_2');
-            $booking->member = Input::get('member');
-            $booking->membership_number = Input::get('membership_number');
-            $booking->member_signup = Input::get('member_signup');
-            $booking->membertype_id = Input::get('membertype_id');
             $booking->comments = Input::get('comments');
-            $booking->requests = Input::get('requests');
-            $booking->comments = Input::get('requests');
+            $booking->snr_male_guests = Input::get('snr_male_guests');
+            $booking->snr_female_guests = Input::get('snr_female_guests');
+            $booking->jr_male_guests = Input::get('jr_male_guests');
+            $booking->jr_female_guests = Input::get('jr_female_guests');
             $booking->status = Input::get('status');
-            $booking->who_added = Input::get('who_added');
-            $booking->source = Input::get('source');
             $booking->save();
 
             // redirect

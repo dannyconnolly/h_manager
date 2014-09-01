@@ -1,6 +1,8 @@
 <div class="page-header">
     <h1 class="">{{ $event->title }}</h1>
-    <a class="btn btn-small btn-info" href="{{ URL::to('events/' . $event->id . '/edit') }}">Edit this Event</a>
+    @if(Auth::check())
+    <a class="btn btn-small btn-info" href="{{ URL::to('events/' . $event->id . '/edit') }}">Edit Event</a>
+    @endif
 </div>
 
 <div class="col-md-7 view">

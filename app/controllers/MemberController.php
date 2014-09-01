@@ -3,7 +3,7 @@
 class MemberController extends \BaseController {
 
     public function __construct() {
-        $this->beforeFilter('auth');
+        $this->beforeFilter('auth', array('except' => 'create'));
         $this->beforeFilter('csrf', array('on' => 'post'));
     }
 

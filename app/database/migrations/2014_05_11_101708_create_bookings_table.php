@@ -28,15 +28,8 @@ class CreateBookingsTable extends Migration {
             $table->string('post_code', 32)->nullable();
             $table->string('phone_1', 64);
             $table->string('phone_2', 64)->nullable();
-            $table->integer('member');
-            $table->string('membership_number', 255)->nullable();
-            $table->integer('member_signup');
-            $table->integer('membertype_id')->nullable();
             $table->text('comments')->nullable();
-            $table->text('requests')->nullable();
             $table->integer('status')->nullable();
-            $table->string('who_added', 25)->nullable();
-            $table->string('source', 255)->nullable();
             $table->integer('snr_male_guests')->nullable();
             $table->integer('snr_female_guests')->nullable();
             $table->integer('jr_male_guests')->nullable();

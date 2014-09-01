@@ -125,6 +125,25 @@ footer {
   font-size: 10px;
 }
 
+.hostel-list-group, .event-list-group {
+  overflow: hidden;
+}
+.hostel-list-group li, .event-list-group li {
+  width: 50%;
+  float: left;
+}
+.hostel-list-group li:first-child, .hostel-list-group li:last-child, .event-list-group li:first-child, .event-list-group li:last-child {
+  border-radius: 0;
+}
+.hostel-list-group .media-heading, .event-list-group .media-heading {
+  font-weight: 700;
+}
+
+ul.pagination {
+  clear: both;
+  width: 100%;
+}
+
 .booking-form label {
   display: block;
 }

@@ -3,7 +3,7 @@
     <a href="{{ URL::to('hostels') }}" class="btn btn-info">Hostels</a>
 </div>
 
-<div class="col-md-7">
+<div class="col-md-8 col-md-offset-2">
 
     @include('partials.notifications')
 

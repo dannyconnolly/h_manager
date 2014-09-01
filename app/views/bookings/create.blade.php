@@ -3,12 +3,13 @@
     <a href="{{ URL::to('bookings') }}" class="btn btn-info">Bookings</a>
 </div>
 
-<div class="col-md-7">
+<div class="col-md-8 col-md-offset-2">
     @include('partials.notifications')
 
     {{ Form::open(array('url' => 'bookings', 'class' => 'form-horizontal')) }}
     {{ Form::hidden('order_id', time() . mt_rand()) }}
     {{ Form::hidden('price', number_format(Cart::Total(), 2), array('id' => 'price')) }}
+    <input type="hidden" value="{{ Input::get('cart_total') }}" name="cart_total" />
     <div class="form-group">
         {{ Form::label('first_name', 'First Name', array('class' => "col-sm-4")) }}
         <div class="col-sm-8">
@@ -122,50 +123,12 @@
     </div>
 
     <div class="form-group">
-        {{ Form::label('member', 'Already a member?', array('class' => "col-sm-4")) }}
+        {{ Form::label('comments', 'Any Additional Comments?', array('class' => "col-sm-4")) }}
         <div class="col-sm-8">
-            No {{ Form::radio('member', '0', (Input::old('member') == '0') ? true : false) }}
-            Yes {{ Form::radio('member', '1', (Input::old('member') == '1') ? true : false) }}
+            {{ Form::textarea('comments', Input::old('comments'), array('class' => 'form-control')) }}
         </div>
     </div>
 
-    <!-- if a member -->
-    <div class="form-group">
-        {{ Form::label('membership_number', 'Please enter your membership number and we will deduct the discount from your booking.', array('class' => "col-sm-4")) }}
-        <div class="col-sm-8">
-            {{ Form::text('membership_number', Input::old('membership_number'), array('class' => 'form-control')) }}
-        </div>
-    </div>
-
-    <!-- if not a member -->
-    <div class="form-group">
-        {{ Form::label('member_signup', 'Would you like to become a member?', array('class' => "col-sm-4")) }}
-        <div class="col-sm-8">
-            No {{ Form::radio('member_signup', '0', (Input::old('member_signup') == '0') ? true : false) }}
-            Yes {{ Form::radio('member_signup', '1', (Input::old('member_signup') == '1') ? true : false) }}
-        </div>
-    </div>
-
-    <!-- If choose to become member select member ship -->
-    <div class="form-group">
-        {{ Form::label('membertype_id', 'Which membership would you like to join?', array('class' => "col-sm-4")) }}
-        <div class="col-sm-8">
-            {{ Form::select('membertype_id', $membertypes, Input::old('membertype_id'), array('class' => 'form-control')) }}
-        </div>
-    </div>
-
-    <div class="form-group">
-        {{ Form::label('requests', 'Any Additional Requests?', array('class' => "col-sm-4")) }}
-        <div class="col-sm-8">
-            {{ Form::textarea('requests', Input::old('requests'), array('class' => 'form-control')) }}
-        </div>
-    </div>
-
-    <!--<div class="form-group">
-        <div class="col-sm-offset-2 col-sm-8">
-            {{ Form::submit('Create the Booking!', array('class' => 'btn btn-primary')) }}
-        </div>
-    </div>-->
     <div class="form-group">
         <div class="col-sm-offset-4 col-sm-8">
             <script>
@@ -174,8 +137,8 @@
             <script
                 src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
                 data-key="pk_test_j0p8qXRAWrtz3hbWvvjIMkjx"
-                data-amount="{{number_format(Cart::Total(), 2) * 100}}"
-                data-name="Myshop"
+                data-amount="{{Input::get('cart_total') * 100}}"
+                data-name="H Manager"
                 data-description="Quadcopter"
                 data-image="{{url('img/stripe-128x128.png')}}">
             </script>

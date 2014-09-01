@@ -5,7 +5,7 @@
     <a href="{{ URL::to('bookings') }}" class="btn btn-info">Bookings</a>
 </div>
 
-<div class="col-md-12">
+<div class="col-md-8 col-md-offset-2">
 
     @include('partials.notifications')
 
@@ -81,43 +81,11 @@
         </div>
     </div>
 
-    <div class="form-group">
-        {{ Form::label('member', 'Already a member?', array('class' => "col-sm-2 control-label")) }}
-        <div class="col-sm-10">
-            No {{ Form::radio('member', '0',null) }}
-            Yes {{ Form::radio('member', '1',null) }}
-        </div>
-    </div>
-
-    <!-- if a member -->
-    <div class="form-group">
-        {{ Form::label('membership_number', 'Please enter your membership number and we will deduct the discount from your booking.', array('class' => "col-sm-2 control-label")) }}
-        <div class="col-sm-10">
-            {{ Form::text('membership_number', null, array('class' => 'form-control')) }}
-        </div>
-    </div>
-
-    <!-- if not a member -->
-    <div class="form-group">
-        {{ Form::label('member_signup', 'Would you like to become a member?', array('class' => "col-sm-2 control-label")) }}
-        <div class="col-sm-10">
-            No {{ Form::radio('member_signup', '0', null) }}
-            Yes {{ Form::radio('member_signup', '1', null) }}
-        </div>
-    </div>
-
-    <!-- If choose to become member select member ship -->
-    <div class="form-group">
-        {{ Form::label('member_type', 'Which membership would you like to join?', array('class' => "col-sm-2 control-label")) }}
-        <div class="col-sm-10">
-            {{ Form::select('member_type', $membertypes, null, array('class' => 'form-control')) }}
-        </div>
-    </div>
 
     <div class="form-group">
-        {{ Form::label('requests', 'Any Additional Requests?', array('class' => "col-sm-2 control-label")) }}
+        {{ Form::label('comments', 'Any Additional Comments?', array('class' => "col-sm-2 control-label")) }}
         <div class="col-sm-10">
-            {{ Form::textarea('requests', null, array('class' => 'form-control')) }}
+            {{ Form::textarea('comments', null, array('class' => 'form-control')) }}
         </div>
     </div>
 
